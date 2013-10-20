@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.fred.feedex"
+    package="roboto.newsreader"
     android:installLocation="auto"
-    android:versionCode="29"
-    android:versionName="1.3.4">
+    android:versionCode="1"
+    android:versionName="1.0">
 
 <uses-sdk
         android:minSdkVersion="15"
@@ -16,34 +16,38 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".MainApplication"
+        android:name="net.fred.feedex.MainApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
-        <service android:name=".service.RefreshService" />
-        <service android:name=".service.FetcherService" />
+        <service android:name="net.fred.feedex.service.RefreshService" />
+        <service android:name="net.fred.feedex.service.FetcherService" />
 
         <provider
-            android:name=".provider.FeedDataContentProvider"
+            android:name="net.fred.feedex.provider.FeedDataContentProvider"
             android:authorities="net.fred.feedex.provider.FeedData"
             android:exported="true" />
 
         <activity
-            android:name=".activity.MainActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTask">
+                android:name=".RobotoNewsReaderMainActivity"
+                android:label="@string/app_name"
+                android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".activity.FeedsListActivity"
+            android:name="net.fred.feedex.activity.MainActivity">
+        </activity>
+        <activity
+            android:name="net.fred.feedex.activity.FeedsListActivity"
             android:label="@string/feeds"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.EntryActivity"
+            android:name="net.fred.feedex.activity.EntryActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -51,13 +55,13 @@
                 <data android:mimeType="vnd.android.cursor.item/vnd.feedex.entry" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GeneralPrefsActivity" />
-        <activity android:name=".widget.WidgetConfigActivity">
+        <activity android:name="net.fred.feedex.activity.GeneralPrefsActivity" />
+        <activity android:name="net.fred.feedex.widget.WidgetConfigActivity">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.EditFeedActivity">
+        <activity android:name="net.fred.feedex.activity.EditFeedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -75,7 +79,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".widget.WidgetProvider">
+        <receiver android:name="net.fred.feedex.widget.WidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -86,20 +90,20 @@
         </receiver>
 
         <service
-            android:name=".widget.WidgetService"
+            android:name="net.fred.feedex.widget.WidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <receiver android:name=".receiver.BootCompletedBroadcastReceiver">
+        <receiver android:name="net.fred.feedex.receiver.BootCompletedBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.ConnectionChangeReceiver">
+        <receiver android:name="net.fred.feedex.receiver.ConnectionChangeReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".service.RefreshService$RefreshAlarmReceiver" />
+        <receiver android:name="net.fred.feedex.service.RefreshService$RefreshAlarmReceiver" />
     </application>
 
 </manifest>

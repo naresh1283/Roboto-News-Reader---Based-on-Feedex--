@@ -28,7 +28,7 @@
     <string name="menu_settings">Impostazioni</string>
     <string name="menu_refresh">Aggiorna</string>
     <string name="menu_all_read">Segna tutti come letti</string>
-    <string name="feedex_feeds">Feed di FeedEx</string>
+    <string name="feedex_feeds">Feed di Roboto</string>
     <string name="new_entries">nuovi articoli</string>
     <string name="error">Errore</string>
     <string name="network_error">Nessuna connessione disponibile</string>
@@ -99,7 +99,7 @@
     <string name="menu_full_screen">A tutto schermo</string>
     <string name="menu_copy_clipboard">Copia il link</string>
     <string name="menu_mark_as_unread">Segna come non letto</string>
-    <string name="share_favorites_title">FeedEx: articoli preferiti</string>
+    <string name="share_favorites_title">Roboto: articoli preferiti</string>
     <string name="copied_clipboard">Link copiato</string>
     <string name="get_full_text">Recupera il testo completo</string>
     <string name="original_text">Mostra testo originale</string>

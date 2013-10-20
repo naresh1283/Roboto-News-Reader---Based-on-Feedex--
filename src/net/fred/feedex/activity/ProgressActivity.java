@@ -5,9 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import net.fred.feedex.R;
+import com.roboto.flakes.DroidFlakesActivity;
+import roboto.newsreader.R;
 
-public abstract class ProgressActivity extends Activity {
+public abstract class ProgressActivity extends DroidFlakesActivity {
     private ProgressBar mProgressBar;
 
     @Override

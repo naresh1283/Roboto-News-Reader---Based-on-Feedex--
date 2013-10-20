@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">FeedEx</string>
+    <string name="app_name" translatable="false">Roboto News Reader</string>
 
     <string-array name="settings_interval_values" translatable="false">
         <item>60000</item>

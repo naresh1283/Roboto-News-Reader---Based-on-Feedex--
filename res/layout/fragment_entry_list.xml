@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:padding="10dp"
     android:orientation="vertical">
 
     <TextView
@@ -16,5 +17,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="fill"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
         android:drawSelectorOnTop="false" />
 </FrameLayout>

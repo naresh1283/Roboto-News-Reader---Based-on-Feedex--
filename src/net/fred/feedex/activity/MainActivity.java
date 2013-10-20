@@ -43,7 +43,7 @@ import android.widget.ListView;
 
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.adapter.DrawerAdapter;
 import net.fred.feedex.fragment.EntriesListFragment;
 import net.fred.feedex.provider.FeedData;
@@ -77,12 +77,18 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
     private BitmapDrawable mIcon;
     private int mCurrentDrawerPos;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public int getMainContentResId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         UiUtils.setPreferenceTheme(this);
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
         mEntriesFragment = (EntriesListFragment) getFragmentManager().findFragmentById(R.id.fragment);
 

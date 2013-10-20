@@ -29,7 +29,7 @@
     <string name="menu_settings">Paràmetres</string>
     <string name="menu_refresh">Refresca</string>
     <string name="menu_all_read">Marca\'ls tots com a llegits</string>
-    <string name="feedex_feeds">Canals de FeedEx</string>
+    <string name="feedex_feeds">Canals de Roboto</string>
     <string name="new_entries">noves entrades</string>
     <string name="error">Error</string>
     <string name="network_error">No hi ha connectivitat</string>
@@ -99,7 +99,7 @@
     <string name="menu_full_screen">Pantalla completa</string>
     <string name="menu_copy_clipboard">Copia l\'enllaç</string>
     <string name="menu_mark_as_unread">Marca com a no llegit</string>
-    <string name="share_favorites_title">FeedEx: entrades destacades</string>
+    <string name="share_favorites_title">Roboto: entrades destacades</string>
     <string name="copied_clipboard">S\'ha copiat l\'enllaç</string>
     <string name="get_full_text">Descarrega el text complet</string>
     <string name="original_text">Mostra el text original</string>

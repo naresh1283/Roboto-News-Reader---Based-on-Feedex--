@@ -65,7 +65,7 @@ import android.util.Xml;
 
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.activity.MainActivity;
 import net.fred.feedex.parser.RssAtomParser;
 import net.fred.feedex.provider.FeedData;

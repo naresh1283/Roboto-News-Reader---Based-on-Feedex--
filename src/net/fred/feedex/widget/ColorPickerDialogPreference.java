@@ -51,7 +51,7 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 
 public class ColorPickerDialogPreference extends DialogPreference {
 

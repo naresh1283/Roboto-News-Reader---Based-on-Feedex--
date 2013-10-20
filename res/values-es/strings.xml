@@ -28,7 +28,7 @@
     <string name="menu_settings">Configuración</string>
     <string name="menu_refresh">Actualizar</string>
     <string name="menu_all_read">Marcar todo como leído</string>
-    <string name="feedex_feeds">Fuentes de FeedEx</string>
+    <string name="feedex_feeds">Fuentes de Roboto</string>
     <string name="new_entries">entradas nuevas</string>
     <string name="error">Error</string>
     <string name="network_error">No se ha configurado la red</string>
@@ -98,7 +98,7 @@
     <string name="menu_full_screen">Pantalla completa</string>
     <string name="menu_copy_clipboard">Copiar enlace</string>
     <string name="menu_mark_as_unread">Marcar como no leído</string>
-    <string name="share_favorites_title">FeedEx: Entradas destacadas</string>
+    <string name="share_favorites_title">Roboto: Entradas destacadas</string>
     <string name="copied_clipboard">Enlace copiado</string>
     <string name="get_full_text">Descargar el texto completo</string>
     <string name="original_text">Mostrar el texto original</string>

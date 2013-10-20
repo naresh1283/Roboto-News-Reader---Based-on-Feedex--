@@ -85,7 +85,6 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import net.fred.feedex.Constants;
-import net.fred.feedex.R;
 import net.fred.feedex.provider.FeedData;
 import net.fred.feedex.provider.FeedData.EntryColumns;
 import net.fred.feedex.provider.FeedData.FeedColumns;
@@ -95,6 +94,7 @@ import net.fred.feedex.service.FetcherService;
 import net.fred.feedex.utils.PrefUtils;
 import net.fred.feedex.utils.ThrottledContentObserver;
 import net.fred.feedex.utils.UiUtils;
+import roboto.newsreader.R;
 
 import java.util.Date;
 
@@ -221,14 +221,19 @@ public class EntryActivity extends ProgressActivity {
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public int getMainContentResId() {
+        return R.layout.activity_entry;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         UiUtils.setPreferenceTheme(this);
         super.onCreate(savedInstanceState);
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        setContentView(R.layout.activity_entry);
+       // setContentView(R.layout.activity_entry);
 
         gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
             @Override

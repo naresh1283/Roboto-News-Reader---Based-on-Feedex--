@@ -1,8 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="7dip"
-    android:paddingTop="5dip">
+    android:background="@android:drawable/screen_background_dark_transparent"
+    android:minHeight="150dp"
+    android:paddingTop="10dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="10dp">
+
 
     <ImageView
         android:id="@android:id/icon"
@@ -26,7 +31,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="5dip"
+        android:layout_marginLeft="10dip"
         android:layout_marginRight="5dip"
         android:layout_toLeftOf="@android:id/checkbox"
         android:layout_toRightOf="@android:id/icon"
@@ -41,6 +46,9 @@
             android:gravity="top"
             android:maxLines="3"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:paddingBottom="10dp"
             android:textIsSelectable="false" />
 
         <TextView
@@ -50,6 +58,7 @@
             android:alpha="0.7"
             android:drawablePadding="3dp"
             android:singleLine="true"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textIsSelectable="false" />
 

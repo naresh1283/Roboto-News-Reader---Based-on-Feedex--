@@ -52,7 +52,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.view.MenuItem;
 
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.service.RefreshService;
 import net.fred.feedex.utils.PrefUtils;
 import net.fred.feedex.utils.UiUtils;

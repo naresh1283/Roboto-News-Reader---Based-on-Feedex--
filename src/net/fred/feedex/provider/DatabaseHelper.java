@@ -51,7 +51,7 @@ import android.os.Environment;
 import android.os.Handler;
 
 import net.fred.feedex.MainApplication;
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.parser.OPML;
 import net.fred.feedex.provider.FeedData.EntryColumns;
 import net.fred.feedex.provider.FeedData.FeedColumns;

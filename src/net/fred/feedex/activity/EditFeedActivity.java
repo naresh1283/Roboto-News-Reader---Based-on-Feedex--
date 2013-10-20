@@ -77,7 +77,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import net.fred.feedex.Constants;
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.adapter.FiltersCursorAdapter;
 import net.fred.feedex.provider.FeedData.FeedColumns;
 import net.fred.feedex.provider.FeedData.FilterColumns;

@@ -25,7 +25,7 @@ import android.view.View;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.provider.FeedData.FilterColumns;
 
 public class FiltersCursorAdapter extends ResourceCursorAdapter {

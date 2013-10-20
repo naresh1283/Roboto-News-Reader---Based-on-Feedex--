@@ -33,7 +33,7 @@ import android.widget.TextView;
 
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.utils.UiUtils;
 
 import java.util.Date;

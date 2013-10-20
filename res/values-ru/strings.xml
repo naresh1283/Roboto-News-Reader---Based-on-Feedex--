@@ -28,7 +28,7 @@
     <string name="menu_settings">Настройки</string>
     <string name="menu_refresh">Обновить</string>
     <string name="menu_all_read">Пометить все как прочитанное</string>
-    <string name="feedex_feeds">FeedEx feeds</string>
+    <string name="feedex_feeds">Roboto feeds</string>
     <string name="new_entries">новые записи</string>
     <string name="error">Ошибка</string>
     <string name="network_error">Нет подключения к сети</string>
@@ -101,7 +101,7 @@
     <string name="menu_full_screen">Полный экран</string>
     <string name="menu_copy_clipboard">Скопировать ссылку</string>
     <string name="menu_mark_as_unread">Пометить как непрочитанное</string>
-    <string name="share_favorites_title">FeedEx: избранные новости</string>
+    <string name="share_favorites_title">Roboto: избранные новости</string>
     <string name="copied_clipboard">Ссылка скопирована</string>
     <string name="get_full_text">Загрузить весь текст</string>
     <string name="original_text">Показать оригинальный текст</string>

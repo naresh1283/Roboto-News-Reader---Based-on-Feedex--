@@ -27,7 +27,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
 
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.activity.MainActivity;
 import net.fred.feedex.utils.PrefUtils;
 

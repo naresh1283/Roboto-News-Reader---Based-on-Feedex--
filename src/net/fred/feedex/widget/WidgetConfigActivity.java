@@ -56,7 +56,7 @@ import android.preference.PreferenceCategory;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.provider.FeedData.FeedColumns;
 import net.fred.feedex.utils.PrefUtils;
 

@@ -31,7 +31,7 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import net.fred.feedex.Constants;
-import net.fred.feedex.R;
+import roboto.newsreader.R;
 import net.fred.feedex.provider.FeedData;
 import net.fred.feedex.utils.PrefUtils;
 import net.fred.feedex.utils.ThrottledContentObserver;
