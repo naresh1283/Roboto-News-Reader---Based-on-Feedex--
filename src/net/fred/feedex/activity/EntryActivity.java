@@ -84,6 +84,7 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import roboto.newsreader.androidwebviewselection.BTWebView;
 import net.fred.feedex.Constants;
 import net.fred.feedex.provider.FeedData;
 import net.fred.feedex.provider.FeedData.EntryColumns;
@@ -125,7 +126,15 @@ public class EntryActivity extends ProgressActivity {
 
     private static final String CSS = "<head><style type='text/css'>body {background-color:"
             + BACKGROUND_COLOR
-            + "; max-width: 100%; font-family: sans-serif-light}\nimg {max-width: 100%; height: auto;}\ndiv[style] {max-width: 100%;}\npre {white-space: pre-wrap;}</style></head>";
+            + "; max-width: 100%; font-family: sans-serif-light}\nimg {max-width: 100%; height: auto;}\ndiv[style] {max-width: 100%;}\npre {white-space: pre-wrap;}</style>" +
+
+            "    <script src='file:///android_asset/jquery.js'></script>\n" +
+            "    <script src='file:///android_asset/rangy-core.js'></script>\n" +
+            "    <script src='file:///android_asset/rangy-serializer.js'></script>\n" +
+            "    <script src='file:///android_asset/android.selection.js'></script>\n" +
+            "</head>";
+         //String test = "fjsdkf\"sfdd\"sdfjlsd";
+
     private static final String BODY_START = CSS + "<body link='#97ACE5' text='" + TEXT_COLOR + "'>";
     private static final String FONTSIZE_START = CSS + BODY_START + "<font size='+";
     private static final String FONTSIZE_MIDDLE = "'>";
@@ -164,8 +173,8 @@ public class EntryActivity extends ProgressActivity {
     private boolean mFavorite, mPreferFullText = true;
     private byte[] mIconBytes = null;
 
-    private WebView mWebView;
-    private WebView mWebView0; // only needed for the animation
+    private BTWebView mWebView;
+    private BTWebView mWebView0; // only needed for the animation
 
     private ViewFlipper mViewFlipper;
 
@@ -193,12 +202,23 @@ public class EntryActivity extends ProgressActivity {
         }
     };
 
-    private GestureDetector gestureDetector;
 
-    final private OnTouchListener onTouchListener = new OnTouchListener() {
+    GestureDetector.SimpleOnGestureListener onGestureListener = new GestureDetector.SimpleOnGestureListener() {
         @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            return gestureDetector.onTouchEvent(event);
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            if (Math.abs(velocityY) * 1.5 < Math.abs(velocityX)) {
+                if (velocityX > 800) {
+                    if (mPreviousId != -1 && mWebView.getScrollX() == 0) {
+                        previousEntry();
+                    }
+                } else if (velocityX < -800) {
+                    if (mNextId != -1) {
+                        nextEntry();
+                    }
+                }
+            }
+
+            return false;
         }
     };
 
@@ -235,25 +255,6 @@ public class EntryActivity extends ProgressActivity {
 
        // setContentView(R.layout.activity_entry);
 
-        gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                if (Math.abs(velocityY) * 1.5 < Math.abs(velocityX)) {
-                    if (velocityX > 800) {
-                        if (mPreviousId != -1 && mWebView.getScrollX() == 0) {
-                            previousEntry();
-                        }
-                    } else if (velocityX < -800) {
-                        if (mNextId != -1) {
-                            nextEntry();
-                        }
-                    }
-                }
-
-                return false;
-            }
-        });
-
         mUri = getIntent().getData();
         mParentUri = EntryColumns.PARENT_URI(mUri.getPath());
         mFeedId = 0;
@@ -286,11 +287,11 @@ public class EntryActivity extends ProgressActivity {
 
         mLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
-        mWebView = new WebView(this);
+        mWebView = new BTWebView(this);
         setupWebview(mWebView);
         mViewFlipper.addView(mWebView, mLayoutParams);
 
-        mWebView0 = new WebView(this);
+        mWebView0 = new BTWebView(this);
         setupWebview(mWebView0);
     }
 
@@ -544,13 +545,14 @@ public class EntryActivity extends ProgressActivity {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    private void setupWebview(final WebView wv) {
+    private void setupWebview(final BTWebView wv) {
         // For color
         wv.setBackgroundColor(Color.parseColor(BACKGROUND_COLOR));
+       // wv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         // For scrolling & gesture
         wv.setOnKeyListener(onKeyEventListener);
-        wv.setOnTouchListener(onTouchListener);
+        wv.setGestureDetector(this, onGestureListener);
 
         // For javascript
         wv.getSettings().setJavaScriptEnabled(true);
@@ -646,7 +648,7 @@ public class EntryActivity extends ProgressActivity {
         getIntent().setData(mUri);
         mScrollPercentage = 0;
 
-        WebView tmp = mWebView; // switch reference
+        BTWebView tmp = mWebView; // switch reference
 
         mWebView = mWebView0;
         mWebView0 = tmp;
