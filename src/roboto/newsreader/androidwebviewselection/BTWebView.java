@@ -600,11 +600,20 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
 
         // Add buttons
         mContextMenu.addActionItem(buttonOne);
-
         mContextMenu.addActionItem(buttonTwo);
-
         mContextMenu.addActionItem(buttonThree);
-
+        mContextMenu.addActionItem(buttonOne);
+        mContextMenu.addActionItem(buttonTwo);
+        mContextMenu.addActionItem(buttonThree);
+        mContextMenu.addActionItem(buttonOne);
+        mContextMenu.addActionItem(buttonTwo);
+        mContextMenu.addActionItem(buttonThree);
+        mContextMenu.addActionItem(buttonOne);
+        mContextMenu.addActionItem(buttonTwo);
+        mContextMenu.addActionItem(buttonThree);
+        mContextMenu.addActionItem(buttonOne);
+        mContextMenu.addActionItem(buttonTwo);
+        mContextMenu.addActionItem(buttonThree);
 
 
         //setup the action item click listener

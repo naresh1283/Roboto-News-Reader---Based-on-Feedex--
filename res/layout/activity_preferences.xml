@@ -76,7 +76,7 @@
             android:name="@string/settings_font_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:defaultValue="0"
+            android:defaultValue="1"
             android:entries="@array/settings_font_sizes"
             android:entryValues="@array/settings_font_size_values"
             android:inputType="number"

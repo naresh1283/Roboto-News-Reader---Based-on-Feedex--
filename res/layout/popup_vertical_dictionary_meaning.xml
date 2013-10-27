@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/popup_width"
+    android:layout_height="@dimen/popup_height"
+    android:id="@+id/scroller"
+    android:background="@color/sky_blue_deep"
+    android:orientation="horizontal">
+
+    <ScrollView
+            android:id="@+id/popup_detail_view"
+            android:layout_width="@dimen/popup_detail_view_width"
+            android:layout_height="@dimen/popup_height"
+            android:layout_margin="5dp"
+            android:visibility="visible">
+        <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:text="This is a test. This is a test.This is a test.This is
+                a test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a
+                 test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.
+                 This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.
+                 This is a test.This is a test.This is a test.This is a test. This is a test. This is a test. This is a test.
+                 This is a test.  This is a test. This is a test. This is a test. This is a test. This is a test.This is a test."
+                android:padding="5dip"/>
+
+    </ScrollView >
+
+    <ScrollView
+            android:id="@+id/popup_download_status_view"
+            android:layout_width="@dimen/popup_detail_view_width"
+            android:layout_height="@dimen/popup_height"
+            android:visibility="gone"
+            >
+        <include layout="@layout/download_status_info"></include>
+
+    </ScrollView >
+
+    <RelativeLayout
+            android:id="@+id/popup_actions_view"
+            android:layout_width="@dimen/popup_side_actions_width"
+            android:layout_height="@dimen/popup_height"
+            >
+
+        <ScrollView
+                android:layout_width="@dimen/popup_side_actions_width"
+                android:layout_height="@dimen/popup_height"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:scrollbars="none">
+
+            <LinearLayout
+                    android:id="@+id/tracks"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </ScrollView >
+
+        <ImageView
+                android:id="@+id/arrow_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_up" />
+
+        <ImageView
+                android:id="@+id/arrow_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/scroller"
+                android:src="@drawable/arrow_down" />
+
+    </RelativeLayout>
+</LinearLayout>

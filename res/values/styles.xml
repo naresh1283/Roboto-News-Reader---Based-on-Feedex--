@@ -52,5 +52,17 @@
 	<style name="Animations.PopUpMenu.Reflect">
 		<item name="@android:windowEnterAnimation">@anim/pump_bottom</item>
 		<item name="@android:windowExitAnimation">@anim/disappear</item>
+
 	</style>
+
+    <style name="Text">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="Text.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style><style name="Text.Normal">
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

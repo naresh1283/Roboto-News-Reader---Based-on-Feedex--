@@ -5,20 +5,17 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
+import android.util.DisplayMetrics;
+import android.view.*;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ScrollView;
 import android.widget.RelativeLayout;
 import android.widget.PopupWindow.OnDismissListener;
 
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
-import android.view.ViewGroup;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -35,12 +32,14 @@ import roboto.newsreader.R;
  * - Kevin Peck <kevinwpeck@gmail.com>
  */
 public class QuickAction extends PopupWindows implements OnDismissListener {
-	private View mRootView;
+    private static int ROOT_VIEW_WIDTH = 300;
+    private static int ROOT_VIEW_HEIGHT = 300;
+    private View mRootView;
 	private ImageView mArrowUp;
 	private ImageView mArrowDown;
 	private LayoutInflater mInflater;
 	private ViewGroup mTrack;
-	private ScrollView mScroller;
+	private ViewGroup mScroller;
 	private OnActionItemClickListener mItemClickListener;
 	private OnDismissListener mDismissListener;
 	
@@ -88,11 +87,15 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
         if (mOrientation == HORIZONTAL) {
             setRootViewId(R.layout.popup_horizontal);
         } else {
-            setRootViewId(R.layout.popup_vertical);
+            setRootViewId(R.layout.popup_vertical_dictionary_meaning);
         }
 
         mAnimStyle 	= ANIM_AUTO;
         mChildPos 	= 0;
+
+      //  ROOT_VIEW_WIDTH = (int)getDensityIndependentValue( 300f, context);
+      //  ROOT_VIEW_HEIGHT = (int)getDensityIndependentValue( 300f, context);
+
     }
 
     /**
@@ -118,12 +121,12 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 		mArrowDown 	= (ImageView) mRootView.findViewById(R.id.arrow_down);
 		mArrowUp 	= (ImageView) mRootView.findViewById(R.id.arrow_up);
 
-		mScroller	= (ScrollView) mRootView.findViewById(R.id.scroller);
+		mScroller	= (ViewGroup) mRootView.findViewById(R.id.scroller);
 		
 		//This was previously defined on show() method, moved here to prevent force close that occured
 		//when tapping fastly on a view to show quickaction dialog.
 		//Thanx to zammbi (github.com/zammbi)
-		mRootView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		mRootView.setLayoutParams(new LayoutParams(ROOT_VIEW_WIDTH, ROOT_VIEW_HEIGHT));
 		
 		setContentView(mRootView);
 	}
@@ -162,7 +165,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 		if (mOrientation == HORIZONTAL) {
             container = mInflater.inflate(R.layout.action_item_horizontal, null);
         } else {
-            container = mInflater.inflate(R.layout.action_item_vertical, null);
+            container = mInflater.inflate(R.layout.action_item_horizontal, null);
         }
 		
 		ImageView img 	= (ImageView) container.findViewById(R.id.iv_icon);
@@ -272,7 +275,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 		
 		//mRootView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		
-		mRootView.measure(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		mRootView.measure(ROOT_VIEW_WIDTH, ROOT_VIEW_HEIGHT);
 	
 		int rootHeight 		= mRootView.getMeasuredHeight();
 		
@@ -358,7 +361,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 
 		//mRootView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		
-		mRootView.measure(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		mRootView.measure(ROOT_VIEW_WIDTH, ROOT_VIEW_HEIGHT);
 	
 		int rootHeight 		= mRootView.getMeasuredHeight();
 		
@@ -509,4 +512,20 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 	public interface OnDismissListener {
 		public abstract void onDismiss();
 	}
+
+    public float getDensityIndependentValue(float val, Context ctx){
+
+        // Get display from context
+        Display display = ((WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+
+        // Calculate min bound based on metrics
+        DisplayMetrics metrics = new DisplayMetrics();
+        display.getMetrics(metrics);
+
+
+        return val / (metrics.densityDpi / 160f);
+
+        //return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, val, metrics);
+
+    }
 }

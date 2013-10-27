@@ -126,7 +126,7 @@ public class EntryActivity extends ProgressActivity {
 
     private static final String CSS = "<head><style type='text/css'>body {background-color:"
             + BACKGROUND_COLOR
-            + "; max-width: 100%; font-family: sans-serif-light}\nimg {max-width: 100%; height: auto;}\ndiv[style] {max-width: 100%;}\npre {white-space: pre-wrap;}</style>" +
+            + "; max-width: 100%; font-family: Franklin Gothic}\nimg {max-width: 100%; height: auto;}\ndiv[style] {max-width: 100%;}\npre {white-space: pre-wrap;}</style>" +
 
             "    <script src='file:///android_asset/jquery.js'></script>\n" +
             "    <script src='file:///android_asset/rangy-core.js'></script>\n" +
@@ -499,7 +499,7 @@ public class EntryActivity extends ProgressActivity {
     private String generateHtmlContent(String title, String link, String abstractText, String enclosure, String author, long timestamp) {
         StringBuilder content = new StringBuilder();
 
-        int fontSize = Integer.parseInt(PrefUtils.getString(PrefUtils.FONT_SIZE, "0"));
+        int fontSize = Integer.parseInt(PrefUtils.getString(PrefUtils.FONT_SIZE, "1"));
         if (fontSize > 0) {
             content.append(FONTSIZE_START).append(fontSize).append(FONTSIZE_MIDDLE);
         } else {
