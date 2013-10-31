@@ -80,7 +80,7 @@ public class PopupWindows {
 		mWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
 		mWindow.setTouchable(true);
 		
-		//TODO: make sure this doesn't crash somehow.
+		//TBD:: make sure this doesn't crash somehow.
 		//mWindow.setFocusable(true);
 		mWindow.setOutsideTouchable(true);
 

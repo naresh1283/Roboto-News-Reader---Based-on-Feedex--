@@ -48,7 +48,6 @@ public class AndroidDownloadActivity extends Activity {
 
             @Override
             public void onClick(View arg0) {
-                // TODO Auto-generated method stub
                 Uri Download_Uri = Uri.parse(Download_path);
                 DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
                 request.setDestinationInExternalFilesDir(getApplicationContext(), null, "roboto");
@@ -81,7 +80,6 @@ public class AndroidDownloadActivity extends Activity {
 
         @Override
         public void onReceive(Context arg0, Intent arg1) {
-            // TODO Auto-generated method stub
             DownloadManager.Query query = new DownloadManager.Query();
             query.setFilterById(preferenceManager.getLong(Download_ID, 0));
             Cursor cursor = downloadManager.query(query);
@@ -103,7 +101,7 @@ public class AndroidDownloadActivity extends Activity {
                                 "File Downloaded: " + file.toString(),
                                 Toast.LENGTH_LONG).show();
                     } catch (FileNotFoundException e) {
-                        // TODO Auto-generated catch block
+                        // TBD:: Auto-generated catch block
                         e.printStackTrace();
                         Toast.makeText(AndroidDownloadActivity.this,
                                 e.toString(),

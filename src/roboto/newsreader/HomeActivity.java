@@ -8,5 +8,5 @@ import net.fred.feedex.activity.MainActivity;
  * Date: 20/10/13
  * Time: 1:05 PM
  */
-public class RobotoNewsReaderMainActivity extends MainActivity {
+public class HomeActivity extends MainActivity {
 }

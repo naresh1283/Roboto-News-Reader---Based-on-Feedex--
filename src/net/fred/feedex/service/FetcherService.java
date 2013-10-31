@@ -65,8 +65,8 @@ import android.util.Xml;
 
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
+import roboto.newsreader.HomeActivity;
 import roboto.newsreader.R;
-import net.fred.feedex.activity.MainActivity;
 import net.fred.feedex.parser.RssAtomParser;
 import net.fred.feedex.provider.FeedData;
 import net.fred.feedex.provider.FeedData.EntryColumns;
@@ -184,14 +184,14 @@ public class FetcherService extends IntentService {
                     if (newCount > 0) {
                         String text = String.valueOf(newCount) + ' ' + getString(R.string.new_entries);
 
-                        Intent notificationIntent = new Intent(FetcherService.this, MainActivity.class);
+                        Intent notificationIntent = new Intent(FetcherService.this, HomeActivity.class);
                         PendingIntent contentIntent = PendingIntent.getActivity(FetcherService.this, 0, notificationIntent,
                                 PendingIntent.FLAG_UPDATE_CURRENT);
 
                         Notification.Builder notifBuilder = new Notification.Builder(MainApplication.getContext()) //
                                 .setContentIntent(contentIntent) //
-                                .setSmallIcon(R.drawable.ic_statusbar_rss) //
-                                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon)) //
+                                .setSmallIcon(R.drawable.ic_statusbar_rss1) //
+                                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo)) //
                                 .setTicker(text) //
                                 .setWhen(System.currentTimeMillis()) //
                                 .setAutoCancel(true) //

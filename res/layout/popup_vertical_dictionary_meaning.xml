@@ -4,11 +4,11 @@
     android:layout_width="@dimen/popup_width"
     android:layout_height="@dimen/popup_height"
     android:id="@+id/scroller"
-    android:background="@color/sky_blue_deep"
+    android:background="@drawable/contextmenu_bkg2"
     android:orientation="horizontal">
 
     <ScrollView
-            android:id="@+id/popup_detail_view"
+            android:id="@+id/popup_dictionary_meaning_view"
             android:layout_width="@dimen/popup_detail_view_width"
             android:layout_height="@dimen/popup_height"
             android:layout_margin="5dp"

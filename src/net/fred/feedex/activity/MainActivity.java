@@ -108,15 +108,15 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_navigation_drawer, R.string.drawer_open, R.string.drawer_close) {
             public void onDrawerClosed(View view) {
                 refreshTitleAndIcon();
                 invalidateOptionsMenu();
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(R.string.app_name);
-                getActionBar().setIcon(R.drawable.icon);
+                getActionBar().setTitle(getString(R.string.actionbar_title));
+                getActionBar().setIcon(R.drawable.logo);
                 invalidateOptionsMenu();
             }
         };
@@ -145,8 +145,8 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
         getActionBar().setTitle(mTitle);
         switch (mCurrentDrawerPos) {
             case 0:
-                getActionBar().setTitle(R.string.all);
-                getActionBar().setIcon(R.drawable.ic_statusbar_rss);
+                getActionBar().setTitle(R.string.actionbar_title);
+                getActionBar().setIcon(R.drawable.ic_statusbar_rss1);
                 break;
             case 1:
                 getActionBar().setTitle(R.string.favorites);

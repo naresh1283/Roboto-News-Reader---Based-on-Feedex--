@@ -29,8 +29,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.roboto.util.AndroidUtils;
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
 import roboto.newsreader.R;
@@ -109,7 +111,7 @@ public class DrawerAdapter extends BaseAdapter {
         ViewHolder holder = (ViewHolder) convertView.getTag();
 
         // default init
-        holder.iconView.setImageDrawable(null);
+        holder.iconView.setImageResource(R.drawable.logo);
         holder.titleTxt.setText("");
         holder.titleTxt.setTextColor(NORMAL_TEXT_COLOR);
         holder.titleTxt.setAllCaps(false);
@@ -120,7 +122,7 @@ public class DrawerAdapter extends BaseAdapter {
 
         if (position == 0 || position == 1) {
             holder.titleTxt.setText(position == 0 ? R.string.all : R.string.favorites);
-            holder.iconView.setImageResource(position == 0 ? R.drawable.ic_statusbar_rss : R.drawable.dimmed_rating_important);
+            holder.iconView.setImageResource(position == 0 ? R.drawable.ic_statusbar_rss1 : R.drawable.dimmed_rating_important);
 
             if (mFeedsCursor != null && mFeedsCursor.moveToFirst()) {
                 int unread = mFeedsCursor.getInt(position == 0 ? POS_ALL_UNREAD : POS_FAVORITES_UNREAD);
@@ -132,9 +134,9 @@ public class DrawerAdapter extends BaseAdapter {
             holder.titleTxt.setText((mFeedsCursor.isNull(POS_NAME) ? mFeedsCursor.getString(POS_URL) : mFeedsCursor.getString(POS_NAME)));
 
             if (mFeedsCursor.getInt(POS_IS_GROUP) == 1) {
-                holder.titleTxt.setTextColor(GROUP_TEXT_COLOR);
+               //holder.titleTxt.setTextColor(GROUP_TEXT_COLOR);
                 holder.titleTxt.setAllCaps(true);
-                holder.separator.setVisibility(View.VISIBLE);
+               // holder.separator.setVisibility(View.VISIBLE);
             } else {
                 holder.stateTxt.setVisibility(View.VISIBLE);
 
@@ -161,7 +163,7 @@ public class DrawerAdapter extends BaseAdapter {
                     Bitmap bitmap = BitmapFactory.decodeByteArray(iconBytes, 0, iconBytes.length);
                     holder.iconView.setImageBitmap(bitmap);
                 } else {
-                    holder.iconView.setImageResource(R.drawable.icon);
+                    holder.iconView.setImageResource(R.drawable.logo);
                 }
 
                 int unread = mFeedsCursor.getInt(POS_UNREAD);
@@ -170,8 +172,10 @@ public class DrawerAdapter extends BaseAdapter {
                 }
             }
 
-            if (!mFeedsCursor.isNull(POS_GROUP_ID)) { // First level
-                convertView.setPadding(ITEM_PADDING, 0, 0, 0);
+            // children
+            if (!mFeedsCursor.isNull(POS_GROUP_ID) && mFeedsCursor.getInt(POS_IS_GROUP) != 1) {
+                convertView.setPadding(2*ITEM_PADDING, 0, 0, 0);
+                //convertView.setBackgroundResource(android.R.color.transparent);
             }
         }
 

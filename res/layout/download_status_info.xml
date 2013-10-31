@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/popup_download_status_view"
+              android:id="@+id/popup_download_status_layout_root"
               android:orientation="vertical"
               android:layout_width="@dimen/popup_detail_view_width"
               android:layout_height="@dimen/popup_height">
 
 
     <TextView
+            android:id="@+id/popup_download_status_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title"
             style="@style/Text.Title"
-            android:id="@+id/popup_detail_view_title"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             />
     <TextView
+            android:id="@+id/popup_download_status_information" android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Information"
-            android:id="@+id/popup_detail_view_information" android:layout_gravity="center"
             android:layout_marginTop="10dp" style="@style/Text.Normal"/>
     <SeekBar
+            android:id="@+id/popup_download_status_progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/popup_download_status_bar" android:layout_gravity="center" android:layout_marginTop="10dp"
+            android:layout_gravity="center" android:layout_marginTop="10dp"
             android:visibility="visible"/>
     <Button
+            android:id="@+id/popup_download_status_download_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Download Now"
-            android:id="@+id/popup_download_button" android:layout_gravity="center" android:layout_marginTop="10dp"/>
+            android:layout_gravity="center" android:layout_marginTop="10dp"/>
 </LinearLayout>

@@ -91,7 +91,7 @@
     <string name="to_group_into">Into the group</string>
 
     <!-- ENTRIES -->
-    <string name="all">Entries</string>
+    <string name="all">ALL NEWS</string>
     <string name="no_entries">No entries</string>
     <string name="favorites">Starred</string>
     <string name="context_menu_hide_read">Hide read entries</string>

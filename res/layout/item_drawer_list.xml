@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bar9"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="?android:attr/listPreferredItemHeight">
 
     <!-- icon -->
     <ImageView
         android:id="@+id/icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:layout_centerVertical="true" />
 
     <!-- text -->
@@ -59,8 +60,9 @@
 
     <View
         android:id="@+id/separator"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_alignParentBottom="true"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:background="#515151" />
 </RelativeLayout>

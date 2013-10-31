@@ -21,7 +21,7 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import roboto.newsreader.R;
 
-public class BTAndroidWebViewSelectionActivity extends Activity {
+public class BTWebViewTestActivity extends Activity {
     WebView mWebView;
 
     /** Called when the activity is first created. */

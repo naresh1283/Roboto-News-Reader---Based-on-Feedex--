@@ -1,16 +1,14 @@
 package roboto.newsreader.android;
 
+import android.app.DownloadManager;
 import android.content.Context;
 
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
-import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.*;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.ScrollView;
-import android.widget.RelativeLayout;
+import android.widget.*;
 import android.widget.PopupWindow.OnDismissListener;
 
 import android.view.View.OnClickListener;
@@ -20,7 +18,9 @@ import android.view.ViewGroup.LayoutParams;
 import java.util.List;
 import java.util.ArrayList;
 
-import roboto.newsreader.R;
+import com.roboto.database.EnglishDictionaryDatabaseManager;
+import com.roboto.file.*;
+import roboto.newsreader.*;
 
 /**
  * QuickAction dialog, shows action list as icon and text like the one in Gallery3D app. Currently supports vertical 
@@ -31,7 +31,8 @@ import roboto.newsreader.R;
  * Contributors:
  * - Kevin Peck <kevinwpeck@gmail.com>
  */
-public class QuickAction extends PopupWindows implements OnDismissListener {
+public class QuickAction extends PopupWindows implements OnDismissListener, FileStatusUpdateListener {
+    private static final String TAG = QuickAction.class.getSimpleName();
     private static int ROOT_VIEW_WIDTH = 300;
     private static int ROOT_VIEW_HEIGHT = 300;
     private View mRootView;
@@ -61,7 +62,11 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 	public static final int ANIM_GROW_FROM_CENTER = 3;
 	public static final int ANIM_REFLECT = 4;
 	public static final int ANIM_AUTO = 5;
-	
+    private ViewGroup downloadStatusView;
+    private ViewGroup dictionaryMeaningView;
+    private Button downloadButton;
+    private String mSelectedText;
+
     /**
      * Constructor for default vertical layout
      * 
@@ -122,6 +127,13 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 		mArrowUp 	= (ImageView) mRootView.findViewById(R.id.arrow_up);
 
 		mScroller	= (ViewGroup) mRootView.findViewById(R.id.scroller);
+
+        downloadStatusView = (ViewGroup) mRootView.findViewById(R.id.popup_download_status_view);
+        dictionaryMeaningView = (ViewGroup) mRootView.findViewById(R.id.popup_dictionary_meaning_view);
+
+        downloadButton = (Button)downloadStatusView.findViewById(R.id.popup_download_status_layout_root)
+                .findViewById(R.id.popup_download_status_download_button);
+        downloadButton.setOnClickListener(downloadButtonListener);
 		
 		//This was previously defined on show() method, moved here to prevent force close that occured
 		//when tapping fastly on a view to show quickaction dialog.
@@ -220,7 +232,6 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 				
 				
 				
-				// TODO Auto-generated method stub
 				return false;
 			}
 			
@@ -254,13 +265,15 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 	 * @param parent
 	 * @param rect
 	 */
-	public void show(View parent, Rect rect){
+	public void show(View parent, Rect rect, String selectedText){
 		
 		preShow();
 		
 		int xPos, yPos, arrowPos;
 		
 		mDidAction 			= false;
+        mSelectedText = selectedText;
+        Log.d(TAG, "selected text = " + mSelectedText);
 		
 		int[] location 		= new int[2];
 		parent.getLocationOnScreen(location);
@@ -494,10 +507,12 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 	public void onDismiss() {
 		if (!mDidAction && mDismissListener != null) {
 			mDismissListener.onDismiss();
+            //TBD:: find a better place for remove
+            FileMasterController.getInstance().removeFileStatusUpdateListener(this, FileConfiguration.FILE_ID);
 		}
 	}
-	
-	/**
+
+    /**
 	 * Listener for item click
 	 *
 	 */
@@ -513,19 +528,111 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 		public abstract void onDismiss();
 	}
 
-    public float getDensityIndependentValue(float val, Context ctx){
-
-        // Get display from context
-        Display display = ((WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-
-        // Calculate min bound based on metrics
-        DisplayMetrics metrics = new DisplayMetrics();
-        display.getMetrics(metrics);
-
-
-        return val / (metrics.densityDpi / 160f);
-
-        //return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, val, metrics);
-
+    /**
+     * Set detail view to either dictionary meaning or dictionary download status
+     * depending on the state
+     */
+    public void setDetailView() {
+        if(FileMasterController.getInstance().isFileAvailable(FileConfiguration.FILE_ID)){
+            setDetailViewToDictionaryMeaning();
+        } else{
+            setDetailViewToDownloadStatusInformation();
+            FileMasterController.getInstance().addFileStatusUpdateListener(this, FileConfiguration.FILE_ID);
+            //Look into callback method: onStatusUpdate()
+        }
     }
+
+    private void setDetailViewToDictionaryMeaning() {
+        //FIXME
+        if(mSelectedText != null){
+
+            DictionaryEntry  dictionaryEntry = EnglishDictionaryDatabaseManager.getEntry(mSelectedText);
+        }
+    }
+
+    private void setDetailViewToDownloadStatusInformation() {
+
+        downloadStatusView.setVisibility(View.VISIBLE);
+        dictionaryMeaningView.setVisibility(View.GONE);
+    }
+
+
+    @Override
+    public void onStatusUpdate(final FileStatus fileStatus) {
+
+        ViewGroup statusInfoLayout = (ViewGroup) downloadStatusView.findViewById(R.id.popup_download_status_layout_root);
+
+        //update the UI
+
+        TextView title = (TextView) statusInfoLayout.findViewById(R.id.popup_download_status_title);
+        TextView statusInfo = (TextView)statusInfoLayout.findViewById(R.id.popup_download_status_information);
+        SeekBar progressBar = (SeekBar)statusInfoLayout.findViewById(R.id.popup_download_status_progress_bar);
+        Button downloadButton = (Button)statusInfoLayout.findViewById(R.id.popup_download_status_download_button);
+
+        // default
+        progressBar.setVisibility(View.GONE);
+        downloadButton.setVisibility(View.GONE);
+
+        switch(fileStatus.getFileState()){
+
+            case NOT_FOUND:
+                title.setText("Download Dictionary");
+                statusInfo.setText("Quickly see word meaning without need of internet");
+                downloadButton.setVisibility(View.VISIBLE);
+                break;
+
+            case WITH_DOWNLOAD_MANAGER:
+                title.setText(fileStatus.getFileStatusSubject());
+                statusInfo.setText(fileStatus.getFileStatusInfo());
+                if(fileStatus.getDownloadManagerStatus()== DownloadManager.STATUS_RUNNING){
+                    progressBar.setVisibility(View.VISIBLE);
+                    final double progressPercent = fileStatus.getProgressPercent();
+                    progressBar.setProgress((int)progressPercent);
+                }
+                break;
+
+            case DOWNLOAD_FAILED:
+                title.setText("Download Failed");
+                statusInfo.setText("Last attempt to download failed. Try again!");
+                downloadButton.setVisibility(View.VISIBLE);
+                break;
+
+            case DOWNLOAD_COMPLETE:
+                title.setText("Download Complete");
+                statusInfo.setText("Dictionary is downloaded. Preparing the dictionary...");
+                break;
+
+            case UNZIPPING:
+                title.setText("Preparing Dictionary");
+                statusInfo.setText("Please wait a min while preparing the dictionary to use...");
+                break;
+
+            case AVAILABLE:
+                setDetailViewToDictionaryMeaning();
+                FileMasterController.getInstance().removeFileStatusUpdateListener(this, FileConfiguration.FILE_ID);
+                break;
+
+            case FAILED_OTHER_REASON:
+                title.setText("FAILURE");
+                statusInfo.setText("Preparing dictionary for offline use has failed for some unknown reason. Try downloading again!");
+                downloadButton.setVisibility(View.VISIBLE);
+                break;
+
+            default:
+                FileMasterController.getInstance().removeFileStatusUpdateListener(this, FileConfiguration.FILE_ID);
+                Log.e(TAG, "File in Unknown State");
+        }
+    }
+
+    private OnClickListener downloadButtonListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+           FileMasterController.getInstance().requestDownload(FileConfiguration.FILE_ID);
+
+        }
+    };
+
+
+
+
 }

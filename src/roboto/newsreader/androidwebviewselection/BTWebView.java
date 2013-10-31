@@ -509,13 +509,11 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
 
     @Override
     public void onDragStart(DragSource source, Object info, int dragAction) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void onDragEnd() {
-        // TODO Auto-generated method stub
 
         MyAbsoluteLayout.LayoutParams startHandleParams = (MyAbsoluteLayout.LayoutParams) mStartSelectionHandle.getLayoutParams();
         MyAbsoluteLayout.LayoutParams endHandleParams = (MyAbsoluteLayout.LayoutParams) mEndSelectionHandle.getLayoutParams();
@@ -622,7 +620,6 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
             @Override
             public void onItemClick(QuickAction source, int pos,
                                     int actionId) {
-                // TODO Auto-generated method stub
                 if (actionId == 1) {
                     // Do Button 1 stuff
                     Log.i(TAG, "Hit Button 1");
@@ -643,7 +640,7 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
         });
 
         mContextMenuVisible = true;
-        mContextMenu.show(this, displayRect);
+        mContextMenu.show(this, displayRect, mSelectedText);
     }
 
 
@@ -761,7 +758,7 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
             drawSelectionHandles();
 
         } catch (JSONException e) {
-            // TODO Auto-generated catch block
+            // TBD:: Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -787,7 +784,7 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
             return displayRect;
 
         } catch (JSONException e) {
-            // TODO Auto-generated catch block
+            // TBD:: Auto-generated catch block
             e.printStackTrace();
         }
 

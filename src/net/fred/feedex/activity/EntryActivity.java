@@ -72,7 +72,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -84,6 +83,7 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import roboto.newsreader.HomeActivity;
 import roboto.newsreader.androidwebviewselection.BTWebView;
 import net.fred.feedex.Constants;
 import net.fred.feedex.provider.FeedData;
@@ -126,7 +126,15 @@ public class EntryActivity extends ProgressActivity {
 
     private static final String CSS = "<head><style type='text/css'>body {background-color:"
             + BACKGROUND_COLOR
-            + "; max-width: 100%; font-family: Franklin Gothic}\nimg {max-width: 100%; height: auto;}\ndiv[style] {max-width: 100%;}\npre {white-space: pre-wrap;}</style>" +
+            + "; max-width: 100%; " +
+            "margin-top: 20px;\n" +
+            "\t\tmargin-right: 30px;\n" +
+            "\t\tmargin-bottom: 30px;\n" +
+            "\t\tmargin-left: 30px; " +
+            "\t\tline-height: 150%; " +
+           // "\t\tletter-spacing: 1px; " +
+           // "\t\tword-spacing : 1px; " +
+            "font-family: \"Lucida Bright\", Georgia, serif}\nimg {max-width: 100%; height: auto;}\ndiv[style] {max-width: 100%;}\npre {white-space: pre-wrap;}</style>" +
 
             "    <script src='file:///android_asset/jquery.js'></script>\n" +
             "    <script src='file:///android_asset/rangy-core.js'></script>\n" +
@@ -140,12 +148,12 @@ public class EntryActivity extends ProgressActivity {
     private static final String FONTSIZE_MIDDLE = "'>";
     private static final String BODY_END = "<br/><br/><br/><br/></body>";
     private static final String FONTSIZE_END = "</font>" + BODY_END;
-    private static final String TITLE_START = "<p style='margin-top:1cm; margin-bottom:0.6cm'><font size='+2'><a href='";
-    private static final String TITLE_MIDDLE = "' style='text-decoration: none; color:inherit'>";
+    private static final String TITLE_START = "<p style='margin-top:1cm; line-height: 200%; margin-bottom:0.6cm'><font size='+2'><a href='";
+    private static final String TITLE_MIDDLE = "' style='text-decoration: none; color:inherit; font-style:bold'>";
     private static final String TITLE_END = "</a></font></p>";
     private static final String SUBTITLE_START = "<font size='-1'>";
     private static final String SUBTITLE_END = "</font><div style='width:100%; border:0px; height:1px; margin-top:0.1cm; background:#33b5e5'/><br/><div align='justify'>";
-
+    // "<p style=\"letter-spacing : 5em; line-height: 10em; word-spacing : 10em; \" > "
     private static final String BUTTON_SEPARATION = "</div><br/>";
 
     private static final String BUTTON_START = "<div style='text-align: center'><input type='button' value='";
@@ -440,10 +448,10 @@ public class EntryActivity extends ProgressActivity {
 
                     getActionBar().setIcon(new BitmapDrawable(getResources(), bitmap));
                 } else {
-                    getActionBar().setIcon(R.drawable.icon);
+                    getActionBar().setIcon(R.drawable.logo);
                 }
             } else {
-                getActionBar().setIcon(R.drawable.icon);
+                getActionBar().setIcon(R.drawable.logo);
             }
 
             mFavorite = entryCursor.getInt(mIsFavoritePosition) == 1;
@@ -695,7 +703,7 @@ public class EntryActivity extends ProgressActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 if (mFromWidget) {
-                    Intent intent = new Intent(this, MainActivity.class);
+                    Intent intent = new Intent(this, HomeActivity.class);
                     startActivity(intent);
                 }
                 finish();
