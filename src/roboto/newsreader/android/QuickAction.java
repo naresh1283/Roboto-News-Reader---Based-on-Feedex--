@@ -3,6 +3,7 @@ package roboto.newsreader.android;
 import android.app.DownloadManager;
 import android.content.Context;
 
+import android.database.Cursor;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.roboto.database.EnglishDictionaryDatabaseManager;
+import com.roboto.database.FeedReaderDbHelper;
 import com.roboto.file.*;
 import roboto.newsreader.*;
 
@@ -32,7 +34,7 @@ import roboto.newsreader.*;
  * - Kevin Peck <kevinwpeck@gmail.com>
  */
 public class QuickAction extends PopupWindows implements OnDismissListener, FileStatusUpdateListener {
-    private static final String TAG = QuickAction.class.getSimpleName();
+    private static final String TAG = FileConfiguration.TAG;
     private static int ROOT_VIEW_WIDTH = 300;
     private static int ROOT_VIEW_HEIGHT = 300;
     private View mRootView;
@@ -351,7 +353,8 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
 		setAnimationStyle(screenWidth, anchorRect.centerX(), onTop);
 		
 		mWindow.showAtLocation(parent, Gravity.NO_GRAVITY, xPos, yPos);
-		
+
+        setDetailView();
 	}
 	
 	/**
@@ -533,6 +536,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
      * depending on the state
      */
     public void setDetailView() {
+
         if(FileMasterController.getInstance().isFileAvailable(FileConfiguration.FILE_ID)){
             setDetailViewToDictionaryMeaning();
         } else{
@@ -543,10 +547,36 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
     }
 
     private void setDetailViewToDictionaryMeaning() {
-        //FIXME
         if(mSelectedText != null){
+            String[] words = mSelectedText.split("\\s+");
+            TextView details = (TextView)dictionaryMeaningView.findViewById(R.id.details);
+            if(words.length > 1){
+               details.setText("Please select one word only to see its definition");
+               return;
+            }
 
-            DictionaryEntry  dictionaryEntry = EnglishDictionaryDatabaseManager.getEntry(mSelectedText);
+            Cursor cursor = null;
+            try{
+               FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(mContext, FileConfiguration.DATABASE_NAME, null, 1);
+               cursor = mDbHelper.getDictionaryMeaning(mSelectedText);
+               if(cursor != null && cursor.moveToFirst())
+                   do{
+                       String word = cursor.getString(cursor.getColumnIndex("word"));
+                       String wordType = cursor.getString(cursor.getColumnIndex("wordtype"));
+                       String definition = cursor.getString(cursor.getColumnIndex("definition"));
+                       String usage = cursor.getString(cursor.getColumnIndex("sample"));
+
+                       String wordDetails =  word + "   [" + wordType + "]" + "\n" +
+                               definition + "\n";
+                       if(usage != null){
+                           wordDetails = wordDetails.concat("\busage: \n"+usage + "\n"  + "\n"  );
+                       }
+                       details.setText(wordDetails);
+                   }while(cursor.moveToNext());
+           }finally {
+                cursor.close();
+           }
+
         }
     }
 

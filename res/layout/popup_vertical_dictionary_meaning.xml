@@ -19,12 +19,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:text="This is a test. This is a test.This is a test.This is
-                a test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a
-                 test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.
-                 This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.
-                 This is a test.This is a test.This is a test.This is a test. This is a test. This is a test. This is a test.
-                 This is a test.  This is a test. This is a test. This is a test. This is a test. This is a test.This is a test."
+                android:text="No details found"
                 android:padding="5dip"/>
 
     </ScrollView >

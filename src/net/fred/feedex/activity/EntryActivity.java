@@ -120,7 +120,7 @@ public class EntryActivity extends ProgressActivity {
     private static final String TEXT_HTML = "text/html";
     private static final String HTML_IMG_REGEX = "(?i)<[/]?[ ]?img(.|\n)*?>";
 
-    private static final String BACKGROUND_COLOR = PrefUtils.getBoolean(PrefUtils.LIGHT_THEME, true) ? "#f6f6f6" : "#181b1f";
+    private static final String BACKGROUND_COLOR = PrefUtils.getBoolean(PrefUtils.LIGHT_THEME, true) ? "#f6f6f6" : "#000000";
     private static final String TEXT_COLOR = PrefUtils.getBoolean(PrefUtils.LIGHT_THEME, true) ? "#000000" : "#C0C0C0";
     private static final String BUTTON_COLOR = PrefUtils.getBoolean(PrefUtils.LIGHT_THEME, true) ? "#D0D0D0" : "#505050";
 
@@ -148,7 +148,7 @@ public class EntryActivity extends ProgressActivity {
     private static final String FONTSIZE_MIDDLE = "'>";
     private static final String BODY_END = "<br/><br/><br/><br/></body>";
     private static final String FONTSIZE_END = "</font>" + BODY_END;
-    private static final String TITLE_START = "<p style='margin-top:1cm; line-height: 200%; margin-bottom:0.6cm'><font size='+2'><a href='";
+    private static final String TITLE_START = "<p style='margin-top:0.8cm; line-height: 200%; margin-bottom:0.6cm'><font size='+2'><a href='";
     private static final String TITLE_MIDDLE = "' style='text-decoration: none; color:inherit; font-style:bold'>";
     private static final String TITLE_END = "</a></font></p>";
     private static final String SUBTITLE_START = "<font size='-1'>";
