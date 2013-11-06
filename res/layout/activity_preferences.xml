@@ -20,7 +20,7 @@
             android:name="@string/settings_refresh_interval"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:defaultValue="1800000"
+            android:defaultValue="14400000"
             android:dependency="refresh.enabled"
             android:entries="@array/settings_intervals"
             android:entryValues="@array/settings_interval_values"
@@ -32,7 +32,7 @@
         <CheckBoxPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="refreshonopen.enabled"
             android:summary="@string/settings_refresh_on_open_description"
             android:title="@string/settings_refresh_on_open" />
@@ -76,7 +76,7 @@
             android:name="@string/settings_font_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:defaultValue="1"
+            android:defaultValue="0"
             android:entries="@array/settings_font_sizes"
             android:entryValues="@array/settings_font_size_values"
             android:inputType="number"

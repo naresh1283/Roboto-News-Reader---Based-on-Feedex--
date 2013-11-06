@@ -3,10 +3,18 @@ package roboto.newsreader.android;
 import android.app.DownloadManager;
 import android.content.Context;
 
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
+import android.preference.PreferenceManager;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
@@ -19,7 +27,7 @@ import android.view.ViewGroup.LayoutParams;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.roboto.database.EnglishDictionaryDatabaseManager;
+import com.roboto.app.RobotoApplication;
 import com.roboto.database.FeedReaderDbHelper;
 import com.roboto.file.*;
 import roboto.newsreader.*;
@@ -540,6 +548,13 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
         if(FileMasterController.getInstance().isFileAvailable(FileConfiguration.FILE_ID)){
             setDetailViewToDictionaryMeaning();
         } else{
+
+            //Save the selected text for later retrieval upon dictionary file is AVAILABLE
+/*            SharedPreferences preferenceManager = PreferenceManager.getDefaultSharedPreferences(RobotoApplication.getContext());
+            SharedPreferences.Editor PrefEdit = preferenceManager.edit();
+            PrefEdit.putString(FileConfiguration.KEY_LAST_SELECTED_TEXT, mSelectedText);
+            PrefEdit.commit();*/
+
             setDetailViewToDownloadStatusInformation();
             FileMasterController.getInstance().addFileStatusUpdateListener(this, FileConfiguration.FILE_ID);
             //Look into callback method: onStatusUpdate()
@@ -547,6 +562,11 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
     }
 
     private void setDetailViewToDictionaryMeaning() {
+
+        downloadStatusView.setVisibility(View.GONE);
+        dictionaryMeaningView.setVisibility(View.VISIBLE);
+
+        Log.d(TAG, "setDetailedViewToDictionMeaning: mSelectedText = " + mSelectedText);
         if(mSelectedText != null){
             String[] words = mSelectedText.split("\\s+");
             TextView details = (TextView)dictionaryMeaningView.findViewById(R.id.details);
@@ -554,25 +574,42 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
                details.setText("Please select one word only to see its definition");
                return;
             }
+            if(mSelectedText.equals("")|| mSelectedText.equals(" ")){
+                details.setText("No word selected. Please try again");
+                return;
+            }
 
             Cursor cursor = null;
             try{
                FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(mContext, FileConfiguration.DATABASE_NAME, null, 1);
                cursor = mDbHelper.getDictionaryMeaning(mSelectedText);
-               if(cursor != null && cursor.moveToFirst())
+               if(cursor != null && cursor.moveToFirst())  {
+                   String wordDetails = "";
                    do{
                        String word = cursor.getString(cursor.getColumnIndex("word"));
                        String wordType = cursor.getString(cursor.getColumnIndex("wordtype"));
                        String definition = cursor.getString(cursor.getColumnIndex("definition"));
-                       String usage = cursor.getString(cursor.getColumnIndex("sample"));
+                       String sample = cursor.getString(cursor.getColumnIndex("sample"));
 
-                       String wordDetails =  word + "   [" + wordType + "]" + "\n" +
-                               definition + "\n";
-                       if(usage != null){
-                           wordDetails = wordDetails.concat("\busage: \n"+usage + "\n"  + "\n"  );
+                       wordDetails = wordDetails + "<b>" + word + "</b>" + "   [" + wordType + "]" + "<br/>" +
+                               definition + "<br/>";
+                       //Html.fromHtml()
+                       if(sample != null){
+                           wordDetails = wordDetails.concat("sample: <br/>"+ sample + "<br/><br/>"  );
+                       } else{
+                           wordDetails = wordDetails + "<br/>";
                        }
-                       details.setText(wordDetails);
                    }while(cursor.moveToNext());
+
+                   if(wordDetails.equals("")){
+                       //TODO
+                       return;
+                   }
+                   details.setText(Html.fromHtml(wordDetails));
+                   /*   mBox.setText(Html.fromHtml("<b>" + title + "</b>" +  "<br />" +
+                           "<small>" + description + "</small>" + "<br />" +
+                           "<small>" + DateAdded + "</small>"));*/
+               }
            }finally {
                 cursor.close();
            }
@@ -596,18 +633,19 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
 
         TextView title = (TextView) statusInfoLayout.findViewById(R.id.popup_download_status_title);
         TextView statusInfo = (TextView)statusInfoLayout.findViewById(R.id.popup_download_status_information);
-        SeekBar progressBar = (SeekBar)statusInfoLayout.findViewById(R.id.popup_download_status_progress_bar);
+        //ProgressBar progressBar = (ProgressBar)statusInfoLayout.findViewById(R.id.popup_download_status_progress_bar);
         Button downloadButton = (Button)statusInfoLayout.findViewById(R.id.popup_download_status_download_button);
 
         // default
-        progressBar.setVisibility(View.GONE);
+        //progressBar.setVisibility(View.GONE);
         downloadButton.setVisibility(View.GONE);
+        statusInfo.setVisibility(View.VISIBLE);
 
         switch(fileStatus.getFileState()){
 
             case NOT_FOUND:
                 title.setText("Download Dictionary");
-                statusInfo.setText("Quickly see word meaning without need of internet");
+                statusInfo.setVisibility(View.GONE);
                 downloadButton.setVisibility(View.VISIBLE);
                 break;
 
@@ -615,9 +653,9 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
                 title.setText(fileStatus.getFileStatusSubject());
                 statusInfo.setText(fileStatus.getFileStatusInfo());
                 if(fileStatus.getDownloadManagerStatus()== DownloadManager.STATUS_RUNNING){
-                    progressBar.setVisibility(View.VISIBLE);
+                   // progressBar.setVisibility(View.VISIBLE);
                     final double progressPercent = fileStatus.getProgressPercent();
-                    progressBar.setProgress((int)progressPercent);
+                   // progressBar.setProgress((int)progressPercent);
                 }
                 break;
 
@@ -638,6 +676,8 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
                 break;
 
             case AVAILABLE:
+                SharedPreferences preferenceManager = PreferenceManager.getDefaultSharedPreferences(RobotoApplication.getContext());
+              //  mSelectedText = preferenceManager.getString(FileConfiguration.KEY_LAST_SELECTED_TEXT, "");
                 setDetailViewToDictionaryMeaning();
                 FileMasterController.getInstance().removeFileStatusUpdateListener(this, FileConfiguration.FILE_ID);
                 break;
@@ -662,6 +702,25 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
         }
     };
 
+
+//    TODO
+//    public SpannableStringBuilder setBold(String word)
+//    {
+//        final SpannableStringBuilder sb = new SpannableStringBuilder(word);
+//        final ForegroundColorSpan fcs = new ForegroundColorSpan(Color.rgb(158, 158, 158));
+//
+//        // Span to set text color to some RGB value
+//        final StyleSpan bss = new StyleSpan(android.graphics.Typeface.BOLD);
+//
+//        // Span to make text bold
+//        sb.setSpan(fcs, 0, word.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+//
+//        // Set the text color for first 4 characters
+//        sb.setSpan(bss, 0, word.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+//
+//        // make them also bold
+//        return sb;
+//    }
 
 
 

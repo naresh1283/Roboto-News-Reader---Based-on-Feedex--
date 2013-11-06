@@ -16,9 +16,13 @@
 
 package roboto.newsreader.androidwebviewselection;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.*;
 import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
+import com.roboto.app.RobotoApplication;
+import com.roboto.util.AndroidUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -572,21 +576,21 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
         //Copy action item
         ActionItem buttonOne = new ActionItem();
 
-        buttonOne.setTitle("Button 1");
+        buttonOne.setTitle("Wiki");
         buttonOne.setActionId(1);
-        buttonOne.setIcon(getResources().getDrawable(R.drawable.menu_search));
+        buttonOne.setIcon(getResources().getDrawable(R.drawable.menu_info ));
 
 
         //Highlight action item
         ActionItem buttonTwo = new ActionItem();
 
-        buttonTwo.setTitle("Button 2");
+        buttonTwo.setTitle("Web");
         buttonTwo.setActionId(2);
-        buttonTwo.setIcon(getResources().getDrawable(R.drawable.menu_info));
+        buttonTwo.setIcon(getResources().getDrawable(R.drawable.menu_search));
 
         ActionItem buttonThree = new ActionItem();
 
-        buttonThree.setTitle("Button 3");
+        buttonThree.setTitle("Trans");
         buttonThree.setActionId(3);
         buttonThree.setIcon(getResources().getDrawable(R.drawable.menu_eraser));
 
@@ -600,19 +604,6 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
         mContextMenu.addActionItem(buttonOne);
         mContextMenu.addActionItem(buttonTwo);
         mContextMenu.addActionItem(buttonThree);
-        mContextMenu.addActionItem(buttonOne);
-        mContextMenu.addActionItem(buttonTwo);
-        mContextMenu.addActionItem(buttonThree);
-        mContextMenu.addActionItem(buttonOne);
-        mContextMenu.addActionItem(buttonTwo);
-        mContextMenu.addActionItem(buttonThree);
-        mContextMenu.addActionItem(buttonOne);
-        mContextMenu.addActionItem(buttonTwo);
-        mContextMenu.addActionItem(buttonThree);
-        mContextMenu.addActionItem(buttonOne);
-        mContextMenu.addActionItem(buttonTwo);
-        mContextMenu.addActionItem(buttonThree);
-
 
         //setup the action item click listener
         mContextMenu.setOnActionItemClickListener(new QuickAction.OnActionItemClickListener() {
@@ -623,14 +614,20 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
                 if (actionId == 1) {
                     // Do Button 1 stuff
                     Log.i(TAG, "Hit Button 1");
+                    String url = "http://en.wikipedia.org/wiki/" + mSelectedText;
+                    AndroidUtils.openUrlInExternalBrowser(url);
                 }
                 else if (actionId == 2) {
                     // Do Button 2 stuff
                     Log.i(TAG, "Hit Button 2");
+                    String url =  "https://www.google.co.uk/search?q=" + mSelectedText;
+                    AndroidUtils.openUrlInExternalBrowser(url);
                 }
                 else if (actionId == 3) {
                     // Do Button 3 stuff
                     Log.i(TAG, "Hit Button 3");
+                    String url = "http://translate.google.com/?vi=c&#auto/es/" + mSelectedText;
+                    AndroidUtils.openUrlInExternalBrowser(url);
                 }
 
                 mContextMenuVisible = false;

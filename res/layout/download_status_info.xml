@@ -3,6 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/popup_download_status_layout_root"
               android:orientation="vertical"
+              android:layout_marginLeft="5dp"
               android:layout_width="@dimen/popup_detail_view_width"
               android:layout_height="@dimen/popup_height">
 
@@ -13,25 +14,27 @@
             android:layout_height="wrap_content"
             android:text="Title"
             style="@style/Text.Title"
+            android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             />
     <TextView
-            android:id="@+id/popup_download_status_information" android:layout_gravity="center"
+            android:id="@+id/popup_download_status_information"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Information"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp" style="@style/Text.Normal"/>
-    <SeekBar
+    <ProgressBar
             android:id="@+id/popup_download_status_progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center" android:layout_marginTop="10dp"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
     <Button
             android:id="@+id/popup_download_status_download_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Download Now"
+            android:text="Click here"
             android:layout_gravity="center" android:layout_marginTop="10dp"/>
 </LinearLayout>
