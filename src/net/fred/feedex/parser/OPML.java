@@ -51,6 +51,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Xml;
 
+import com.roboto.file.FileConfiguration;
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
 import net.fred.feedex.provider.FeedData.FeedColumns;
@@ -70,7 +71,7 @@ import java.io.InputStreamReader;
 
 public class OPML {
 
-    public static final String BACKUP_OPML = Environment.getExternalStorageDirectory() + "/FeedEx_auto_backup.opml";
+    public static final String BACKUP_OPML = FileConfiguration.getExternalDownloadDirPath() + "/Roboto_auto_backup.opml";
 
     private static final String[] FEEDS_PROJECTION = new String[]{FeedColumns._ID, FeedColumns.IS_GROUP, FeedColumns.NAME, FeedColumns.URL,
             FeedColumns.RETRIEVE_FULLTEXT};

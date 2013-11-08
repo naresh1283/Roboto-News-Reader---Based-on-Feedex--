@@ -41,6 +41,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import android.widget.Toast;
+import com.roboto.app.RobotoApplication;
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
 import roboto.newsreader.R;
@@ -208,11 +210,14 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
             case R.id.menu_edit:
                 startActivity(new Intent(this, FeedsListActivity.class));
                 return true;
-            case R.id.menu_refresh_main:
-                if (!PrefUtils.getBoolean(PrefUtils.IS_REFRESHING, false)) {
-                    MainApplication.getContext().startService(new Intent(MainApplication.getContext(), FetcherService.class).setAction(FetcherService.ACTION_REFRESH_FEEDS));
-                }
+            case R.id.menu_add_feed:
+                startActivity(new Intent(Intent.ACTION_INSERT).setData(FeedData.FeedColumns.CONTENT_URI));
                 return true;
+//            case R.id.menu_refresh_main:
+//                if (!PrefUtils.getBoolean(PrefUtils.IS_REFRESHING, false)) {
+//                    MainApplication.getContext().startService(new Intent(MainApplication.getContext(), FetcherService.class).setAction(FetcherService.ACTION_REFRESH_FEEDS));
+//                }
+//                return true;
             case R.id.menu_settings_main:
                 startActivity(new Intent(this, GeneralPrefsActivity.class));
                 return true;
@@ -273,6 +278,13 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
                 @Override
                 public void run() {
                     mDrawerLayout.openDrawer(mDrawerList);
+                    if (!PrefUtils.getBoolean(PrefUtils.IS_REFRESHING, false)) {
+                        startService(new Intent(MainActivity.this, FetcherService.class).setAction(FetcherService.ACTION_REFRESH_FEEDS));
+                    }
+                    Toast.makeText(RobotoApplication.getContext(),"Click on '+' at the top to add new content",
+                            Toast.LENGTH_LONG).show();
+                    Toast.makeText(RobotoApplication.getContext(),"Click on '+' at the top to add new content",
+                            Toast.LENGTH_LONG).show();
                 }
             }, 500);
         }

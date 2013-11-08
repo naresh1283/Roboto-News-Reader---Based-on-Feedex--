@@ -38,13 +38,13 @@
     <string name="drawer_close">Close navigation drawer</string>
 
     <!-- FEEDS -->
-    <string name="feeds">Feeds</string>
+    <string name="feeds">Edit/Reorder</string>
     <string name="menu_add_feed">Add feed</string>
     <string name="no_feeds">No feeds</string>
     <string name="no_filters">No filters</string>
     <string name="context_menu_delete">Delete</string>
     <string name="edit_feed_title">Edit feed</string>
-    <string name="new_feed_title">New feed</string>
+    <string name="new_feed_title">Add new feed</string>
     <string name="context_menu_edit">Edit</string>
     <string name="menu_add_group">Add group</string>
     <string name="menu_import">Import from OPML</string>
@@ -80,7 +80,7 @@
         feeds?
     </string>
     <string name="question_delete_filter">Do you really want to delete this filter?</string>
-    <string name="add_group_title">Select group name</string>
+    <string name="add_group_title">Add group name</string>
     <string name="edit_group_title">Edit group name</string>
     <string name="message_exported_to">Exported into %s.</string>
     <string name="to_group_title">Feed move action</string>
@@ -93,7 +93,7 @@
     <!-- ENTRIES -->
     <string name="all">ALL NEWS</string>
     <string name="no_entries">No entries</string>
-    <string name="favorites">Starred</string>
+    <string name="favorites">FAVOURITES</string>
     <string name="context_menu_hide_read">Hide read entries</string>
     <string name="context_menu_show_read">Show read entries</string>
     <string name="context_menu_share_starred">Share starred entries</string>

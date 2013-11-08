@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <opml version="1.1">
 <body>
-	<outline title="News" >
-		<outline title="Times - World" type="rss" xmlUrl="http://rss.nytimes.com/services/xml/rss/nyt/World.xml" />
-	</outline>
+	<outline title='New York Times' type='rss' xmlUrl='http://rss.nytimes.com/services/xml/rss/nyt/World.xml' retrieveFullText='true'/>
+	<outline title='Engadget' type='rss' xmlUrl='http://www.engadget.com/rss.xml' retrieveFullText='true'/>
+	<outline title='Businessweek' type='rss' xmlUrl='http://www.businessweek.com/feeds/homepage.rss' retrieveFullText='true'/>
+	<outline title='ESPN' type='rss' xmlUrl='http://sports-ak.espn.go.com/espn/rss/news' retrieveFullText='true'/>
 </body>
 </opml>

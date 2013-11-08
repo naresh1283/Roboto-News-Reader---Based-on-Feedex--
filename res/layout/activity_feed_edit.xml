@@ -64,6 +64,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/feed_url"
         android:layout_marginRight="10dp"
+        android:checked="true"
         android:text="@string/get_full_text" />
 
     <RelativeLayout

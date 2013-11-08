@@ -69,6 +69,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roboto.app.RobotoApplication;
 import roboto.newsreader.R;
 import net.fred.feedex.adapter.FeedsCursorAdapter;
 import net.fred.feedex.parser.OPML;
@@ -93,6 +94,17 @@ public class FeedsListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         mListAdapter = new FeedsCursorAdapter(getActivity(), FeedColumns.GROUPS_CONTENT_URI);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Toast.makeText(RobotoApplication.getContext(), "Press and hold to edit.\n" +
+                "Hold the right corner, move up or down to reorder.",
+                            Toast.LENGTH_LONG).show();
+        Toast.makeText(RobotoApplication.getContext(), "Press and hold to edit.\n" +
+                "Hold the right corner, move up or down to reorder.",
+                Toast.LENGTH_LONG).show();
     }
 
     @Override

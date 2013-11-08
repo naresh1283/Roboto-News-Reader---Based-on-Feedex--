@@ -46,6 +46,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import net.fred.feedex.Constants;
+import net.fred.feedex.provider.FeedData;
 import roboto.newsreader.R;
 import net.fred.feedex.adapter.EntriesCursorAdapter;
 import net.fred.feedex.provider.FeedData.EntryColumns;
@@ -185,6 +186,10 @@ public class EntriesListFragment extends ListFragment implements LoaderManager.L
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_add_feed:
+                startActivity(new Intent(Intent.ACTION_INSERT).setData(FeedData.FeedColumns.CONTENT_URI));
+                return true;
+
             case R.id.menu_share_starred: {
                 String starredList = "";
                 Cursor cursor = mEntriesCursorAdapter.getCursor();

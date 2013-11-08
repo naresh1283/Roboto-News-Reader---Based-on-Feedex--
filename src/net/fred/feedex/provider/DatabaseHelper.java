@@ -62,7 +62,7 @@ import java.io.File;
 
 class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "FeedEx.db";
+    private static final String DATABASE_NAME = "RobotoNewsReader.db";
     private static final int DATABASE_VERSION = 4;
 
     private static final String ALTER_TABLE = "ALTER TABLE ";

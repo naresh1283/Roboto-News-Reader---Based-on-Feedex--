@@ -76,7 +76,10 @@ import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.roboto.app.RobotoApplication;
 import net.fred.feedex.Constants;
+import net.fred.feedex.service.FetcherService;
+import net.fred.feedex.utils.PrefUtils;
 import roboto.newsreader.R;
 import net.fred.feedex.adapter.FiltersCursorAdapter;
 import net.fred.feedex.provider.FeedData.FeedColumns;
@@ -136,6 +139,7 @@ public class EditFeedActivity extends ListActivity implements LoaderManager.Load
             if (intent.hasExtra(Intent.EXTRA_TEXT)) {
                 mUrlEditText.setText(intent.getStringExtra(Intent.EXTRA_TEXT));
             }
+            onClickSearch(null);
         } else if (intent.getAction().equals(Intent.ACTION_EDIT)) {
             setTitle(R.string.edit_feed_title);
 
@@ -271,6 +275,10 @@ public class EditFeedActivity extends ListActivity implements LoaderManager.Load
     }
 
     public void onClickOk(View view) {
+        Toast.makeText(RobotoApplication.getContext(), "Open the side menu to see the new entry", Toast.LENGTH_LONG).show();
+        if (!PrefUtils.getBoolean(PrefUtils.IS_REFRESHING, false)) {
+            startService(new Intent(RobotoApplication.getContext(), FetcherService.class).setAction(FetcherService.ACTION_REFRESH_FEEDS));
+        }
         // only in insert mode
 
         String url = mUrlEditText.getText().toString();
