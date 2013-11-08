@@ -37,4 +37,10 @@
         android:showAsAction="ifRoom"
         android:title="@string/menu_settings"
         tools:ignore="AlwaysShowAction" />
+
+    <item
+        android:id="@+id/menu_help_and_feedback"
+        android:showAsAction="withText"
+        android:title="@string/menu_help_and_feedback"
+        tools:ignore="AlwaysShowAction" />
 </menu>

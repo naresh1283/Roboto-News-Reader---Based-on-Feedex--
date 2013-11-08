@@ -45,6 +45,8 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.roboto.app.RobotoApplication;
+import com.uservoice.uservoicesdk.UserVoice;
 import net.fred.feedex.Constants;
 import net.fred.feedex.provider.FeedData;
 import roboto.newsreader.R;
@@ -232,6 +234,10 @@ public class EntriesListFragment extends ListFragment implements LoaderManager.L
                 }
                 return true;
             }
+            case R.id.menu_help_and_feedback: {
+                UserVoice.launchUserVoice(getActivity());
+            }
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
