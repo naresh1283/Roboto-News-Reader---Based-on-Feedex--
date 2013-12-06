@@ -20,7 +20,7 @@
             android:name="@string/settings_refresh_interval"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:defaultValue="14400000"
+            android:defaultValue="86400000"
             android:dependency="refresh.enabled"
             android:entries="@array/settings_intervals"
             android:entryValues="@array/settings_interval_values"

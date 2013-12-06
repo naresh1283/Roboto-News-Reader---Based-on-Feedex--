@@ -110,16 +110,19 @@ android.support.v4.app.BackStackRecord -> android.support.v4.app.l:
     237:238:void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
     241:331:void dump(java.lang.String,java.io.PrintWriter,boolean) -> a
     364:376:void addOp(android.support.v4.app.BackStackRecord$Op) -> a
+    379:380:android.support.v4.app.FragmentTransaction add(android.support.v4.app.Fragment,java.lang.String) -> a
     389:390:android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String) -> a
     394:418:void doAddOp(int,android.support.v4.app.Fragment,java.lang.String,int) -> a
-    461:466:android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> a
-    470:475:android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> b
+    434:439:android.support.v4.app.FragmentTransaction remove(android.support.v4.app.Fragment) -> a
+    461:466:android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> b
+    470:475:android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> c
     549:571:void bumpBackStackNesting(int) -> a
     574:574:int commit() -> a
+    578:578:int commitAllowingStateLoss() -> b
     582:596:int commitInternal(boolean) -> a
     600:688:void run() -> run
     691:772:void popFromBackStack(boolean) -> b
-    775:775:java.lang.String getName() -> b
+    775:775:java.lang.String getName() -> c
 android.support.v4.app.BackStackRecord$Op -> android.support.v4.app.m:
     android.support.v4.app.BackStackRecord$Op next -> a
     android.support.v4.app.BackStackRecord$Op prev -> b
@@ -149,124 +152,157 @@ android.support.v4.app.BackStackState$1 -> android.support.v4.app.n:
     164:164:android.support.v4.app.BackStackState[] newArray(int) -> a
     158:158:java.lang.Object[] newArray(int) -> newArray
     158:158:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.DialogFragment -> android.support.v4.app.o:
+    int mStyle -> a
+    int mTheme -> b
+    boolean mCancelable -> c
+    boolean mShowsDialog -> d
+    int mBackStackId -> e
+    android.app.Dialog mDialog -> f
+    boolean mViewDestroyed -> g
+    boolean mDismissed -> h
+    boolean mShownByMe -> i
+    102:109:void setStyle(int,int) -> a
+    123:128:void show(android.support.v4.app.FragmentManager,java.lang.String) -> a
+    155:156:void dismiss() -> a
+    169:192:void dismissInternal(boolean) -> a
+    195:195:android.app.Dialog getDialog() -> b
+    199:199:int getTheme() -> c
+    253:259:void onAttach(android.app.Activity) -> a
+    263:270:void onDetach() -> d
+    274:286:void onCreate(android.os.Bundle) -> a
+    291:310:android.view.LayoutInflater getLayoutInflater(android.os.Bundle) -> b
+    337:337:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+    341:341:void onCancel(android.content.DialogInterface) -> onCancel
+    344:351:void onDismiss(android.content.DialogInterface) -> onDismiss
+    355:378:void onActivityCreated(android.os.Bundle) -> d
+    382:387:void onStart() -> e
+    391:413:void onSaveInstanceState(android.os.Bundle) -> e
+    417:421:void onStop() -> f
+    428:437:void onDestroyView() -> g
 android.support.v4.app.Fragment -> android.support.v4.app.Fragment:
-    java.util.HashMap sClassMap -> P
-    int mState -> a
-    android.view.View mAnimatingAway -> b
-    int mStateAfterAnimating -> c
-    android.os.Bundle mSavedFragmentState -> d
-    android.util.SparseArray mSavedViewState -> e
-    int mIndex -> f
-    java.lang.String mWho -> g
-    android.os.Bundle mArguments -> h
-    android.support.v4.app.Fragment mTarget -> i
-    int mTargetIndex -> j
-    int mTargetRequestCode -> k
-    boolean mAdded -> l
-    boolean mRemoving -> m
-    boolean mResumed -> n
-    boolean mFromLayout -> o
-    boolean mInLayout -> p
-    boolean mRestored -> q
-    int mBackStackNesting -> r
-    android.support.v4.app.FragmentManagerImpl mFragmentManager -> s
-    android.support.v4.app.FragmentActivity mActivity -> t
-    android.support.v4.app.FragmentManagerImpl mChildFragmentManager -> u
-    android.support.v4.app.Fragment mParentFragment -> v
-    int mFragmentId -> w
-    int mContainerId -> x
-    java.lang.String mTag -> y
-    boolean mHidden -> z
-    boolean mDetached -> A
-    boolean mRetainInstance -> B
-    boolean mRetaining -> C
-    boolean mHasMenu -> D
-    boolean mMenuVisible -> E
-    boolean mCalled -> F
-    int mNextAnim -> G
-    android.view.ViewGroup mContainer -> H
-    android.view.View mView -> I
-    android.view.View mInnerView -> J
-    boolean mDeferStart -> K
-    boolean mUserVisibleHint -> L
-    android.support.v4.app.LoaderManagerImpl mLoaderManager -> M
-    boolean mLoadersStarted -> N
-    boolean mCheckedForLoaderManager -> O
+    java.util.HashMap sClassMap -> a
+    int mState -> j
+    android.view.View mAnimatingAway -> k
+    int mStateAfterAnimating -> l
+    android.os.Bundle mSavedFragmentState -> m
+    android.util.SparseArray mSavedViewState -> n
+    int mIndex -> o
+    java.lang.String mWho -> p
+    android.os.Bundle mArguments -> q
+    android.support.v4.app.Fragment mTarget -> r
+    int mTargetIndex -> s
+    int mTargetRequestCode -> t
+    boolean mAdded -> u
+    boolean mRemoving -> v
+    boolean mResumed -> w
+    boolean mFromLayout -> x
+    boolean mInLayout -> y
+    boolean mRestored -> z
+    int mBackStackNesting -> A
+    android.support.v4.app.FragmentManagerImpl mFragmentManager -> B
+    android.support.v4.app.FragmentActivity mActivity -> C
+    android.support.v4.app.FragmentManagerImpl mChildFragmentManager -> D
+    android.support.v4.app.Fragment mParentFragment -> E
+    int mFragmentId -> F
+    int mContainerId -> G
+    java.lang.String mTag -> H
+    boolean mHidden -> I
+    boolean mDetached -> J
+    boolean mRetainInstance -> K
+    boolean mRetaining -> L
+    boolean mHasMenu -> M
+    boolean mMenuVisible -> N
+    boolean mCalled -> O
+    int mNextAnim -> P
+    android.view.ViewGroup mContainer -> Q
+    android.view.View mView -> R
+    android.view.View mInnerView -> S
+    boolean mDeferStart -> T
+    boolean mUserVisibleHint -> U
+    android.support.v4.app.LoaderManagerImpl mLoaderManager -> V
+    boolean mLoadersStarted -> W
+    boolean mCheckedForLoaderManager -> X
     377:377:android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String) -> a
     396:417:android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String,android.os.Bundle) -> a
-    424:434:void restoreViewState(android.os.Bundle) -> a
+    424:434:void restoreViewState(android.os.Bundle) -> f
     437:443:void setIndex(int,android.support.v4.app.Fragment) -> a
-    446:446:boolean isInBackStack() -> a
+    446:446:boolean isInBackStack() -> h
     453:453:boolean equals(java.lang.Object) -> equals
     460:460:int hashCode() -> hashCode
     465:480:java.lang.String toString() -> toString
-    571:571:android.support.v4.app.FragmentActivity getActivity() -> b
-    578:581:android.content.res.Resources getResources() -> c
-    672:672:boolean isDetached() -> d
-    742:742:void onHiddenChanged(boolean) -> a
+    571:571:android.support.v4.app.FragmentActivity getActivity() -> i
+    578:581:android.content.res.Resources getResources() -> j
+    601:601:java.lang.String getString(int) -> a
+    628:628:android.support.v4.app.FragmentManager getFragmentManager() -> k
+    672:672:boolean isDetached() -> l
+    742:742:void onHiddenChanged(boolean) -> b
+    759:764:void setRetainInstance(boolean) -> c
+    767:767:boolean getRetainInstance() -> m
     885:885:void onActivityResult(int,int,android.content.Intent) -> a
     893:893:android.view.LayoutInflater getLayoutInflater(android.os.Bundle) -> b
     939:940:void onInflate(android.app.Activity,android.util.AttributeSet,android.os.Bundle) -> a
     947:948:void onAttach(android.app.Activity) -> a
     954:954:android.view.animation.Animation onCreateAnimation(int,boolean,int) -> a
-    972:973:void onCreate(android.os.Bundle) -> c
+    972:973:void onCreate(android.os.Bundle) -> a
     996:996:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     1010:1010:void onViewCreated(android.view.View,android.os.Bundle) -> a
+    1019:1019:android.view.View getView() -> n
     1036:1037:void onActivityCreated(android.os.Bundle) -> d
-    1051:1052:void onViewStateRestored(android.os.Bundle) -> e
+    1051:1052:void onViewStateRestored(android.os.Bundle) -> g
     1060:1072:void onStart() -> e
-    1081:1082:void onResume() -> f
-    1104:1104:void onSaveInstanceState(android.os.Bundle) -> f
+    1081:1082:void onResume() -> o
+    1104:1104:void onSaveInstanceState(android.os.Bundle) -> e
     1107:1108:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
-    1116:1117:void onPause() -> g
-    1125:1126:void onStop() -> h
+    1116:1117:void onPause() -> p
+    1125:1126:void onStop() -> f
     1129:1130:void onLowMemory() -> onLowMemory
-    1142:1143:void onDestroyView() -> i
-    1150:1160:void onDestroy() -> j
-    1169:1189:void initState() -> k
-    1196:1197:void onDetach() -> l
+    1142:1143:void onDestroyView() -> g
+    1150:1160:void onDestroy() -> q
+    1169:1189:void initState() -> r
+    1196:1197:void onDetach() -> d
     1213:1213:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> a
     1230:1230:void onPrepareOptionsMenu(android.view.Menu) -> a
-    1240:1240:void onDestroyOptionsMenu() -> m
+    1240:1240:void onDestroyOptionsMenu() -> s
     1261:1261:boolean onOptionsItemSelected(android.view.MenuItem) -> a
     1272:1272:void onOptionsMenuClosed(android.view.Menu) -> b
     1292:1293:void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
     1338:1338:boolean onContextItemSelected(android.view.MenuItem) -> b
     1351:1425:void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
-    1438:1448:void instantiateChildFragmentManager() -> n
-    1451:1471:void performCreate(android.os.Bundle) -> g
+    1438:1448:void instantiateChildFragmentManager() -> t
+    1451:1471:void performCreate(android.os.Bundle) -> h
     1475:1478:android.view.View performCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> b
-    1482:1494:void performActivityCreated(android.os.Bundle) -> h
-    1497:1513:void performStart() -> o
-    1516:1530:void performResume() -> p
+    1482:1494:void performActivityCreated(android.os.Bundle) -> i
+    1497:1513:void performStart() -> u
+    1516:1530:void performResume() -> v
     1533:1537:void performConfigurationChanged(android.content.res.Configuration) -> a
-    1540:1544:void performLowMemory() -> q
+    1540:1544:void performLowMemory() -> w
     1556:1566:boolean performCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> b
     1570:1580:boolean performPrepareOptionsMenu(android.view.Menu) -> c
     1584:1596:boolean performOptionsItemSelected(android.view.MenuItem) -> c
     1600:1610:boolean performContextItemSelected(android.view.MenuItem) -> d
     1614:1622:void performOptionsMenuClosed(android.view.Menu) -> d
-    1625:1632:void performSaveInstanceState(android.os.Bundle) -> i
-    1635:1644:void performPause() -> r
-    1647:1656:void performStop() -> s
-    1659:1676:void performReallyStop() -> t
-    1679:1691:void performDestroyView() -> u
-    1694:1703:void performDestroy() -> v
-android.support.v4.app.Fragment$1 -> android.support.v4.app.o:
+    1625:1632:void performSaveInstanceState(android.os.Bundle) -> j
+    1635:1644:void performPause() -> x
+    1647:1656:void performStop() -> y
+    1659:1676:void performReallyStop() -> z
+    1679:1691:void performDestroyView() -> A
+    1694:1703:void performDestroy() -> B
+android.support.v4.app.Fragment$1 -> android.support.v4.app.p:
     android.support.v4.app.Fragment this$0 -> a
     1442:1445:android.view.View findViewById(int) -> a
-android.support.v4.app.Fragment$InstantiationException -> android.support.v4.app.p:
+android.support.v4.app.Fragment$InstantiationException -> android.support.v4.app.q:
 android.support.v4.app.Fragment$SavedState -> android.support.v4.app.Fragment$SavedState:
     android.os.Bundle mState -> a
     android.os.Parcelable$Creator CREATOR -> CREATOR
     322:322:int describeContents() -> describeContents
     327:328:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-android.support.v4.app.Fragment$SavedState$1 -> android.support.v4.app.q:
+android.support.v4.app.Fragment$SavedState$1 -> android.support.v4.app.r:
     333:333:android.support.v4.app.Fragment$SavedState createFromParcel(android.os.Parcel) -> a
     337:337:android.support.v4.app.Fragment$SavedState[] newArray(int) -> a
     331:331:java.lang.Object[] newArray(int) -> newArray
     331:331:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-android.support.v4.app.FragmentActivity -> android.support.v4.app.r:
+android.support.v4.app.FragmentActivity -> android.support.v4.app.s:
     android.os.Handler mHandler -> a
     android.support.v4.app.FragmentManagerImpl mFragments -> b
     android.support.v4.app.FragmentContainer mContainer -> c
@@ -309,26 +345,34 @@ android.support.v4.app.FragmentActivity -> android.support.v4.app.r:
     767:773:void doReallyStop(boolean) -> a
     783:795:void onReallyStop() -> d
     805:805:void onAttachFragment(android.support.v4.app.Fragment) -> a
+    812:812:android.support.v4.app.FragmentManager getSupportFragmentManager() -> e
     821:825:void startActivityForResult(android.content.Intent,int) -> startActivityForResult
     844:851:void invalidateSupportFragment(java.lang.String) -> a
     870:882:android.support.v4.app.LoaderManagerImpl getLoaderManager(java.lang.String,boolean,boolean) -> a
-android.support.v4.app.FragmentActivity$FragmentTag -> android.support.v4.app.s:
+android.support.v4.app.FragmentActivity$1 -> android.support.v4.app.t:
+    android.support.v4.app.FragmentActivity this$0 -> a
+    89:102:void handleMessage(android.os.Message) -> handleMessage
+android.support.v4.app.FragmentActivity$2 -> android.support.v4.app.u:
+    android.support.v4.app.FragmentActivity this$0 -> a
+    109:109:android.view.View findViewById(int) -> a
+android.support.v4.app.FragmentActivity$FragmentTag -> android.support.v4.app.v:
     int[] Fragment -> a
-android.support.v4.app.FragmentActivity$NonConfigurationInstances -> android.support.v4.app.t:
+android.support.v4.app.FragmentActivity$NonConfigurationInstances -> android.support.v4.app.w:
     java.lang.Object activity -> a
     java.lang.Object custom -> b
     java.util.HashMap children -> c
     java.util.ArrayList fragments -> d
     java.util.HashMap loaders -> e
-android.support.v4.app.FragmentContainer -> android.support.v4.app.u:
+android.support.v4.app.FragmentContainer -> android.support.v4.app.x:
     android.view.View findViewById(int) -> a
-android.support.v4.app.FragmentManager -> android.support.v4.app.v:
+android.support.v4.app.FragmentManager -> android.support.v4.app.y:
     android.support.v4.app.FragmentTransaction beginTransaction() -> a
     boolean executePendingTransactions() -> b
     android.support.v4.app.Fragment findFragmentByTag(java.lang.String) -> a
-android.support.v4.app.FragmentManager$OnBackStackChangedListener -> android.support.v4.app.w:
+    void popBackStack(int,int) -> a
+android.support.v4.app.FragmentManager$OnBackStackChangedListener -> android.support.v4.app.z:
     void onBackStackChanged() -> a
-android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.x:
+android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.aa:
     boolean DEBUG -> a
     boolean HONEYCOMB -> b
     java.util.ArrayList mPendingActions -> c
@@ -362,6 +406,7 @@ android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.x:
     467:467:android.support.v4.app.FragmentTransaction beginTransaction() -> a
     472:472:boolean executePendingTransactions() -> b
     486:488:boolean popBackStackImmediate() -> c
+    509:517:void popBackStack(int,int) -> a
     556:561:void putFragment(android.os.Bundle,java.lang.String,android.support.v4.app.Fragment) -> a
     565:578:android.support.v4.app.Fragment getFragment(android.os.Bundle,java.lang.String) -> a
     601:611:java.lang.String toString() -> toString
@@ -419,10 +464,15 @@ android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.x:
     2018:2026:void dispatchOptionsMenuClosed(android.view.Menu) -> b
     2029:2041:int reverseTransit(int) -> c
     2053:2065:int transitToStyleIndex(int,boolean) -> b
-android.support.v4.app.FragmentManagerImpl$1 -> android.support.v4.app.y:
+android.support.v4.app.FragmentManagerImpl$1 -> android.support.v4.app.ab:
     android.support.v4.app.FragmentManagerImpl this$0 -> a
     440:441:void run() -> run
-android.support.v4.app.FragmentManagerImpl$5 -> android.support.v4.app.z:
+android.support.v4.app.FragmentManagerImpl$4 -> android.support.v4.app.ac:
+    int val$id -> a
+    int val$flags -> b
+    android.support.v4.app.FragmentManagerImpl this$0 -> c
+    514:515:void run() -> run
+android.support.v4.app.FragmentManagerImpl$5 -> android.support.v4.app.ad:
     android.support.v4.app.Fragment val$fragment -> a
     android.support.v4.app.FragmentManagerImpl this$0 -> b
     1010:1015:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
@@ -435,7 +485,7 @@ android.support.v4.app.FragmentManagerState -> android.support.v4.app.FragmentMa
     android.os.Parcelable$Creator CREATOR -> CREATOR
     364:364:int describeContents() -> describeContents
     368:371:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-android.support.v4.app.FragmentManagerState$1 -> android.support.v4.app.aa:
+android.support.v4.app.FragmentManagerState$1 -> android.support.v4.app.ae:
     376:376:android.support.v4.app.FragmentManagerState createFromParcel(android.os.Parcel) -> a
     380:380:android.support.v4.app.FragmentManagerState[] newArray(int) -> a
     374:374:java.lang.Object[] newArray(int) -> newArray
@@ -456,7 +506,7 @@ android.support.v4.app.FragmentState -> android.support.v4.app.FragmentState:
     89:116:android.support.v4.app.Fragment instantiate(android.support.v4.app.FragmentActivity,android.support.v4.app.Fragment) -> a
     120:120:int describeContents() -> describeContents
     124:134:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-android.support.v4.app.FragmentState$1 -> android.support.v4.app.ab:
+android.support.v4.app.FragmentState$1 -> android.support.v4.app.af:
     139:139:android.support.v4.app.FragmentState createFromParcel(android.os.Parcel) -> a
     143:143:android.support.v4.app.FragmentState[] newArray(int) -> a
     137:137:java.lang.Object[] newArray(int) -> newArray
@@ -477,18 +527,18 @@ android.support.v4.app.FragmentTabHost -> android.support.v4.app.FragmentTabHost
     299:302:void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
     306:315:void onTabChanged(java.lang.String) -> onTabChanged
     318:349:android.support.v4.app.FragmentTransaction doTabChanged(java.lang.String,android.support.v4.app.FragmentTransaction) -> a
-android.support.v4.app.FragmentTabHost$1 -> android.support.v4.app.ac:
+android.support.v4.app.FragmentTabHost$1 -> android.support.v4.app.ag:
 android.support.v4.app.FragmentTabHost$SavedState -> android.support.v4.app.FragmentTabHost$SavedState:
     java.lang.String curTab -> a
     android.os.Parcelable$Creator CREATOR -> CREATOR
     104:106:void writeToParcel(android.os.Parcel,int) -> writeToParcel
     110:110:java.lang.String toString() -> toString
-android.support.v4.app.FragmentTabHost$SavedState$1 -> android.support.v4.app.ad:
+android.support.v4.app.FragmentTabHost$SavedState$1 -> android.support.v4.app.ah:
     118:118:android.support.v4.app.FragmentTabHost$SavedState createFromParcel(android.os.Parcel) -> a
     122:122:android.support.v4.app.FragmentTabHost$SavedState[] newArray(int) -> a
     116:116:java.lang.Object[] newArray(int) -> newArray
     116:116:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-android.support.v4.app.FragmentTabHost$TabInfo -> android.support.v4.app.ae:
+android.support.v4.app.FragmentTabHost$TabInfo -> android.support.v4.app.ai:
     java.lang.String tag -> a
     java.lang.Class clss -> b
     android.os.Bundle args -> c
@@ -498,18 +548,21 @@ android.support.v4.app.FragmentTabHost$TabInfo -> android.support.v4.app.ae:
     61:61:java.lang.String access$200(android.support.v4.app.FragmentTabHost$TabInfo) -> b
     61:61:java.lang.Class access$300(android.support.v4.app.FragmentTabHost$TabInfo) -> c
     61:61:android.os.Bundle access$400(android.support.v4.app.FragmentTabHost$TabInfo) -> d
-android.support.v4.app.FragmentTransaction -> android.support.v4.app.af:
+android.support.v4.app.FragmentTransaction -> android.support.v4.app.aj:
+    android.support.v4.app.FragmentTransaction add(android.support.v4.app.Fragment,java.lang.String) -> a
     android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String) -> a
-    android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> a
-    android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> b
+    android.support.v4.app.FragmentTransaction remove(android.support.v4.app.Fragment) -> a
+    android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> b
+    android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> c
     int commit() -> a
-android.support.v4.app.LoaderManager -> android.support.v4.app.ag:
+    int commitAllowingStateLoss() -> b
+android.support.v4.app.LoaderManager -> android.support.v4.app.ak:
     184:184:boolean hasRunningLoaders() -> a
-android.support.v4.app.LoaderManager$LoaderCallbacks -> android.support.v4.app.ah:
+android.support.v4.app.LoaderManager$LoaderCallbacks -> android.support.v4.app.al:
     android.support.v4.content.Loader onCreateLoader(int,android.os.Bundle) -> a
     void onLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
     void onLoaderReset(android.support.v4.content.Loader) -> a
-android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.ai:
+android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.am:
     boolean DEBUG -> a
     android.support.v4.util.SparseArrayCompat mLoaders -> b
     android.support.v4.util.SparseArrayCompat mInactiveLoaders -> c
@@ -528,7 +581,7 @@ android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.ai:
     790:796:java.lang.String toString() -> toString
     801:821:void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
     825:831:boolean hasRunningLoaders() -> a
-android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.aj:
+android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.an:
     int mId -> a
     android.os.Bundle mArgs -> b
     android.support.v4.app.LoaderManager$LoaderCallbacks mCallbacks -> c
@@ -553,11 +606,11 @@ android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.aj
     418:435:void callOnLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
     439:447:java.lang.String toString() -> toString
     451:474:void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
-android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.ak:
+android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.ao:
     32:41:android.view.ViewGroup wrap(android.view.View) -> a
     53:54:void dispatchSaveInstanceState(android.util.SparseArray) -> dispatchSaveInstanceState
     61:62:void dispatchRestoreInstanceState(android.util.SparseArray) -> dispatchRestoreInstanceState
-android.support.v4.app.SuperNotCalledException -> android.support.v4.app.al:
+android.support.v4.app.SuperNotCalledException -> android.support.v4.app.ap:
 android.support.v4.content.Loader -> android.support.v4.a.a:
     int mId -> a
     android.support.v4.content.Loader$OnLoadCompleteListener mListener -> b
@@ -1824,21 +1877,41 @@ com.almeros.android.multitouch.gesturedetectors.TwoFingerGestureDetector -> com.
     106:110:float getRawX(android.view.MotionEvent,int) -> a
     121:125:float getRawY(android.view.MotionEvent,int) -> b
     137:162:boolean isSloppyGesture(android.view.MotionEvent) -> c
-com.nineoldandroids.animation.Animator -> com.b.a.a:
+com.google.gdata.util.common.base.PercentEscaper -> com.b.a.a.a.a.a:
+    char[] URI_ESCAPED_SPACE -> a
+    char[] UPPER_HEX_DIGITS -> b
+    boolean plusForSpace -> c
+    boolean[] safeOctets -> d
+    141:159:boolean[] createSafeOctets(java.lang.String) -> b
+    169:175:int nextEscapeIndex(java.lang.CharSequence,int,int) -> a
+    185:192:java.lang.String escape(java.lang.String) -> a
+    202:271:char[] escape(int) -> a
+com.google.gdata.util.common.base.UnicodeEscaper -> com.b.a.a.a.a.b:
+    java.lang.ThreadLocal DEST_TL -> a
+    char[] escape(int) -> a
+    108:116:int nextEscapeIndex(java.lang.CharSequence,int,int) -> a
+    143:145:java.lang.String escape(java.lang.String) -> a
+    166:216:java.lang.String escapeSlow(java.lang.String,int) -> a
+    408:433:int codePointAt(java.lang.CharSequence,int,int) -> b
+    442:446:char[] growBuffer(char[],int,int) -> a
+com.google.gdata.util.common.base.UnicodeEscaper$2 -> com.b.a.a.a.a.c:
+    457:457:char[] initialValue() -> a
+    454:454:java.lang.Object initialValue() -> initialValue
+com.nineoldandroids.animation.Animator -> com.c.a.a:
     java.util.ArrayList mListeners -> a
     48:48:void start() -> a
     60:60:void cancel() -> b
     191:202:com.nineoldandroids.animation.Animator clone() -> c
     27:27:java.lang.Object clone() -> clone
-com.nineoldandroids.animation.Animator$AnimatorListener -> com.b.a.b:
+com.nineoldandroids.animation.Animator$AnimatorListener -> com.c.a.b:
     void onAnimationStart(com.nineoldandroids.animation.Animator) -> a
     void onAnimationEnd(com.nineoldandroids.animation.Animator) -> b
     void onAnimationCancel(com.nineoldandroids.animation.Animator) -> c
     void onAnimationRepeat(com.nineoldandroids.animation.Animator) -> d
-com.nineoldandroids.animation.FloatEvaluator -> com.b.a.c:
+com.nineoldandroids.animation.FloatEvaluator -> com.c.a.c:
     39:40:java.lang.Float evaluate(float,java.lang.Number,java.lang.Number) -> a
     22:22:java.lang.Object evaluate(float,java.lang.Object,java.lang.Object) -> a
-com.nineoldandroids.animation.FloatKeyframeSet -> com.b.a.d:
+com.nineoldandroids.animation.FloatKeyframeSet -> com.c.a.d:
     float firstValue -> g
     float lastValue -> h
     float deltaValue -> i
@@ -1848,10 +1921,10 @@ com.nineoldandroids.animation.FloatKeyframeSet -> com.b.a.d:
     63:132:float getFloatValue(float) -> b
     35:35:com.nineoldandroids.animation.KeyframeSet clone() -> b
     35:35:java.lang.Object clone() -> clone
-com.nineoldandroids.animation.IntEvaluator -> com.b.a.e:
+com.nineoldandroids.animation.IntEvaluator -> com.c.a.e:
     39:40:java.lang.Integer evaluate(float,java.lang.Integer,java.lang.Integer) -> a
     22:22:java.lang.Object evaluate(float,java.lang.Object,java.lang.Object) -> a
-com.nineoldandroids.animation.Keyframe -> com.b.a.f:
+com.nineoldandroids.animation.Keyframe -> com.c.a.f:
     float mFraction -> a
     java.lang.Class mValueType -> b
     android.view.animation.Interpolator mInterpolator -> d
@@ -1864,14 +1937,14 @@ com.nineoldandroids.animation.Keyframe -> com.b.a.f:
     221:222:void setInterpolator(android.view.animation.Interpolator) -> a
     com.nineoldandroids.animation.Keyframe clone() -> d
     38:38:java.lang.Object clone() -> clone
-com.nineoldandroids.animation.Keyframe$FloatKeyframe -> com.b.a.g:
+com.nineoldandroids.animation.Keyframe$FloatKeyframe -> com.c.a.g:
     float mValue -> d
     339:339:float getFloatValue() -> e
     343:343:java.lang.Object getValue() -> a
     355:357:com.nineoldandroids.animation.Keyframe$FloatKeyframe clone() -> f
     320:320:com.nineoldandroids.animation.Keyframe clone() -> d
     320:320:java.lang.Object clone() -> clone
-com.nineoldandroids.animation.KeyframeSet -> com.b.a.h:
+com.nineoldandroids.animation.KeyframeSet -> com.c.a.h:
     int mNumKeyframes -> a
     com.nineoldandroids.animation.Keyframe mFirstKeyframe -> b
     com.nineoldandroids.animation.Keyframe mLastKeyframe -> c
@@ -1884,7 +1957,7 @@ com.nineoldandroids.animation.KeyframeSet -> com.b.a.h:
     169:216:java.lang.Object getValue(float) -> a
     221:225:java.lang.String toString() -> toString
     33:33:java.lang.Object clone() -> clone
-com.nineoldandroids.animation.PropertyValuesHolder -> com.b.a.i:
+com.nineoldandroids.animation.PropertyValuesHolder -> com.c.a.i:
     java.lang.String mPropertyName -> a
     com.nineoldandroids.util.Property mProperty -> b
     java.lang.reflect.Method mSetter -> c
@@ -1910,8 +1983,8 @@ com.nineoldandroids.animation.PropertyValuesHolder -> com.b.a.i:
     724:724:java.lang.String getPropertyName() -> c
     739:739:java.lang.String toString() -> toString
     36:36:java.lang.Object clone() -> clone
-com.nineoldandroids.animation.PropertyValuesHolder$1 -> com.b.a.j:
-com.nineoldandroids.animation.PropertyValuesHolder$FloatPropertyValuesHolder -> com.b.a.k:
+com.nineoldandroids.animation.PropertyValuesHolder$1 -> com.c.a.j:
+com.nineoldandroids.animation.PropertyValuesHolder$FloatPropertyValuesHolder -> com.c.a.k:
     com.nineoldandroids.animation.FloatKeyframeSet mFloatKeyframeSet -> h
     float mFloatAnimatedValue -> i
     945:947:void setFloatValues(float[]) -> a
@@ -1919,9 +1992,9 @@ com.nineoldandroids.animation.PropertyValuesHolder$FloatPropertyValuesHolder -> 
     961:963:com.nineoldandroids.animation.PropertyValuesHolder$FloatPropertyValuesHolder clone() -> d
     902:902:com.nineoldandroids.animation.PropertyValuesHolder clone() -> a
     902:902:java.lang.Object clone() -> clone
-com.nineoldandroids.animation.TypeEvaluator -> com.b.a.l:
+com.nineoldandroids.animation.TypeEvaluator -> com.c.a.l:
     java.lang.Object evaluate(float,java.lang.Object,java.lang.Object) -> a
-com.nineoldandroids.animation.ValueAnimator -> com.b.a.m:
+com.nineoldandroids.animation.ValueAnimator -> com.c.a.m:
     long mStartTime -> b
     long mSeekTime -> c
     java.lang.ThreadLocal sAnimationHandler -> h
@@ -1983,26 +2056,26 @@ com.nineoldandroids.animation.ValueAnimator -> com.b.a.m:
     43:43:boolean access$802(com.nineoldandroids.animation.ValueAnimator,boolean) -> a
     43:43:void access$900(com.nineoldandroids.animation.ValueAnimator) -> c
     43:43:long access$1000() -> l
-com.nineoldandroids.animation.ValueAnimator$1 -> com.b.a.n:
+com.nineoldandroids.animation.ValueAnimator$1 -> com.c.a.n:
     102:102:java.util.ArrayList initialValue() -> a
     99:99:java.lang.Object initialValue() -> initialValue
-com.nineoldandroids.animation.ValueAnimator$2 -> com.b.a.o:
+com.nineoldandroids.animation.ValueAnimator$2 -> com.c.a.o:
     111:111:java.util.ArrayList initialValue() -> a
     108:108:java.lang.Object initialValue() -> initialValue
-com.nineoldandroids.animation.ValueAnimator$3 -> com.b.a.p:
+com.nineoldandroids.animation.ValueAnimator$3 -> com.c.a.p:
     123:123:java.util.ArrayList initialValue() -> a
     120:120:java.lang.Object initialValue() -> initialValue
-com.nineoldandroids.animation.ValueAnimator$4 -> com.b.a.q:
+com.nineoldandroids.animation.ValueAnimator$4 -> com.c.a.q:
     131:131:java.util.ArrayList initialValue() -> a
     128:128:java.lang.Object initialValue() -> initialValue
-com.nineoldandroids.animation.ValueAnimator$5 -> com.b.a.r:
+com.nineoldandroids.animation.ValueAnimator$5 -> com.c.a.r:
     139:139:java.util.ArrayList initialValue() -> a
     136:136:java.lang.Object initialValue() -> initialValue
-com.nineoldandroids.animation.ValueAnimator$AnimationHandler -> com.b.a.s:
+com.nineoldandroids.animation.ValueAnimator$AnimationHandler -> com.c.a.s:
     585:682:void handleMessage(android.os.Message) -> handleMessage
-com.nineoldandroids.animation.ValueAnimator$AnimatorUpdateListener -> com.b.a.t:
+com.nineoldandroids.animation.ValueAnimator$AnimatorUpdateListener -> com.c.a.t:
     void onAnimationUpdate(com.nineoldandroids.animation.ValueAnimator) -> a
-com.nineoldandroids.util.Property -> com.b.b.a:
+com.nineoldandroids.util.Property -> com.c.b.a:
 com.roboto.R -> com.roboto.a:
 com.roboto.R$drawable -> com.roboto.b:
     int action_export -> action_export
@@ -2082,6 +2155,16 @@ com.roboto.R$drawable -> com.roboto.b:
     int sun_flower -> sun_flower
     int sunflower -> sunflower
     int texturesmall -> texturesmall
+    int uv_add -> uv_add
+    int uv_admin_response -> uv_admin_response
+    int uv_article -> uv_article
+    int uv_clickable -> uv_clickable
+    int uv_comment -> uv_comment
+    int uv_contact -> uv_contact
+    int uv_heart -> uv_heart
+    int uv_idea -> uv_idea
+    int uv_list_separator -> uv_list_separator
+    int uv_list_separator_light -> uv_list_separator_light
     int view_reads -> view_reads
     int wood -> wood
 com.roboto.R$id -> com.roboto.c:
@@ -2133,6 +2216,7 @@ com.roboto.R$id -> com.roboto.c:
     int menu_edit -> menu_edit
     int menu_export -> menu_export
     int menu_full_screen -> menu_full_screen
+    int menu_help_and_feedback -> menu_help_and_feedback
     int menu_hide_read -> menu_hide_read
     int menu_import -> menu_import
     int menu_mark_as_unread -> menu_mark_as_unread
@@ -2172,6 +2256,56 @@ com.roboto.R$id -> com.roboto.c:
     int tv_title -> tv_title
     int unread_count -> unread_count
     int url_textview -> url_textview
+    int uv_action_contact -> uv_action_contact
+    int uv_action_search -> uv_action_search
+    int uv_admin_avatar -> uv_admin_avatar
+    int uv_admin_name -> uv_admin_name
+    int uv_admin_response -> uv_admin_response
+    int uv_avatar -> uv_avatar
+    int uv_comment_count -> uv_comment_count
+    int uv_comment_edit_text -> uv_comment_edit_text
+    int uv_contact_button -> uv_contact_button
+    int uv_container -> uv_container
+    int uv_creator -> uv_creator
+    int uv_date -> uv_date
+    int uv_detail -> uv_detail
+    int uv_divider -> uv_divider
+    int uv_email -> uv_email
+    int uv_header_text -> uv_header_text
+    int uv_helpful_button -> uv_helpful_button
+    int uv_helpful_section -> uv_helpful_section
+    int uv_icon -> uv_icon
+    int uv_list -> uv_list
+    int uv_menu_search -> uv_menu_search
+    int uv_name -> uv_name
+    int uv_new_idea -> uv_new_idea
+    int uv_password -> uv_password
+    int uv_post_comment -> uv_post_comment
+    int uv_response_date -> uv_response_date
+    int uv_response_divider -> uv_response_divider
+    int uv_response_status -> uv_response_status
+    int uv_response_text -> uv_response_text
+    int uv_select_field -> uv_select_field
+    int uv_signin_email -> uv_signin_email
+    int uv_signin_forgot_password -> uv_signin_forgot_password
+    int uv_signin_name -> uv_signin_name
+    int uv_signin_password -> uv_signin_password
+    int uv_signin_password_fields -> uv_signin_password_fields
+    int uv_status -> uv_status
+    int uv_subscribe -> uv_subscribe
+    int uv_subscribe_checkbox -> uv_subscribe_checkbox
+    int uv_subscriber_count -> uv_subscriber_count
+    int uv_suggestion_details -> uv_suggestion_details
+    int uv_suggestion_status -> uv_suggestion_status
+    int uv_suggestion_status_color -> uv_suggestion_status_color
+    int uv_suggestion_title -> uv_suggestion_title
+    int uv_text -> uv_text
+    int uv_text2 -> uv_text2
+    int uv_text_field -> uv_text_field
+    int uv_title -> uv_title
+    int uv_unhelpful_button -> uv_unhelpful_button
+    int uv_view_flipper -> uv_view_flipper
+    int uv_webview -> uv_webview
     int webView -> webView
 com.roboto.R$layout -> com.roboto.d:
     int action_item_horizontal -> action_item_horizontal
@@ -2201,6 +2335,28 @@ com.roboto.R$layout -> com.roboto.d:
     int popup_vertical_dictionary_meaning -> popup_vertical_dictionary_meaning
     int selection_drag_layer -> selection_drag_layer
     int touch_main -> touch_main
+    int uv_article_layout -> uv_article_layout
+    int uv_comment_dialog -> uv_comment_dialog
+    int uv_comment_item -> uv_comment_item
+    int uv_contact_button_item -> uv_contact_button_item
+    int uv_contact_text_item -> uv_contact_text_item
+    int uv_divider -> uv_divider
+    int uv_header_item -> uv_header_item
+    int uv_header_item_light -> uv_header_item_light
+    int uv_header_item_light_no_padding -> uv_header_item_light_no_padding
+    int uv_idea_dialog -> uv_idea_dialog
+    int uv_idea_dialog_header -> uv_idea_dialog_header
+    int uv_idea_help_item -> uv_idea_help_item
+    int uv_instant_answer_item -> uv_instant_answer_item
+    int uv_list_content -> uv_list_content
+    int uv_loading_item -> uv_loading_item
+    int uv_password_dialog -> uv_password_dialog
+    int uv_select_field_item -> uv_select_field_item
+    int uv_signin_layout -> uv_signin_layout
+    int uv_subscribe_dialog -> uv_subscribe_dialog
+    int uv_suggestion_item -> uv_suggestion_item
+    int uv_text_field_item -> uv_text_field_item
+    int uv_text_item -> uv_text_item
     int widget -> widget
     int widget_config -> widget_config
     int widget_item -> widget_item
@@ -2213,13 +2369,16 @@ com.roboto.R$menu -> com.roboto.e:
     int feed_context_menu -> feed_context_menu
     int feed_list -> feed_list
     int main -> main
+    int uv_forum -> uv_forum
+    int uv_portal -> uv_portal
 com.roboto.app.RobotoActivity -> com.roboto.a.a:
     16:18:void onCreate(android.os.Bundle) -> onCreate
     24:25:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
 com.roboto.app.RobotoApplication -> com.roboto.a.b:
     android.content.Context context -> a
-    19:21:void onCreate() -> onCreate
-    24:24:android.content.Context getContext() -> a
+    21:24:void onCreate() -> onCreate
+    28:30:void initializeUserVoice() -> b
+    33:33:android.content.Context getContext() -> a
 com.roboto.app.TouchActivity -> com.roboto.a.c:
     java.lang.String LOG_TAG -> a
     android.graphics.Matrix mMatrix -> b
@@ -2408,6 +2567,1636 @@ com.roboto.util.AndroidUtils -> com.roboto.d.a:
     24:27:void openUrlInExternalBrowser(java.lang.String) -> a
 com.roboto.util.SizeUtil -> com.roboto.d.b:
     15:18:java.lang.String getSizeInMB(int) -> a
+com.uservoice.uservoicesdk.Config -> com.uservoice.uservoicesdk.a:
+    java.lang.String site -> a
+    java.lang.String key -> b
+    java.lang.String secret -> c
+    java.lang.String email -> d
+    java.lang.String name -> e
+    java.lang.String guid -> f
+    java.util.Map customFields -> g
+    int topicId -> h
+    int forumId -> i
+    boolean showForum -> j
+    boolean showPostIdea -> k
+    boolean showContactUs -> l
+    boolean showKnowledgeBase -> m
+    java.util.Map userTraits -> n
+    34:34:java.lang.String getSite() -> a
+    38:38:java.lang.String getKey() -> b
+    42:42:java.lang.String getSecret() -> c
+    46:46:java.lang.String getEmail() -> d
+    50:50:java.lang.String getName() -> e
+    54:54:java.lang.String getGuid() -> f
+    58:58:java.util.Map getCustomFields() -> g
+    66:66:int getTopicId() -> h
+    74:76:int getForumId() -> i
+    84:86:boolean shouldShowForum() -> j
+    94:96:boolean shouldShowPostIdea() -> k
+    104:106:boolean shouldShowContactUs() -> l
+    114:116:boolean shouldShowKnowledgeBase() -> m
+    173:173:java.util.Map getUserTraits() -> n
+com.uservoice.uservoicesdk.R -> com.uservoice.uservoicesdk.b:
+com.uservoice.uservoicesdk.R$drawable -> com.uservoice.uservoicesdk.c:
+    int action_export -> action_export
+    int action_import -> action_import
+    int action_item_btn -> action_item_btn
+    int action_item_selected -> action_item_selected
+    int action_search -> action_search
+    int action_settings -> action_settings
+    int add_group -> add_group
+    int arrow_down -> arrow_down
+    int arrow_up -> arrow_up
+    int bar10 -> bar10
+    int bar12 -> bar12
+    int bar4 -> bar4
+    int bar5 -> bar5
+    int bar6 -> bar6
+    int bar7 -> bar7
+    int bar8 -> bar8
+    int bar9 -> bar9
+    int basketball -> basketball
+    int bkg1 -> bkg1
+    int bkg2 -> bkg2
+    int bkg3 -> bkg3
+    int bkg4 -> bkg4
+    int bkg5 -> bkg5
+    int bkg6 -> bkg6
+    int cancel_full_screen -> cancel_full_screen
+    int content_copy -> content_copy
+    int content_discard -> content_discard
+    int content_edit -> content_edit
+    int content_new -> content_new
+    int contextmenu_bkg -> contextmenu_bkg
+    int contextmenu_bkg2 -> contextmenu_bkg2
+    int contextmenu_bkg3 -> contextmenu_bkg3
+    int dimmed_content_new -> dimmed_content_new
+    int dimmed_rating_important -> dimmed_rating_important
+    int dimmed_rating_not_important -> dimmed_rating_not_important
+    int drawer_shadow -> drawer_shadow
+    int droid -> droid
+    int droid2 -> droid2
+    int earth -> earth
+    int full_screen -> full_screen
+    int group_collapsed -> group_collapsed
+    int group_expanded -> group_expanded
+    int hide_reads -> hide_reads
+    int ic_drawer -> ic_drawer
+    int ic_launcher -> ic_launcher
+    int ic_navigation_drawer -> ic_navigation_drawer
+    int ic_statusbar_rss -> ic_statusbar_rss
+    int ic_statusbar_rss1 -> ic_statusbar_rss1
+    int icon -> icon
+    int leaf -> leaf
+    int leaf1 -> leaf1
+    int leaf2 -> leaf2
+    int logo -> logo
+    int logo_large -> logo_large
+    int menu_eraser -> menu_eraser
+    int menu_info -> menu_info
+    int menu_search -> menu_search
+    int navigation_back -> navigation_back
+    int navigation_forward -> navigation_forward
+    int new_bk -> new_bk
+    int popup -> popup
+    int radialback -> radialback
+    int radialback_new -> radialback_new
+    int rating_important -> rating_important
+    int rating_not_important -> rating_not_important
+    int read_all -> read_all
+    int red_bkg -> red_bkg
+    int refresh -> refresh
+    int round_background -> round_background
+    int selection_handle -> selection_handle
+    int sky_blue_with_pebbles_bkg -> sky_blue_with_pebbles_bkg
+    int social_share -> social_share
+    int sort -> sort
+    int stars -> stars
+    int sun_flower -> sun_flower
+    int sunflower -> sunflower
+    int texturesmall -> texturesmall
+    int uv_add -> uv_add
+    int uv_admin_response -> uv_admin_response
+    int uv_article -> uv_article
+    int uv_clickable -> uv_clickable
+    int uv_comment -> uv_comment
+    int uv_contact -> uv_contact
+    int uv_heart -> uv_heart
+    int uv_idea -> uv_idea
+    int uv_list_separator -> uv_list_separator
+    int uv_list_separator_light -> uv_list_separator_light
+    int view_reads -> view_reads
+    int wood -> wood
+com.uservoice.uservoicesdk.R$id -> com.uservoice.uservoicesdk.d:
+    int accelerated -> accelerated
+    int activity_bar -> activity_bar
+    int activity_frame -> activity_frame
+    int applyContentRadio -> applyContentRadio
+    int applyTitleRadio -> applyTitleRadio
+    int arrow_down -> arrow_down
+    int arrow_up -> arrow_up
+    int backBtn -> backBtn
+    int button_layout -> button_layout
+    int byTopic -> byTopic
+    int byWebSearch -> byWebSearch
+    int byYoutube -> byYoutube
+    int cancelFullscreenBtn -> cancelFullscreenBtn
+    int container -> container
+    int content_flipper -> content_flipper
+    int details -> details
+    int download -> download
+    int dragLayer -> dragLayer
+    int drawer_layout -> drawer_layout
+    int droid_flakes_parent -> droid_flakes_parent
+    int endHandle -> endHandle
+    int feed_icon -> feed_icon
+    int feed_title -> feed_title
+    int feed_url -> feed_url
+    int feedsListView -> feedsListView
+    int filterText -> filterText
+    int filter_textview -> filter_textview
+    int filters_layout -> filters_layout
+    int forwardBtn -> forwardBtn
+    int fragment -> fragment
+    int icon -> icon
+    int imageView -> imageView
+    int imageView1 -> imageView1
+    int indicator -> indicator
+    int iv_icon -> iv_icon
+    int left_drawer -> left_drawer
+    int less -> less
+    int logo -> logo
+    int main_content -> main_content
+    int main_content_parent -> main_content_parent
+    int menu_add_feed -> menu_add_feed
+    int menu_add_group -> menu_add_group
+    int menu_all_read -> menu_all_read
+    int menu_copy_clipboard -> menu_copy_clipboard
+    int menu_delete -> menu_delete
+    int menu_edit -> menu_edit
+    int menu_export -> menu_export
+    int menu_full_screen -> menu_full_screen
+    int menu_help_and_feedback -> menu_help_and_feedback
+    int menu_hide_read -> menu_hide_read
+    int menu_import -> menu_import
+    int menu_mark_as_unread -> menu_mark_as_unread
+    int menu_refresh -> menu_refresh
+    int menu_settings_main -> menu_settings_main
+    int menu_share -> menu_share
+    int menu_share_starred -> menu_share_starred
+    int menu_star -> menu_star
+    int more -> more
+    int name_textview -> name_textview
+    int popup_actions_view -> popup_actions_view
+    int popup_dictionary_meaning_view -> popup_dictionary_meaning_view
+    int popup_download_status_download_button -> popup_download_status_download_button
+    int popup_download_status_information -> popup_download_status_information
+    int popup_download_status_layout_root -> popup_download_status_layout_root
+    int popup_download_status_progress_bar -> popup_download_status_progress_bar
+    int popup_download_status_title -> popup_download_status_title
+    int popup_download_status_view -> popup_download_status_view
+    int radioGroup -> radioGroup
+    int regexCheckBox -> regexCheckBox
+    int retrieve_fulltext -> retrieve_fulltext
+    int roboto_logo_parent -> roboto_logo_parent
+    int root_master_of_all -> root_master_of_all
+    int save_button -> save_button
+    int scroller -> scroller
+    int searchButton -> searchButton
+    int searchText -> searchText
+    int seekbar_blue -> seekbar_blue
+    int seekbar_green -> seekbar_green
+    int seekbar_red -> seekbar_red
+    int seekbar_transparency -> seekbar_transparency
+    int separator -> separator
+    int sortItem -> sortItem
+    int startHandle -> startHandle
+    int touch_gestures_parent -> touch_gestures_parent
+    int tracks -> tracks
+    int tv_title -> tv_title
+    int unread_count -> unread_count
+    int url_textview -> url_textview
+    int uv_action_contact -> uv_action_contact
+    int uv_action_search -> uv_action_search
+    int uv_admin_avatar -> uv_admin_avatar
+    int uv_admin_name -> uv_admin_name
+    int uv_admin_response -> uv_admin_response
+    int uv_avatar -> uv_avatar
+    int uv_comment_count -> uv_comment_count
+    int uv_comment_edit_text -> uv_comment_edit_text
+    int uv_contact_button -> uv_contact_button
+    int uv_container -> uv_container
+    int uv_creator -> uv_creator
+    int uv_date -> uv_date
+    int uv_detail -> uv_detail
+    int uv_divider -> uv_divider
+    int uv_email -> uv_email
+    int uv_header_text -> uv_header_text
+    int uv_helpful_button -> uv_helpful_button
+    int uv_helpful_section -> uv_helpful_section
+    int uv_icon -> uv_icon
+    int uv_list -> uv_list
+    int uv_menu_search -> uv_menu_search
+    int uv_name -> uv_name
+    int uv_new_idea -> uv_new_idea
+    int uv_password -> uv_password
+    int uv_post_comment -> uv_post_comment
+    int uv_response_date -> uv_response_date
+    int uv_response_divider -> uv_response_divider
+    int uv_response_status -> uv_response_status
+    int uv_response_text -> uv_response_text
+    int uv_select_field -> uv_select_field
+    int uv_signin_email -> uv_signin_email
+    int uv_signin_forgot_password -> uv_signin_forgot_password
+    int uv_signin_name -> uv_signin_name
+    int uv_signin_password -> uv_signin_password
+    int uv_signin_password_fields -> uv_signin_password_fields
+    int uv_status -> uv_status
+    int uv_subscribe -> uv_subscribe
+    int uv_subscribe_checkbox -> uv_subscribe_checkbox
+    int uv_subscriber_count -> uv_subscriber_count
+    int uv_suggestion_details -> uv_suggestion_details
+    int uv_suggestion_status -> uv_suggestion_status
+    int uv_suggestion_status_color -> uv_suggestion_status_color
+    int uv_suggestion_title -> uv_suggestion_title
+    int uv_text -> uv_text
+    int uv_text2 -> uv_text2
+    int uv_text_field -> uv_text_field
+    int uv_title -> uv_title
+    int uv_unhelpful_button -> uv_unhelpful_button
+    int uv_view_flipper -> uv_view_flipper
+    int uv_webview -> uv_webview
+    int webView -> webView
+com.uservoice.uservoicesdk.R$layout -> com.uservoice.uservoicesdk.e:
+    int action_item_horizontal -> action_item_horizontal
+    int action_item_vertical -> action_item_vertical
+    int activity_download -> activity_download
+    int activity_entry -> activity_entry
+    int activity_feed_edit -> activity_feed_edit
+    int activity_main -> activity_main
+    int activity_preferences -> activity_preferences
+    int activity_progress -> activity_progress
+    int dialog_color_transparency_picker -> dialog_color_transparency_picker
+    int dialog_filter_edit -> dialog_filter_edit
+    int dialog_search_feed -> dialog_search_feed
+    int download_status_info -> download_status_info
+    int droidflakes -> droidflakes
+    int fragment_entry_list -> fragment_entry_list
+    int fragment_feed_list -> fragment_feed_list
+    int horiz_separator -> horiz_separator
+    int item_drawer_list -> item_drawer_list
+    int item_entry_list -> item_entry_list
+    int item_feed_list -> item_feed_list
+    int item_search_result -> item_search_result
+    int main -> main
+    int notused_for_flakes -> notused_for_flakes
+    int popup_horizontal -> popup_horizontal
+    int popup_vertical -> popup_vertical
+    int popup_vertical_dictionary_meaning -> popup_vertical_dictionary_meaning
+    int selection_drag_layer -> selection_drag_layer
+    int touch_main -> touch_main
+    int uv_article_layout -> uv_article_layout
+    int uv_comment_dialog -> uv_comment_dialog
+    int uv_comment_item -> uv_comment_item
+    int uv_contact_button_item -> uv_contact_button_item
+    int uv_contact_text_item -> uv_contact_text_item
+    int uv_divider -> uv_divider
+    int uv_header_item -> uv_header_item
+    int uv_header_item_light -> uv_header_item_light
+    int uv_header_item_light_no_padding -> uv_header_item_light_no_padding
+    int uv_idea_dialog -> uv_idea_dialog
+    int uv_idea_dialog_header -> uv_idea_dialog_header
+    int uv_idea_help_item -> uv_idea_help_item
+    int uv_instant_answer_item -> uv_instant_answer_item
+    int uv_list_content -> uv_list_content
+    int uv_loading_item -> uv_loading_item
+    int uv_password_dialog -> uv_password_dialog
+    int uv_select_field_item -> uv_select_field_item
+    int uv_signin_layout -> uv_signin_layout
+    int uv_subscribe_dialog -> uv_subscribe_dialog
+    int uv_suggestion_item -> uv_suggestion_item
+    int uv_text_field_item -> uv_text_field_item
+    int uv_text_item -> uv_text_item
+    int widget -> widget
+    int widget_config -> widget_config
+    int widget_item -> widget_item
+    int widget_preferences -> widget_preferences
+com.uservoice.uservoicesdk.R$menu -> com.uservoice.uservoicesdk.f:
+    int drawer -> drawer
+    int edit_context_menu -> edit_context_menu
+    int entry -> entry
+    int entry_list -> entry_list
+    int feed_context_menu -> feed_context_menu
+    int feed_list -> feed_list
+    int main -> main
+    int uv_forum -> uv_forum
+    int uv_portal -> uv_portal
+com.uservoice.uservoicesdk.R$plurals -> com.uservoice.uservoicesdk.g:
+    int uv_articles -> uv_articles
+    int uv_comments -> uv_comments
+    int uv_ideas -> uv_ideas
+    int uv_number_of_subscribers_format -> uv_number_of_subscribers_format
+    int uv_people -> uv_people
+    int uv_subscribers -> uv_subscribers
+com.uservoice.uservoicesdk.R$string -> com.uservoice.uservoicesdk.h:
+    int action_settings -> action_settings
+    int actionbar_title -> actionbar_title
+    int add_group_title -> add_group_title
+    int all -> all
+    int all_feeds -> all_feeds
+    int app_name -> app_name
+    int blue -> blue
+    int cant_open_link -> cant_open_link
+    int colon -> colon
+    int context_menu_delete -> context_menu_delete
+    int context_menu_edit -> context_menu_edit
+    int context_menu_hide_read -> context_menu_hide_read
+    int context_menu_share_starred -> context_menu_share_starred
+    int context_menu_show_read -> context_menu_show_read
+    int copied_clipboard -> copied_clipboard
+    int download_hint -> download_hint
+    int drawer_close -> drawer_close
+    int drawer_open -> drawer_open
+    int edit_feed_title -> edit_feed_title
+    int edit_group_title -> edit_group_title
+    int error -> error
+    int error_external_storage_not_available -> error_external_storage_not_available
+    int error_feed_error -> error_feed_error
+    int error_feed_export -> error_feed_export
+    int error_feed_import -> error_feed_import
+    int error_feed_process -> error_feed_process
+    int error_feed_url_exists -> error_feed_url_exists
+    int favorites -> favorites
+    int feed_filters -> feed_filters
+    int feed_search -> feed_search
+    int feed_search_by_topic -> feed_search_by_topic
+    int feed_search_by_web_search -> feed_search_by_web_search
+    int feed_search_by_youtube -> feed_search_by_youtube
+    int feed_title -> feed_title
+    int feed_url -> feed_url
+    int feedex_feeds -> feedex_feeds
+    int feeds -> feeds
+    int filter_add_title -> filter_add_title
+    int filter_apply_to_content -> filter_apply_to_content
+    int filter_apply_to_title -> filter_apply_to_title
+    int filter_delete_title -> filter_delete_title
+    int filter_edit_title -> filter_edit_title
+    int filter_is_regex -> filter_is_regex
+    int get_full_text -> get_full_text
+    int green -> green
+    int hello_world -> hello_world
+    int loading -> loading
+    int menu_add_feed -> menu_add_feed
+    int menu_add_group -> menu_add_group
+    int menu_all_read -> menu_all_read
+    int menu_copy_clipboard -> menu_copy_clipboard
+    int menu_export -> menu_export
+    int menu_full_screen -> menu_full_screen
+    int menu_help_and_feedback -> menu_help_and_feedback
+    int menu_import -> menu_import
+    int menu_mark_as_unread -> menu_mark_as_unread
+    int menu_refresh -> menu_refresh
+    int menu_settings -> menu_settings
+    int menu_share -> menu_share
+    int menu_star -> menu_star
+    int menu_unstar -> menu_unstar
+    int message_exported_to -> message_exported_to
+    int network_error -> network_error
+    int never -> never
+    int new_entries -> new_entries
+    int new_feed_title -> new_feed_title
+    int no_entries -> no_entries
+    int no_feeds -> no_feeds
+    int no_filters -> no_filters
+    int no_result -> no_result
+    int optional -> optional
+    int original_text -> original_text
+    int question_delete_feed -> question_delete_feed
+    int question_delete_filter -> question_delete_filter
+    int question_delete_group -> question_delete_group
+    int red -> red
+    int see_enclosure -> see_enclosure
+    int see_link -> see_link
+    int select_file -> select_file
+    int settings_category_content_presentation -> settings_category_content_presentation
+    int settings_category_network -> settings_category_network
+    int settings_category_notifications -> settings_category_notifications
+    int settings_category_refresh -> settings_category_refresh
+    int settings_disable_pictures -> settings_disable_pictures
+    int settings_disable_pictures_description -> settings_disable_pictures_description
+    int settings_fetch_pictures -> settings_fetch_pictures
+    int settings_fetch_pictures_description -> settings_fetch_pictures_description
+    int settings_font_size -> settings_font_size
+    int settings_font_size_description -> settings_font_size_description
+    int settings_keep_time -> settings_keep_time
+    int settings_keep_time_description -> settings_keep_time_description
+    int settings_lighttheme -> settings_lighttheme
+    int settings_lighttheme_description -> settings_lighttheme_description
+    int settings_notifications_enabled -> settings_notifications_enabled
+    int settings_notifications_enabled_description -> settings_notifications_enabled_description
+    int settings_notifications_ringtone -> settings_notifications_ringtone
+    int settings_notifications_ringtone_description -> settings_notifications_ringtone_description
+    int settings_notifications_vibrate -> settings_notifications_vibrate
+    int settings_notifications_vibrate_description -> settings_notifications_vibrate_description
+    int settings_proxy_enabled -> settings_proxy_enabled
+    int settings_proxy_host -> settings_proxy_host
+    int settings_proxy_port -> settings_proxy_port
+    int settings_proxy_type -> settings_proxy_type
+    int settings_proxy_wifi_only -> settings_proxy_wifi_only
+    int settings_proxy_wifi_only_description -> settings_proxy_wifi_only_description
+    int settings_refresh_enabled -> settings_refresh_enabled
+    int settings_refresh_enabled_description -> settings_refresh_enabled_description
+    int settings_refresh_interval -> settings_refresh_interval
+    int settings_refresh_interval_description -> settings_refresh_interval_description
+    int settings_refresh_on_open -> settings_refresh_on_open
+    int settings_refresh_on_open_description -> settings_refresh_on_open_description
+    int settings_refresh_wifi_only -> settings_refresh_wifi_only
+    int settings_refresh_wifi_only_description -> settings_refresh_wifi_only_description
+    int settings_screen_proxy -> settings_screen_proxy
+    int settings_visible_feeds -> settings_visible_feeds
+    int settings_widget_background -> settings_widget_background
+    int settings_widget_background_description -> settings_widget_background_description
+    int share_favorites_title -> share_favorites_title
+    int to_group_above -> to_group_above
+    int to_group_into -> to_group_into
+    int to_group_message -> to_group_message
+    int to_group_title -> to_group_title
+    int transparency -> transparency
+    int update -> update
+    int uv_admin_response_format -> uv_admin_response_format
+    int uv_all_articles -> uv_all_articles
+    int uv_all_results_filter -> uv_all_results_filter
+    int uv_article -> uv_article
+    int uv_article_browse_question -> uv_article_browse_question
+    int uv_article_instant_answer_question -> uv_article_instant_answer_question
+    int uv_articles_filter -> uv_articles_filter
+    int uv_cancel -> uv_cancel
+    int uv_category -> uv_category
+    int uv_close -> uv_close
+    int uv_comment_hint -> uv_comment_hint
+    int uv_confirm -> uv_confirm
+    int uv_contact_continue_button -> uv_contact_continue_button
+    int uv_contact_hint -> uv_contact_hint
+    int uv_contact_us -> uv_contact_us
+    int uv_display_name -> uv_display_name
+    int uv_email_address -> uv_email_address
+    int uv_email_address_hint -> uv_email_address_hint
+    int uv_error -> uv_error
+    int uv_failed_signin_error -> uv_failed_signin_error
+    int uv_feedback_forum -> uv_feedback_forum
+    int uv_forgot_password -> uv_forgot_password
+    int uv_helpful_article_message_question -> uv_helpful_article_message_question
+    int uv_i_want_this -> uv_i_want_this
+    int uv_idea -> uv_idea
+    int uv_idea_description_heading -> uv_idea_description_heading
+    int uv_idea_description_hint -> uv_idea_description_hint
+    int uv_idea_form_help -> uv_idea_form_help
+    int uv_idea_form_title -> uv_idea_form_title
+    int uv_idea_text_heading -> uv_idea_text_heading
+    int uv_idea_text_hint -> uv_idea_text_hint
+    int uv_ideas_filter -> uv_ideas_filter
+    int uv_knowledge_base -> uv_knowledge_base
+    int uv_loading -> uv_loading
+    int uv_matching_articles -> uv_matching_articles
+    int uv_matching_articles_and_ideas -> uv_matching_articles_and_ideas
+    int uv_matching_ideas -> uv_matching_ideas
+    int uv_menu_search -> uv_menu_search
+    int uv_msg_comment_posted -> uv_msg_comment_posted
+    int uv_msg_confirm_discard_idea -> uv_msg_confirm_discard_idea
+    int uv_msg_confirm_discard_message -> uv_msg_confirm_discard_message
+    int uv_msg_custom_fields_validation -> uv_msg_custom_fields_validation
+    int uv_msg_forgot_password -> uv_msg_forgot_password
+    int uv_msg_idea_created -> uv_msg_idea_created
+    int uv_msg_subscribe -> uv_msg_subscribe
+    int uv_msg_subscribe_success -> uv_msg_subscribe_success
+    int uv_msg_ticket_created -> uv_msg_ticket_created
+    int uv_msg_unsubscribe -> uv_msg_unsubscribe
+    int uv_msg_user_identity_validation -> uv_msg_user_identity_validation
+    int uv_name_hint -> uv_name_hint
+    int uv_network_error -> uv_network_error
+    int uv_nevermind -> uv_nevermind
+    int uv_new_comment -> uv_new_comment
+    int uv_next -> uv_next
+    int uv_no -> uv_no
+    int uv_none_of_these_help -> uv_none_of_these_help
+    int uv_number_of_subscribers_format -> uv_number_of_subscribers_format
+    int uv_password -> uv_password
+    int uv_password_dialog_title -> uv_password_dialog_title
+    int uv_portal_title -> uv_portal_title
+    int uv_post_a_comment -> uv_post_a_comment
+    int uv_post_an_idea -> uv_post_an_idea
+    int uv_post_comment -> uv_post_comment
+    int uv_post_idea_continue_button -> uv_post_idea_continue_button
+    int uv_posted_by_format -> uv_posted_by_format
+    int uv_remove_votes -> uv_remove_votes
+    int uv_select_none -> uv_select_none
+    int uv_select_one -> uv_select_one
+    int uv_send_message -> uv_send_message
+    int uv_signin_dialog_ok -> uv_signin_dialog_ok
+    int uv_signin_dialog_title -> uv_signin_dialog_title
+    int uv_status_format -> uv_status_format
+    int uv_submit_idea -> uv_submit_idea
+    int uv_subscribe -> uv_subscribe
+    int uv_subscribe_dialog_title -> uv_subscribe_dialog_title
+    int uv_suggestion_instant_answer_question -> uv_suggestion_instant_answer_question
+    int uv_thanks -> uv_thanks
+    int uv_title_idea -> uv_title_idea
+    int uv_unhelpful_article_message_question -> uv_unhelpful_article_message_question
+    int uv_value -> uv_value
+    int uv_very_yes -> uv_very_yes
+    int uv_yes -> uv_yes
+    int uv_your_email_address -> uv_your_email_address
+    int uv_your_name -> uv_your_name
+    int website_or_feed -> website_or_feed
+com.uservoice.uservoicesdk.Session -> com.uservoice.uservoicesdk.i:
+    com.uservoice.uservoicesdk.Session instance -> a
+    android.content.Context context -> b
+    com.uservoice.uservoicesdk.Config config -> c
+    oauth.signpost.OAuthConsumer oauthConsumer -> d
+    com.uservoice.uservoicesdk.model.RequestToken requestToken -> e
+    com.uservoice.uservoicesdk.model.AccessToken accessToken -> f
+    com.uservoice.uservoicesdk.model.User user -> g
+    com.uservoice.uservoicesdk.model.ClientConfig clientConfig -> h
+    com.uservoice.uservoicesdk.model.Forum forum -> i
+    java.util.List topics -> j
+    java.util.List articles -> k
+    java.util.Map externalIds -> l
+    com.uservoice.uservoicesdk.model.Suggestion suggestion -> m
+    com.uservoice.uservoicesdk.model.Article article -> n
+    com.uservoice.uservoicesdk.model.Topic topic -> o
+    java.lang.Runnable signinListener -> p
+    29:32:com.uservoice.uservoicesdk.Session getInstance() -> a
+    36:37:void reset() -> b
+    60:60:android.content.Context getContext() -> c
+    64:64:com.uservoice.uservoicesdk.Config getConfig() -> d
+    68:72:void setConfig(com.uservoice.uservoicesdk.Config) -> a
+    75:76:void setContext(android.content.Context) -> a
+    79:83:void persistIdentity(java.lang.String,java.lang.String) -> a
+    86:88:java.lang.String getName() -> e
+    92:94:java.lang.String getEmail() -> f
+    98:98:com.uservoice.uservoicesdk.model.RequestToken getRequestToken() -> g
+    102:103:void setRequestToken(com.uservoice.uservoicesdk.model.RequestToken) -> a
+    106:112:oauth.signpost.OAuthConsumer getOAuthConsumer() -> h
+    116:116:com.uservoice.uservoicesdk.model.AccessToken getAccessToken() -> i
+    120:124:void setAccessToken(android.content.Context,com.uservoice.uservoicesdk.model.AccessToken) -> a
+    127:127:android.content.SharedPreferences getSharedPreferences() -> j
+    131:132:void setAccessToken(com.uservoice.uservoicesdk.model.AccessToken) -> a
+    135:135:com.uservoice.uservoicesdk.model.User getUser() -> k
+    139:141:void setUser(com.uservoice.uservoicesdk.model.User) -> a
+    144:144:com.uservoice.uservoicesdk.model.ClientConfig getClientConfig() -> l
+    148:150:void setClientConfig(com.uservoice.uservoicesdk.model.ClientConfig) -> a
+    157:157:java.util.Map getExternalIds() -> m
+    161:161:com.uservoice.uservoicesdk.model.Forum getForum() -> n
+    165:166:void setForum(com.uservoice.uservoicesdk.model.Forum) -> a
+    173:174:void setSuggestion(com.uservoice.uservoicesdk.model.Suggestion) -> a
+    177:177:com.uservoice.uservoicesdk.model.Article getArticle() -> o
+    181:182:void setArticle(com.uservoice.uservoicesdk.model.Article) -> a
+    185:185:com.uservoice.uservoicesdk.model.Topic getTopic() -> p
+    189:190:void setTopic(com.uservoice.uservoicesdk.model.Topic) -> a
+    201:202:void setTopics(java.util.List) -> a
+    205:205:java.util.List getTopics() -> q
+    209:209:java.util.List getArticles() -> r
+    213:214:void setArticles(java.util.List) -> b
+    225:226:void setSignInListener(java.lang.Runnable) -> a
+com.uservoice.uservoicesdk.UserVoice -> com.uservoice.uservoicesdk.j:
+    19:21:void launchUserVoice(android.content.Context) -> a
+    39:52:void init(com.uservoice.uservoicesdk.Config,android.content.Context) -> a
+    68:68:java.lang.String getVersion() -> a
+com.uservoice.uservoicesdk.UserVoice$1 -> com.uservoice.uservoicesdk.k:
+    49:50:void onModel(com.uservoice.uservoicesdk.model.ClientConfig) -> a
+    46:46:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.activity.ArticleActivity -> com.uservoice.uservoicesdk.activity.ArticleActivity:
+    25:56:void onCreate(android.os.Bundle) -> onCreate
+    61:63:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    68:72:boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    78:81:void finish() -> finish
+com.uservoice.uservoicesdk.activity.ArticleActivity$1 -> com.uservoice.uservoicesdk.activity.a:
+    com.uservoice.uservoicesdk.activity.ArticleActivity this$0 -> a
+    36:38:void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
+com.uservoice.uservoicesdk.activity.ArticleActivity$2 -> com.uservoice.uservoicesdk.activity.b:
+    com.uservoice.uservoicesdk.model.Article val$article -> a
+    com.uservoice.uservoicesdk.activity.ArticleActivity this$0 -> b
+    43:45:void onClick(android.view.View) -> onClick
+com.uservoice.uservoicesdk.activity.ArticleActivity$3 -> com.uservoice.uservoicesdk.activity.c:
+    com.uservoice.uservoicesdk.activity.ArticleActivity this$0 -> a
+    50:52:void onClick(android.view.View) -> onClick
+com.uservoice.uservoicesdk.activity.BaseActivity -> com.uservoice.uservoicesdk.activity.d:
+    android.app.ActionBar$Tab allTab -> n
+    android.app.ActionBar$Tab articlesTab -> o
+    android.app.ActionBar$Tab ideasTab -> p
+    int originalNavigationMode -> r
+    com.uservoice.uservoicesdk.ui.MixedSearchAdapter searchAdapter -> q
+    34:38:void onCreate(android.os.Bundle) -> onCreate
+    42:46:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    50:50:com.uservoice.uservoicesdk.ui.SearchAdapter getSearchAdapter() -> f
+    55:89:void setupScopedSearch(android.view.Menu) -> a
+    93:98:void updateScopedSearch(int,int,int) -> a
+    102:109:void showSearch() -> g
+    113:118:void hideSearch() -> h
+    122:122:boolean hasActionBar() -> i
+com.uservoice.uservoicesdk.activity.BaseActivity$1 -> com.uservoice.uservoicesdk.activity.e:
+    com.uservoice.uservoicesdk.activity.BaseActivity this$0 -> a
+    69:69:void onTabUnselected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabUnselected
+    73:74:void onTabSelected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabSelected
+    78:78:void onTabReselected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabReselected
+com.uservoice.uservoicesdk.activity.BaseListActivity -> com.uservoice.uservoicesdk.activity.f:
+com.uservoice.uservoicesdk.activity.ContactActivity -> com.uservoice.uservoicesdk.activity.ContactActivity:
+    13:15:void onCreate(android.os.Bundle) -> onCreate
+    19:19:com.uservoice.uservoicesdk.ui.InstantAnswersAdapter createAdapter() -> j
+    24:24:int getDiscardDialogMessage() -> k
+com.uservoice.uservoicesdk.activity.ForumActivity -> com.uservoice.uservoicesdk.activity.ForumActivity:
+    java.util.List suggestions -> r
+    com.uservoice.uservoicesdk.model.Forum forum -> s
+    45:202:void onCreate(android.os.Bundle) -> onCreate
+    207:216:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    221:225:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    230:232:void onStop() -> onStop
+    235:251:void loadForum() -> k
+    255:255:com.uservoice.uservoicesdk.ui.SearchAdapter getSearchAdapter() -> f
+    260:260:com.uservoice.uservoicesdk.ui.PaginatedAdapter getModelAdapter() -> j
+    265:265:void showSearch() -> g
+    269:269:void hideSearch() -> h
+    272:273:void suggestionUpdated(com.uservoice.uservoicesdk.model.Suggestion) -> a
+    38:38:com.uservoice.uservoicesdk.model.Forum access$000(com.uservoice.uservoicesdk.activity.ForumActivity) -> a
+    38:38:void access$100(com.uservoice.uservoicesdk.activity.ForumActivity) -> b
+    38:38:com.uservoice.uservoicesdk.model.Forum access$002(com.uservoice.uservoicesdk.activity.ForumActivity,com.uservoice.uservoicesdk.model.Forum) -> a
+com.uservoice.uservoicesdk.activity.ForumActivity$1 -> com.uservoice.uservoicesdk.activity.g:
+    boolean initializing -> a
+    com.uservoice.uservoicesdk.activity.ForumActivity this$0 -> b
+    56:58:void loadMore() -> a
+    62:62:int getViewTypeCount() -> getViewTypeCount
+    67:67:boolean isEnabled(int) -> isEnabled
+    72:72:int getCount() -> getCount
+    77:83:int getItemViewType(int) -> getItemViewType
+    88:88:java.lang.Object getItem(int) -> getItem
+    93:111:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    117:136:void customizeLayout(android.view.View,com.uservoice.uservoicesdk.model.Suggestion) -> a
+    140:141:void loadPage(int,com.uservoice.uservoicesdk.rest.Callback) -> a
+    145:145:com.uservoice.uservoicesdk.rest.RestTask search(java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    162:162:int getTotalNumberOfObjects() -> b
+    51:51:void customizeLayout(android.view.View,java.lang.Object) -> a
+com.uservoice.uservoicesdk.activity.ForumActivity$1$1 -> com.uservoice.uservoicesdk.activity.h:
+    java.lang.String val$query -> a
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> b
+    com.uservoice.uservoicesdk.activity.ForumActivity$1 this$1 -> c
+    149:151:void onModel(java.util.List) -> a
+    155:156:void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+    145:145:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.activity.ForumActivity$2 -> com.uservoice.uservoicesdk.activity.i:
+    com.uservoice.uservoicesdk.activity.ForumActivity this$0 -> a
+    169:171:void onScroll(android.widget.AbsListView,int,int,int) -> onScroll
+com.uservoice.uservoicesdk.activity.ForumActivity$3 -> com.uservoice.uservoicesdk.activity.j:
+    com.uservoice.uservoicesdk.activity.ForumActivity this$0 -> a
+    177:185:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.uservoice.uservoicesdk.activity.ForumActivity$4 -> com.uservoice.uservoicesdk.activity.k:
+    com.uservoice.uservoicesdk.activity.ForumActivity this$0 -> a
+    191:200:void run() -> run
+com.uservoice.uservoicesdk.activity.ForumActivity$4$1 -> com.uservoice.uservoicesdk.activity.l:
+    com.uservoice.uservoicesdk.activity.ForumActivity$4 this$1 -> a
+    195:198:void run() -> run
+com.uservoice.uservoicesdk.activity.ForumActivity$5 -> com.uservoice.uservoicesdk.activity.m:
+    com.uservoice.uservoicesdk.activity.ForumActivity this$0 -> a
+    245:249:void onModel(com.uservoice.uservoicesdk.model.Forum) -> a
+    242:242:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.activity.InstantAnswersActivity -> com.uservoice.uservoicesdk.activity.n:
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter adapter -> r
+    25:41:void onCreate(android.os.Bundle) -> onCreate
+    44:45:void onInitialize() -> l
+    49:64:void onBackPressed() -> onBackPressed
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter createAdapter() -> j
+    int getDiscardDialogMessage() -> k
+com.uservoice.uservoicesdk.activity.InstantAnswersActivity$1 -> com.uservoice.uservoicesdk.activity.o:
+    com.uservoice.uservoicesdk.activity.InstantAnswersActivity this$0 -> a
+    37:38:void run() -> run
+com.uservoice.uservoicesdk.activity.InstantAnswersActivity$2 -> com.uservoice.uservoicesdk.activity.p:
+    com.uservoice.uservoicesdk.activity.InstantAnswersActivity this$0 -> a
+    56:57:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.activity.PortalActivity -> com.uservoice.uservoicesdk.activity.PortalActivity:
+    16:24:void onCreate(android.os.Bundle) -> onCreate
+    28:30:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    35:39:boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    43:43:com.uservoice.uservoicesdk.ui.PortalAdapter getModelAdapter() -> j
+com.uservoice.uservoicesdk.activity.PostIdeaActivity -> com.uservoice.uservoicesdk.activity.PostIdeaActivity:
+    16:28:void onInitialize() -> l
+    32:34:void onCreate(android.os.Bundle) -> onCreate
+    38:38:com.uservoice.uservoicesdk.ui.InstantAnswersAdapter createAdapter() -> j
+    43:43:int getDiscardDialogMessage() -> k
+    12:12:void access$001(com.uservoice.uservoicesdk.activity.PostIdeaActivity) -> a
+com.uservoice.uservoicesdk.activity.PostIdeaActivity$1 -> com.uservoice.uservoicesdk.activity.q:
+    com.uservoice.uservoicesdk.activity.PostIdeaActivity this$0 -> a
+    22:24:void onModel(com.uservoice.uservoicesdk.model.Forum) -> a
+    19:19:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.activity.SearchActivity -> com.uservoice.uservoicesdk.activity.r:
+    com.uservoice.uservoicesdk.ui.SearchAdapter getSearchAdapter() -> f
+    void updateScopedSearch(int,int,int) -> a
+    void showSearch() -> g
+    void hideSearch() -> h
+com.uservoice.uservoicesdk.activity.TopicActivity -> com.uservoice.uservoicesdk.activity.TopicActivity:
+    31:100:void onCreate(android.os.Bundle) -> onCreate
+    104:106:void hideSearch() -> h
+    110:112:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    117:121:boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+com.uservoice.uservoicesdk.activity.TopicActivity$1 -> com.uservoice.uservoicesdk.activity.s:
+    com.uservoice.uservoicesdk.activity.TopicActivity this$0 -> a
+    39:41:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    46:48:android.view.View getDropDownView(int,android.view.View,android.view.ViewGroup) -> getDropDownView
+com.uservoice.uservoicesdk.activity.TopicActivity$2 -> com.uservoice.uservoicesdk.activity.t:
+    com.uservoice.uservoicesdk.activity.TopicActivity this$0 -> a
+    54:57:boolean onNavigationItemSelected(int,long) -> onNavigationItemSelected
+com.uservoice.uservoicesdk.activity.TopicActivity$3 -> com.uservoice.uservoicesdk.activity.u:
+    com.uservoice.uservoicesdk.activity.TopicActivity this$0 -> a
+    68:74:void loadPage(int,com.uservoice.uservoicesdk.rest.Callback) -> a
+    78:87:void customizeLayout(android.view.View,com.uservoice.uservoicesdk.model.Article) -> a
+    65:65:void customizeLayout(android.view.View,java.lang.Object) -> a
+com.uservoice.uservoicesdk.activity.TopicActivity$4 -> com.uservoice.uservoicesdk.activity.v:
+    com.uservoice.uservoicesdk.activity.TopicActivity this$0 -> a
+    93:96:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.uservoice.uservoicesdk.babayaga.Babayaga -> com.uservoice.uservoicesdk.a.a:
+    java.lang.String DOMAIN -> a
+    java.lang.String CHANNEL -> b
+    java.lang.String uvts -> c
+    java.util.Map traits -> d
+    android.content.SharedPreferences prefs -> e
+    java.util.List queue -> f
+    67:71:void setUvts(java.lang.String) -> a
+    74:75:void setUserTraits(java.util.Map) -> a
+    78:79:void track(com.uservoice.uservoicesdk.babayaga.Babayaga$Event) -> a
+    82:90:void track(com.uservoice.uservoicesdk.babayaga.Babayaga$Event,java.lang.String,java.util.List) -> a
+    93:96:void track(com.uservoice.uservoicesdk.babayaga.Babayaga$Event,int) -> a
+    99:100:void track(com.uservoice.uservoicesdk.babayaga.Babayaga$Event,java.util.Map) -> a
+    103:109:void track(java.lang.String,java.util.Map) -> a
+    112:116:void flush() -> a
+    119:124:void init(android.content.Context) -> a
+    127:127:java.lang.String getUvts() -> b
+com.uservoice.uservoicesdk.babayaga.Babayaga$Event -> com.uservoice.uservoicesdk.a.b:
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VIEW_APP -> a
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VIEW_FORUM -> b
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VIEW_TOPIC -> c
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VIEW_KB -> d
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VIEW_CHANNEL -> e
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VIEW_IDEA -> f
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VIEW_ARTICLE -> g
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event AUTHENTICATE -> h
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event SEARCH_IDEAS -> i
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event SEARCH_ARTICLES -> j
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VOTE_IDEA -> k
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event VOTE_ARTICLE -> l
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event SUBMIT_TICKET -> m
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event SUBMIT_IDEA -> n
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event SUBSCRIBE_IDEA -> o
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event IDENTIFY -> p
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event COMMENT_IDEA -> q
+    java.lang.String code -> r
+    com.uservoice.uservoicesdk.babayaga.Babayaga$Event[] $VALUES -> s
+    36:36:com.uservoice.uservoicesdk.babayaga.Babayaga$Event[] values() -> values
+    36:36:com.uservoice.uservoicesdk.babayaga.Babayaga$Event valueOf(java.lang.String) -> valueOf
+    62:62:java.lang.String getCode() -> a
+com.uservoice.uservoicesdk.babayaga.Babayaga$Track -> com.uservoice.uservoicesdk.a.c:
+    java.lang.String event -> a
+    java.util.Map eventProps -> b
+com.uservoice.uservoicesdk.babayaga.BabayagaTask -> com.uservoice.uservoicesdk.a.d:
+    java.lang.String event -> a
+    java.util.Map traits -> b
+    java.util.Map eventProps -> c
+    java.lang.String uvts -> d
+    44:90:java.lang.Void doInBackground(java.lang.String[]) -> a
+    27:27:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.uservoice.uservoicesdk.compatibility.FragmentListActivity -> com.uservoice.uservoicesdk.b.a:
+    android.widget.ListAdapter mAdapter -> r
+    android.widget.ListView mList -> s
+    android.os.Handler mHandler -> t
+    boolean mFinishedStart -> u
+    java.lang.Runnable mRequestFocus -> v
+    android.widget.AdapterView$OnItemClickListener mOnClickListener -> w
+    53:53:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> a
+    63:65:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
+    75:93:void onContentChanged() -> onContentChanged
+    99:104:void setListAdapter(android.widget.ListAdapter) -> a
+    134:135:android.widget.ListView getListView() -> m
+    142:142:android.widget.ListAdapter getListAdapter() -> n
+    146:150:void ensureList() -> j
+    21:21:android.widget.ListView access$000(com.uservoice.uservoicesdk.compatibility.FragmentListActivity) -> a
+com.uservoice.uservoicesdk.compatibility.FragmentListActivity$1 -> com.uservoice.uservoicesdk.b.b:
+    com.uservoice.uservoicesdk.compatibility.FragmentListActivity this$0 -> a
+    33:34:void run() -> run
+com.uservoice.uservoicesdk.compatibility.FragmentListActivity$2 -> com.uservoice.uservoicesdk.b.c:
+    com.uservoice.uservoicesdk.compatibility.FragmentListActivity this$0 -> a
+    154:155:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.uservoice.uservoicesdk.deflection.Deflection -> com.uservoice.uservoicesdk.c.a:
+    int interactionIdentifier -> a
+    java.lang.String searchText -> b
+    29:34:void trackDeflection(java.lang.String,com.uservoice.uservoicesdk.model.BaseModel) -> a
+    37:47:void trackSearchDeflection(java.util.List) -> a
+    50:54:void setSearchText(java.lang.String) -> a
+    57:57:com.uservoice.uservoicesdk.rest.RestTaskCallback getCallback() -> a
+    71:76:java.util.Map deflectionParams() -> b
+com.uservoice.uservoicesdk.deflection.Deflection$1 -> com.uservoice.uservoicesdk.c.b:
+    60:61:void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+    65:66:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.dialog.ArticleDialogFragment -> com.uservoice.uservoicesdk.d.a:
+    com.uservoice.uservoicesdk.model.Article article -> Y
+    android.webkit.WebView webView -> Z
+    30:68:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+    73:76:void onDismiss(android.content.DialogInterface) -> onDismiss
+    19:19:com.uservoice.uservoicesdk.model.Article access$000(com.uservoice.uservoicesdk.dialog.ArticleDialogFragment) -> a
+com.uservoice.uservoicesdk.dialog.ArticleDialogFragment$1 -> com.uservoice.uservoicesdk.d.b:
+    com.uservoice.uservoicesdk.dialog.ArticleDialogFragment this$0 -> a
+    43:52:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.dialog.ArticleDialogFragment$2 -> com.uservoice.uservoicesdk.d.c:
+    com.uservoice.uservoicesdk.dialog.ArticleDialogFragment this$0 -> a
+    58:64:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.dialog.CommentDialogFragment -> com.uservoice.uservoicesdk.d.d:
+    com.uservoice.uservoicesdk.model.Suggestion suggestion -> Y
+    com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment suggestionDialog -> Z
+    36:86:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+    24:24:com.uservoice.uservoicesdk.model.Suggestion access$000(com.uservoice.uservoicesdk.dialog.CommentDialogFragment) -> a
+    24:24:com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment access$100(com.uservoice.uservoicesdk.dialog.CommentDialogFragment) -> b
+com.uservoice.uservoicesdk.dialog.CommentDialogFragment$1 -> com.uservoice.uservoicesdk.d.e:
+    android.widget.EditText val$textField -> a
+    android.widget.EditText val$emailField -> b
+    android.widget.EditText val$nameField -> c
+    android.app.Activity val$context -> d
+    com.uservoice.uservoicesdk.dialog.CommentDialogFragment this$0 -> e
+    67:82:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.dialog.CommentDialogFragment$1$1 -> com.uservoice.uservoicesdk.d.f:
+    java.lang.String val$text -> a
+    com.uservoice.uservoicesdk.dialog.CommentDialogFragment$1 this$1 -> b
+    72:79:void run() -> run
+com.uservoice.uservoicesdk.dialog.CommentDialogFragment$1$1$1 -> com.uservoice.uservoicesdk.d.g:
+    com.uservoice.uservoicesdk.dialog.CommentDialogFragment$1$1 this$2 -> a
+    75:77:void onModel(com.uservoice.uservoicesdk.model.Comment) -> a
+    72:72:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.DialogFragmentBugfixed -> com.uservoice.uservoicesdk.d.h:
+    9:11:void onActivityCreated(android.os.Bundle) -> d
+    15:19:void onDestroyView() -> g
+com.uservoice.uservoicesdk.dialog.HelpfulDialogFragment -> com.uservoice.uservoicesdk.d.i:
+    15:32:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+com.uservoice.uservoicesdk.dialog.HelpfulDialogFragment$1 -> com.uservoice.uservoicesdk.d.j:
+    com.uservoice.uservoicesdk.dialog.HelpfulDialogFragment this$0 -> a
+    25:27:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.dialog.PasswordDialogFragment -> com.uservoice.uservoicesdk.d.k:
+    java.lang.Runnable callback -> Y
+    29:52:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+    19:19:java.lang.Runnable access$000(com.uservoice.uservoicesdk.dialog.PasswordDialogFragment) -> a
+com.uservoice.uservoicesdk.dialog.PasswordDialogFragment$1 -> com.uservoice.uservoicesdk.d.l:
+    android.widget.EditText val$password -> a
+    com.uservoice.uservoicesdk.dialog.PasswordDialogFragment this$0 -> b
+    41:48:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.dialog.PasswordDialogFragment$1$1 -> com.uservoice.uservoicesdk.d.m:
+    com.uservoice.uservoicesdk.dialog.PasswordDialogFragment$1 this$1 -> a
+    44:46:void onModel(com.uservoice.uservoicesdk.model.AccessToken) -> a
+    41:41:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment -> com.uservoice.uservoicesdk.d.n:
+    android.widget.EditText emailField -> Y
+    android.widget.EditText nameField -> Z
+    android.widget.EditText passwordField -> aa
+    android.view.View passwordFields -> ab
+    android.widget.Button forgotPassword -> ac
+    java.lang.String email -> ad
+    java.lang.String name -> ae
+    java.lang.Runnable callback -> af
+    java.lang.Runnable requestTokenCallback -> ag
+    53:118:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+    122:137:void discoverUser() -> C
+    140:184:void signIn() -> D
+    187:194:void sendForgotPassword() -> E
+    31:31:java.lang.Runnable access$000(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> a
+    31:31:void access$100(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> b
+    31:31:android.widget.EditText access$200(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> c
+    31:31:void access$300(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> d
+    31:31:void access$400(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> e
+    31:31:android.view.View access$500(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> f
+    31:31:android.widget.EditText access$600(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> g
+    31:31:android.widget.EditText access$700(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> h
+    31:31:java.lang.Runnable access$800(com.uservoice.uservoicesdk.dialog.SigninDialogFragment) -> i
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$1 -> com.uservoice.uservoicesdk.d.o:
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment this$0 -> a
+    56:59:void onModel(com.uservoice.uservoicesdk.model.RequestToken) -> a
+    53:53:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$2 -> com.uservoice.uservoicesdk.d.p:
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment this$0 -> a
+    85:86:void onClick(android.view.View) -> onClick
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$3 -> com.uservoice.uservoicesdk.d.q:
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment this$0 -> a
+    92:95:void onFocusChange(android.view.View,boolean) -> onFocusChange
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$4 -> com.uservoice.uservoicesdk.d.r:
+    android.app.AlertDialog val$dialog -> a
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment this$0 -> b
+    106:115:void onShow(android.content.DialogInterface) -> onShow
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$4$1 -> com.uservoice.uservoicesdk.d.s:
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment$4 this$1 -> a
+    110:111:void onClick(android.view.View) -> onClick
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$5 -> com.uservoice.uservoicesdk.d.t:
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment this$0 -> a
+    125:128:void onModel(com.uservoice.uservoicesdk.model.User) -> a
+    132:135:void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+    122:122:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$6 -> com.uservoice.uservoicesdk.d.u:
+    android.app.Activity val$activity -> a
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment this$0 -> b
+    144:177:void run() -> run
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$6$1 -> com.uservoice.uservoicesdk.d.v:
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment$6 this$1 -> a
+    148:153:void onModel(com.uservoice.uservoicesdk.model.AccessTokenResult) -> a
+    145:145:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$6$2 -> com.uservoice.uservoicesdk.d.w:
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment$6 this$1 -> a
+    159:169:void onModel(com.uservoice.uservoicesdk.model.AccessToken) -> a
+    173:174:void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+    156:156:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$6$2$1 -> com.uservoice.uservoicesdk.d.x:
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment$6$2 this$2 -> a
+    163:167:void onModel(com.uservoice.uservoicesdk.model.User) -> a
+    160:160:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SigninDialogFragment$7 -> com.uservoice.uservoicesdk.d.y:
+    android.app.Activity val$activity -> a
+    com.uservoice.uservoicesdk.dialog.SigninDialogFragment this$0 -> b
+    191:192:void onModel(com.uservoice.uservoicesdk.model.User) -> a
+    188:188:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment -> com.uservoice.uservoicesdk.d.z:
+    com.uservoice.uservoicesdk.model.Suggestion suggestion -> Y
+    com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment suggestionDialog -> Z
+    34:66:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+    22:22:com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment access$000(com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment) -> a
+    22:22:com.uservoice.uservoicesdk.model.Suggestion access$100(com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment) -> b
+com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment$1 -> com.uservoice.uservoicesdk.d.aa:
+    android.widget.EditText val$emailField -> a
+    com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment this$0 -> b
+    47:62:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment$1$1 -> com.uservoice.uservoicesdk.d.ab:
+    android.content.DialogInterface val$dialog -> a
+    com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment$1 this$1 -> b
+    51:60:void run() -> run
+com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment$1$1$1 -> com.uservoice.uservoicesdk.d.ac:
+    com.uservoice.uservoicesdk.dialog.SubscribeDialogFragment$1$1 this$2 -> a
+    54:58:void onModel(com.uservoice.uservoicesdk.model.Suggestion) -> a
+    51:51:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment -> com.uservoice.uservoicesdk.d.ad:
+    com.uservoice.uservoicesdk.model.Suggestion suggestion -> Y
+    com.uservoice.uservoicesdk.ui.PaginatedAdapter adapter -> Z
+    android.view.View headerView -> aa
+    android.view.View view -> ab
+    44:96:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+    100:111:void suggestionSubscriptionUpdated(com.uservoice.uservoicesdk.model.Suggestion) -> a
+    114:114:com.uservoice.uservoicesdk.ui.PaginatedAdapter getListAdapter() -> C
+    148:151:void commentPosted(com.uservoice.uservoicesdk.model.Comment) -> a
+    154:195:void displaySuggestion(android.view.View,com.uservoice.uservoicesdk.model.Suggestion) -> a
+    32:32:com.uservoice.uservoicesdk.model.Suggestion access$000(com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment) -> a
+com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment$1 -> com.uservoice.uservoicesdk.d.ae:
+    com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment this$0 -> a
+    54:77:void onClick(android.view.View) -> onClick
+com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment$1$1 -> com.uservoice.uservoicesdk.d.af:
+    com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment$1 this$1 -> a
+    57:60:void onModel(com.uservoice.uservoicesdk.model.Suggestion) -> a
+    54:54:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment$1$2 -> com.uservoice.uservoicesdk.d.ag:
+    com.uservoice.uservoicesdk.ui.DefaultCallback val$callback -> a
+    com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment$1 this$1 -> b
+    69:70:void run() -> run
+com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment$2 -> com.uservoice.uservoicesdk.d.ah:
+    com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment this$0 -> a
+    82:84:void onClick(android.view.View) -> onClick
+com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment$3 -> com.uservoice.uservoicesdk.d.ai:
+    com.uservoice.uservoicesdk.dialog.SuggestionDialogFragment this$0 -> a
+    117:117:int getTotalNumberOfObjects() -> b
+    122:133:void customizeLayout(android.view.View,com.uservoice.uservoicesdk.model.Comment) -> a
+    137:137:boolean isEnabled(int) -> isEnabled
+    142:143:void loadPage(int,com.uservoice.uservoicesdk.rest.Callback) -> a
+    114:114:void customizeLayout(android.view.View,java.lang.Object) -> a
+com.uservoice.uservoicesdk.dialog.UnhelpfulDialogFragment -> com.uservoice.uservoicesdk.d.aj:
+    17:40:android.app.Dialog onCreateDialog(android.os.Bundle) -> c
+com.uservoice.uservoicesdk.dialog.UnhelpfulDialogFragment$1 -> com.uservoice.uservoicesdk.d.ak:
+    com.uservoice.uservoicesdk.dialog.UnhelpfulDialogFragment this$0 -> a
+    28:29:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.dialog.UnhelpfulDialogFragment$2 -> com.uservoice.uservoicesdk.d.al:
+    com.uservoice.uservoicesdk.dialog.UnhelpfulDialogFragment this$0 -> a
+    35:37:void onClick(android.content.DialogInterface,int) -> onClick
+com.uservoice.uservoicesdk.flow.InitManager -> com.uservoice.uservoicesdk.e.a:
+    android.content.Context context -> a
+    java.lang.Runnable callback -> b
+    boolean canceled -> c
+    27:38:void init() -> a
+    41:79:void loadUser() -> b
+    82:83:boolean shouldSignIn() -> c
+    91:92:void done() -> d
+    15:15:void access$000(com.uservoice.uservoicesdk.flow.InitManager) -> a
+    15:15:boolean access$100(com.uservoice.uservoicesdk.flow.InitManager) -> b
+    15:15:android.content.Context access$200(com.uservoice.uservoicesdk.flow.InitManager) -> c
+    15:15:void access$300(com.uservoice.uservoicesdk.flow.InitManager) -> d
+com.uservoice.uservoicesdk.flow.InitManager$1 -> com.uservoice.uservoicesdk.e.b:
+    com.uservoice.uservoicesdk.flow.InitManager this$0 -> a
+    31:33:void onModel(com.uservoice.uservoicesdk.model.ClientConfig) -> a
+    28:28:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.flow.InitManager$2 -> com.uservoice.uservoicesdk.e.c:
+    com.uservoice.uservoicesdk.flow.InitManager this$0 -> a
+    46:59:void onModel(com.uservoice.uservoicesdk.model.RequestToken) -> a
+    43:43:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.flow.InitManager$2$1 -> com.uservoice.uservoicesdk.e.d:
+    com.uservoice.uservoicesdk.flow.InitManager$2 this$1 -> a
+    52:57:void onModel(com.uservoice.uservoicesdk.model.AccessTokenResult) -> a
+    50:50:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.flow.InitManager$3 -> com.uservoice.uservoicesdk.e.e:
+    com.uservoice.uservoicesdk.flow.InitManager this$0 -> a
+    68:70:void onModel(com.uservoice.uservoicesdk.model.User) -> a
+    65:65:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.flow.SigninManager -> com.uservoice.uservoicesdk.e.f:
+    java.lang.Runnable callback -> a
+    java.lang.String email -> b
+    java.lang.String name -> c
+    android.support.v4.app.FragmentActivity activity -> d
+    boolean passwordOnly -> e
+    29:30:void signIn(android.support.v4.app.FragmentActivity,java.lang.String,java.lang.String,java.lang.Runnable) -> a
+    40:62:void signIn() -> a
+    65:80:void createUser() -> b
+    83:90:void promptToSignIn() -> c
+    93:94:void setPasswordOnly(boolean) -> a
+    97:100:void signinForSubscribe(android.support.v4.app.FragmentActivity,java.lang.String,java.lang.Runnable) -> a
+    16:16:void access$000(com.uservoice.uservoicesdk.flow.SigninManager) -> a
+    16:16:void access$100(com.uservoice.uservoicesdk.flow.SigninManager) -> b
+    16:16:java.lang.String access$200(com.uservoice.uservoicesdk.flow.SigninManager) -> c
+    16:16:java.lang.String access$300(com.uservoice.uservoicesdk.flow.SigninManager) -> d
+    16:16:android.support.v4.app.FragmentActivity access$400(com.uservoice.uservoicesdk.flow.SigninManager) -> e
+    16:16:java.lang.Runnable access$500(com.uservoice.uservoicesdk.flow.SigninManager) -> f
+com.uservoice.uservoicesdk.flow.SigninManager$1 -> com.uservoice.uservoicesdk.e.g:
+    com.uservoice.uservoicesdk.flow.SigninManager this$0 -> a
+    50:51:void onModel(com.uservoice.uservoicesdk.model.User) -> a
+    55:56:void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+    47:47:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.flow.SigninManager$2 -> com.uservoice.uservoicesdk.e.h:
+    com.uservoice.uservoicesdk.flow.SigninManager this$0 -> a
+    68:78:void onModel(com.uservoice.uservoicesdk.model.RequestToken) -> a
+    65:65:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.flow.SigninManager$2$1 -> com.uservoice.uservoicesdk.e.i:
+    com.uservoice.uservoicesdk.flow.SigninManager$2 this$1 -> a
+    72:76:void onModel(com.uservoice.uservoicesdk.model.AccessTokenResult) -> a
+    69:69:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.image.DownloadImageTask -> com.uservoice.uservoicesdk.f.a:
+    android.widget.ImageView imageView -> a
+    java.lang.String url -> b
+    21:28:android.graphics.Bitmap doInBackground(java.lang.Void[]) -> a
+    32:34:void onPostExecute(android.graphics.Bitmap) -> a
+    10:10:void onPostExecute(java.lang.Object) -> onPostExecute
+    10:10:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.uservoice.uservoicesdk.image.ImageCache -> com.uservoice.uservoicesdk.f.b:
+    com.uservoice.uservoicesdk.image.ImageCache instance -> a
+    int capacity -> b
+    java.util.Map cache -> c
+    java.util.List mru -> d
+    15:18:com.uservoice.uservoicesdk.image.ImageCache getInstance() -> a
+    26:33:void loadImage(java.lang.String,android.widget.ImageView) -> a
+    36:49:void set(java.lang.String,android.graphics.Bitmap) -> a
+com.uservoice.uservoicesdk.model.AccessToken -> com.uservoice.uservoicesdk.g.a:
+    java.lang.String key -> b
+    java.lang.String secret -> c
+    19:29:void authorize(java.lang.String,java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    33:35:void load(org.json.JSONObject) -> a
+    38:38:java.lang.String getKey() -> a
+    42:42:java.lang.String getSecret() -> b
+    46:48:void save(org.json.JSONObject) -> b
+com.uservoice.uservoicesdk.model.AccessToken$1 -> com.uservoice.uservoicesdk.g.b:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    26:27:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.AccessTokenResult -> com.uservoice.uservoicesdk.g.c:
+    java.lang.Object model -> a
+    com.uservoice.uservoicesdk.model.AccessToken accessToken -> b
+    13:13:java.lang.Object getModel() -> a
+    17:17:com.uservoice.uservoicesdk.model.AccessToken getAccessToken() -> b
+com.uservoice.uservoicesdk.model.Article -> com.uservoice.uservoicesdk.g.d:
+    java.lang.String title -> b
+    java.lang.String html -> c
+    java.lang.String topicName -> d
+    21:29:void loadAll(com.uservoice.uservoicesdk.rest.Callback) -> a
+    32:40:void loadForTopic(int,com.uservoice.uservoicesdk.rest.Callback) -> a
+    43:50:com.uservoice.uservoicesdk.rest.RestTask loadInstantAnswers(java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    60:67:void load(org.json.JSONObject) -> a
+    70:70:java.lang.String getTitle() -> a
+    74:74:java.lang.String getHtml() -> b
+    78:78:java.lang.String getTopicName() -> c
+com.uservoice.uservoicesdk.model.Article$1 -> com.uservoice.uservoicesdk.g.e:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    26:27:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Article$2 -> com.uservoice.uservoicesdk.g.f:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    37:38:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Article$3 -> com.uservoice.uservoicesdk.g.g:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    53:54:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.BaseModel -> com.uservoice.uservoicesdk.g.h:
+    int id -> a
+    31:32:void load(org.json.JSONObject) -> a
+    35:35:int getId() -> d
+    39:49:boolean persist(android.content.SharedPreferences,java.lang.String,java.lang.String) -> a
+    54:57:com.uservoice.uservoicesdk.model.BaseModel load(android.content.SharedPreferences,java.lang.String,java.lang.String,java.lang.Class) -> a
+    62:63:void save(org.json.JSONObject) -> b
+    66:66:java.lang.String getString(org.json.JSONObject,java.lang.String) -> a
+    70:70:java.lang.String getHtml(org.json.JSONObject,java.lang.String) -> b
+    75:80:java.util.Date getDate(org.json.JSONObject,java.lang.String) -> c
+    85:85:com.uservoice.uservoicesdk.Session getSession() -> e
+    89:89:com.uservoice.uservoicesdk.Config getConfig() -> f
+    93:93:com.uservoice.uservoicesdk.model.ClientConfig getClientConfig() -> g
+    97:97:java.lang.String apiPath(java.lang.String,java.lang.Object[]) -> a
+    101:101:com.uservoice.uservoicesdk.rest.RestTask doGet(java.lang.String,com.uservoice.uservoicesdk.rest.RestTaskCallback) -> a
+    117:119:com.uservoice.uservoicesdk.rest.RestTask doGet(java.lang.String,java.util.Map,com.uservoice.uservoicesdk.rest.RestTaskCallback) -> a
+    123:125:com.uservoice.uservoicesdk.rest.RestTask doPost(java.lang.String,java.util.Map,com.uservoice.uservoicesdk.rest.RestTaskCallback) -> b
+    141:157:java.util.List deserializeList(org.json.JSONObject,java.lang.String,java.lang.Class) -> a
+    162:176:com.uservoice.uservoicesdk.model.BaseModel deserializeObject(org.json.JSONObject,java.lang.String,java.lang.Class) -> b
+    181:200:java.util.List deserializeHeterogenousList(org.json.JSONObject,java.lang.String) -> d
+com.uservoice.uservoicesdk.model.Category -> com.uservoice.uservoicesdk.g.i:
+    java.lang.String name -> b
+    11:13:void load(org.json.JSONObject) -> a
+    21:21:java.lang.String toString() -> toString
+com.uservoice.uservoicesdk.model.ClientConfig -> com.uservoice.uservoicesdk.g.j:
+    boolean ticketsEnabled -> b
+    boolean feedbackEnabled -> c
+    boolean whiteLabel -> d
+    int defaultForumId -> e
+    java.util.List customFields -> f
+    java.lang.String defaultSort -> g
+    java.lang.String subdomainId -> h
+    java.lang.String key -> i
+    java.lang.String secret -> j
+    java.lang.String accountName -> k
+    28:55:void loadClientConfig(com.uservoice.uservoicesdk.rest.Callback) -> a
+    59:72:void load(org.json.JSONObject) -> a
+    76:99:void save(org.json.JSONObject) -> b
+    106:106:boolean isTicketSystemEnabled() -> a
+    110:110:boolean isFeedbackEnabled() -> b
+    118:118:int getDefaultForumId() -> c
+    122:122:java.util.List getCustomFields() -> h
+    126:126:java.lang.String getSuggestionSort() -> i
+    130:130:java.lang.String getSubdomainId() -> j
+    134:134:java.lang.String getKey() -> k
+    138:138:java.lang.String getSecret() -> l
+com.uservoice.uservoicesdk.model.ClientConfig$1 -> com.uservoice.uservoicesdk.g.k:
+    android.content.SharedPreferences val$prefs -> a
+    java.lang.String val$cacheKey -> b
+    40:42:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.ClientConfig$2 -> com.uservoice.uservoicesdk.g.l:
+    android.content.SharedPreferences val$prefs -> a
+    java.lang.String val$cacheKey -> b
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> c
+    49:52:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Comment -> com.uservoice.uservoicesdk.g.m:
+    java.lang.String text -> b
+    java.lang.String userName -> c
+    java.lang.String avatarUrl -> d
+    java.util.Date createdAt -> e
+    22:30:void loadComments(com.uservoice.uservoicesdk.model.Suggestion,int,com.uservoice.uservoicesdk.rest.Callback) -> a
+    33:42:void createComment(com.uservoice.uservoicesdk.model.Suggestion,java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    46:52:void load(org.json.JSONObject) -> a
+    55:55:java.lang.String getText() -> a
+    59:59:java.lang.String getUserName() -> b
+    63:63:java.lang.String getAvatarUrl() -> c
+    67:67:java.util.Date getCreatedAt() -> h
+com.uservoice.uservoicesdk.model.Comment$1 -> com.uservoice.uservoicesdk.g.n:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    27:28:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Comment$2 -> com.uservoice.uservoicesdk.g.o:
+    com.uservoice.uservoicesdk.model.Suggestion val$suggestion -> a
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> b
+    38:40:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.CustomField -> com.uservoice.uservoicesdk.g.p:
+    java.lang.String name -> b
+    java.util.List predefinedValues -> c
+    boolean required -> d
+    17:28:void load(org.json.JSONObject) -> a
+    32:42:void save(org.json.JSONObject) -> b
+    45:45:boolean isRequired() -> a
+    49:49:boolean isPredefined() -> b
+    53:53:java.util.List getPredefinedValues() -> c
+    57:57:java.lang.String getName() -> h
+com.uservoice.uservoicesdk.model.Forum -> com.uservoice.uservoicesdk.g.q:
+    java.lang.String name -> b
+    int numberOfVotesAllowed -> c
+    int numberOfOpenSuggestions -> d
+    java.util.List categories -> e
+    19:25:void loadForum(int,com.uservoice.uservoicesdk.rest.Callback) -> a
+    29:37:void load(org.json.JSONObject) -> a
+    40:40:java.lang.String getName() -> a
+    44:44:int getNumberOfOpenSuggestions() -> b
+    52:52:java.util.List getCategories() -> c
+com.uservoice.uservoicesdk.model.Forum$1 -> com.uservoice.uservoicesdk.g.r:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    22:23:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.RequestToken -> com.uservoice.uservoicesdk.g.s:
+    java.lang.String key -> b
+    java.lang.String secret -> c
+    15:21:void getRequestToken(com.uservoice.uservoicesdk.rest.Callback) -> a
+    25:27:void load(org.json.JSONObject) -> a
+    30:30:java.lang.String getKey() -> a
+com.uservoice.uservoicesdk.model.RequestToken$1 -> com.uservoice.uservoicesdk.g.t:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    18:19:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Suggestion -> com.uservoice.uservoicesdk.g.u:
+    java.lang.String title -> b
+    java.lang.String text -> c
+    java.lang.String status -> d
+    java.lang.String statusColor -> e
+    java.lang.String creatorName -> f
+    java.lang.String adminResponseText -> g
+    java.lang.String adminResponseUserName -> h
+    java.lang.String adminResponseAvatarUrl -> i
+    java.util.Date adminResponseCreatedAt -> j
+    java.util.Date createdAt -> k
+    com.uservoice.uservoicesdk.model.Category category -> l
+    int numberOfComments -> m
+    int numberOfSubscribers -> n
+    int forumId -> o
+    boolean subscribed -> p
+    java.lang.String forumName -> q
+    37:48:void loadSuggestions(com.uservoice.uservoicesdk.model.Forum,int,com.uservoice.uservoicesdk.rest.Callback) -> a
+    51:53:com.uservoice.uservoicesdk.rest.RestTask searchSuggestions(com.uservoice.uservoicesdk.model.Forum,java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    62:74:void createSuggestion(com.uservoice.uservoicesdk.model.Forum,com.uservoice.uservoicesdk.model.Category,java.lang.String,java.lang.String,int,com.uservoice.uservoicesdk.rest.Callback) -> a
+    77:88:void subscribe(com.uservoice.uservoicesdk.rest.Callback) -> a
+    91:100:void unsubscribe(com.uservoice.uservoicesdk.rest.Callback) -> b
+    104:130:void load(org.json.JSONObject) -> a
+    133:133:java.lang.String getForumName() -> a
+    137:137:boolean isSubscribed() -> b
+    141:141:int getForumId() -> c
+    145:145:java.lang.String getTitle() -> h
+    149:149:java.lang.String getText() -> i
+    153:153:java.lang.String getStatus() -> j
+    157:157:java.lang.String getStatusColor() -> k
+    161:161:java.lang.String getCreatorName() -> l
+    165:165:java.lang.String getAdminResponseText() -> m
+    169:169:java.lang.String getAdminResponseUserName() -> n
+    173:173:java.lang.String getAdminResponseAvatarUrl() -> o
+    177:177:java.util.Date getAdminResponseCreatedAt() -> p
+    181:181:java.util.Date getCreatedAt() -> q
+    189:189:int getNumberOfComments() -> r
+    193:193:int getNumberOfSubscribers() -> s
+    197:198:void commentPosted(com.uservoice.uservoicesdk.model.Comment) -> a
+com.uservoice.uservoicesdk.model.Suggestion$1 -> com.uservoice.uservoicesdk.g.v:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    45:46:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Suggestion$2 -> com.uservoice.uservoicesdk.g.w:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    56:57:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Suggestion$3 -> com.uservoice.uservoicesdk.g.x:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    71:72:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Suggestion$4 -> com.uservoice.uservoicesdk.g.y:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    com.uservoice.uservoicesdk.model.Suggestion this$0 -> b
+    82:86:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Suggestion$5 -> com.uservoice.uservoicesdk.g.z:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    com.uservoice.uservoicesdk.model.Suggestion this$0 -> b
+    96:98:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Ticket -> com.uservoice.uservoicesdk.g.aa:
+    19:50:void createTicket(java.lang.String,java.lang.String,java.lang.String,java.util.Map,com.uservoice.uservoicesdk.rest.Callback) -> a
+com.uservoice.uservoicesdk.model.Ticket$1 -> com.uservoice.uservoicesdk.g.ab:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    47:48:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.Topic -> com.uservoice.uservoicesdk.g.ac:
+    java.lang.String name -> b
+    int numberOfArticles -> d
+    com.uservoice.uservoicesdk.model.Topic ALL_ARTICLES -> c
+    23:35:void loadTopics(com.uservoice.uservoicesdk.rest.Callback) -> a
+    48:51:void load(org.json.JSONObject) -> a
+    54:54:java.lang.String getName() -> a
+    58:58:int getNumberOfArticles() -> b
+    63:63:java.lang.String toString() -> toString
+com.uservoice.uservoicesdk.model.Topic$1 -> com.uservoice.uservoicesdk.g.ad:
+com.uservoice.uservoicesdk.model.Topic$2 -> com.uservoice.uservoicesdk.g.ae:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    26:33:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.User -> com.uservoice.uservoicesdk.g.af:
+    java.lang.String name -> b
+    java.lang.String email -> c
+    19:27:void discover(java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    30:36:void loadCurrentUser(com.uservoice.uservoicesdk.rest.Callback) -> a
+    39:52:void findOrCreate(java.lang.String,java.lang.String,java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    55:67:void findOrCreate(java.lang.String,java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    70:78:void sendForgotPassword(java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> b
+    82:85:void load(org.json.JSONObject) -> a
+    88:88:java.lang.String getName() -> a
+    92:92:java.lang.String getEmail() -> b
+com.uservoice.uservoicesdk.model.User$1 -> com.uservoice.uservoicesdk.g.ag:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    24:25:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.User$2 -> com.uservoice.uservoicesdk.g.ah:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    33:34:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.User$3 -> com.uservoice.uservoicesdk.g.ai:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    47:50:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.User$4 -> com.uservoice.uservoicesdk.g.aj:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    62:65:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.model.User$5 -> com.uservoice.uservoicesdk.g.ak:
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> a
+    75:76:void onComplete(org.json.JSONObject) -> a
+com.uservoice.uservoicesdk.rest.Callback -> com.uservoice.uservoicesdk.h.a:
+    void onModel(java.lang.Object) -> a
+    void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+com.uservoice.uservoicesdk.rest.RestMethod -> com.uservoice.uservoicesdk.h.b:
+    com.uservoice.uservoicesdk.rest.RestMethod GET -> a
+    com.uservoice.uservoicesdk.rest.RestMethod POST -> b
+    com.uservoice.uservoicesdk.rest.RestMethod PUT -> c
+    com.uservoice.uservoicesdk.rest.RestMethod DELETE -> d
+    com.uservoice.uservoicesdk.rest.RestMethod[] $VALUES -> e
+    3:3:com.uservoice.uservoicesdk.rest.RestMethod[] values() -> values
+    3:3:com.uservoice.uservoicesdk.rest.RestMethod valueOf(java.lang.String) -> valueOf
+com.uservoice.uservoicesdk.rest.RestResult -> com.uservoice.uservoicesdk.h.c:
+    java.lang.Exception exception -> a
+    org.json.JSONObject object -> b
+    int statusCode -> c
+    27:27:boolean isError() -> a
+    31:31:org.json.JSONObject getObject() -> b
+    39:39:int getStatusCode() -> c
+    43:43:java.lang.String getMessage() -> d
+com.uservoice.uservoicesdk.rest.RestTask -> com.uservoice.uservoicesdk.h.d:
+    java.lang.String urlPath -> a
+    com.uservoice.uservoicesdk.rest.RestMethod method -> b
+    java.util.List params -> c
+    com.uservoice.uservoicesdk.rest.RestTaskCallback callback -> d
+    org.apache.http.client.methods.HttpUriRequest request -> e
+    60:89:com.uservoice.uservoicesdk.rest.RestResult doInBackground(java.lang.String[]) -> a
+    94:108:org.apache.http.client.methods.HttpUriRequest createRequest() -> a
+    113:123:void onPostExecute(com.uservoice.uservoicesdk.rest.RestResult) -> a
+    126:132:org.apache.http.client.methods.HttpUriRequest requestWithQueryString(org.apache.http.client.methods.HttpRequestBase,android.net.Uri$Builder) -> a
+    136:140:org.apache.http.client.methods.HttpUriRequest requestWithEntity(org.apache.http.client.methods.HttpEntityEnclosingRequestBase,android.net.Uri$Builder) -> a
+    144:150:java.util.List paramsToList(java.util.Map) -> a
+    39:39:void onPostExecute(java.lang.Object) -> onPostExecute
+    39:39:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.uservoice.uservoicesdk.rest.RestTaskCallback -> com.uservoice.uservoicesdk.h.e:
+    com.uservoice.uservoicesdk.rest.Callback callback -> a
+    void onComplete(org.json.JSONObject) -> a
+    17:18:void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+com.uservoice.uservoicesdk.ui.ContactAdapter -> com.uservoice.uservoicesdk.i.a:
+    int CUSTOM_TEXT_FIELD -> q
+    int CUSTOM_PREDEFINED_FIELD -> r
+    java.util.Map customFieldValues -> s
+    41:41:int getViewTypeCount() -> getViewTypeCount
+    46:54:java.util.List getDetailRows() -> a
+    59:65:java.lang.Object getItem(int) -> getItem
+    71:122:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    126:133:boolean validateCustomFields() -> i
+    138:150:void doSubmit() -> b
+    154:154:java.lang.String getSubmitString() -> c
+    26:26:java.util.Map access$000(com.uservoice.uservoicesdk.ui.ContactAdapter) -> a
+com.uservoice.uservoicesdk.ui.ContactAdapter$1 -> com.uservoice.uservoicesdk.i.b:
+    com.uservoice.uservoicesdk.model.CustomField val$customField -> a
+    android.widget.EditText val$field -> b
+    com.uservoice.uservoicesdk.ui.ContactAdapter this$0 -> c
+    95:98:void onFocusChange(android.view.View,boolean) -> onFocusChange
+com.uservoice.uservoicesdk.ui.ContactAdapter$2 -> com.uservoice.uservoicesdk.i.c:
+    com.uservoice.uservoicesdk.model.CustomField val$customField -> a
+    com.uservoice.uservoicesdk.ui.ContactAdapter this$0 -> b
+    109:110:void onItemSelected(android.widget.AdapterView,android.view.View,int,long) -> onItemSelected
+    114:114:void onNothingSelected(android.widget.AdapterView) -> onNothingSelected
+com.uservoice.uservoicesdk.ui.ContactAdapter$3 -> com.uservoice.uservoicesdk.i.d:
+    com.uservoice.uservoicesdk.ui.ContactAdapter this$0 -> a
+    142:145:void onModel(com.uservoice.uservoicesdk.model.Ticket) -> a
+    139:139:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.DefaultCallback -> com.uservoice.uservoicesdk.i.e:
+    android.content.Context context -> a
+    23:30:void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+com.uservoice.uservoicesdk.ui.InstantAnswersAdapter -> com.uservoice.uservoicesdk.i.f:
+    int TEXT -> a
+    int BUTTON -> b
+    int HEADING -> c
+    int LOADING -> d
+    int INSTANT_ANSWER -> e
+    int EMAIL_FIELD -> f
+    int NAME_FIELD -> g
+    int SPACE -> h
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State state -> i
+    java.util.List instantAnswers -> j
+    android.support.v4.app.FragmentActivity context -> k
+    android.view.LayoutInflater inflater -> l
+    android.widget.EditText textField -> m
+    android.widget.EditText emailField -> n
+    android.widget.EditText nameField -> o
+    int continueButtonMessage -> p
+    java.util.List getDetailRows() -> a
+    void doSubmit() -> b
+    java.lang.String getSubmitString() -> c
+    68:68:int getViewTypeCount() -> getViewTypeCount
+    72:91:java.util.List getRows() -> d
+    95:95:boolean isLoading() -> e
+    100:100:int getCount() -> getCount
+    105:105:int getItemViewType(int) -> getItemViewType
+    109:113:void notHelpful() -> f
+    117:118:boolean isEnabled(int) -> isEnabled
+    123:128:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    132:136:void onChildViewAdded(android.view.View,android.view.View) -> onChildViewAdded
+    140:141:void onChildViewRemoved(android.view.View,android.view.View) -> onChildViewRemoved
+    146:240:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    245:249:java.lang.Object getItem(int) -> getItem
+    253:288:void onButtonTapped() -> g
+    292:292:long getItemId(int) -> getItemId
+    296:296:boolean hasText() -> h
+com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$1 -> com.uservoice.uservoicesdk.i.g:
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter this$0 -> a
+    157:158:void onClick(android.view.View) -> onClick
+com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$2 -> com.uservoice.uservoicesdk.i.h:
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter this$0 -> a
+    173:177:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    181:181:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    185:185:void afterTextChanged(android.text.Editable) -> afterTextChanged
+com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$3 -> com.uservoice.uservoicesdk.i.i:
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter this$0 -> a
+    263:270:void onModel(java.util.List) -> a
+    260:260:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$4 -> com.uservoice.uservoicesdk.i.j:
+    int[] $SwitchMap$com$uservoice$uservoicesdk$ui$InstantAnswersAdapter$State -> a
+com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State -> com.uservoice.uservoicesdk.i.k:
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State INIT -> a
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State INIT_LOADING -> b
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State INSTANT_ANSWERS -> c
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State DETAILS -> d
+    com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State[] $VALUES -> e
+    33:33:com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State[] values() -> values
+    33:33:com.uservoice.uservoicesdk.ui.InstantAnswersAdapter$State valueOf(java.lang.String) -> valueOf
+com.uservoice.uservoicesdk.ui.LoadAllAdapter -> com.uservoice.uservoicesdk.i.l:
+    16:26:void loadAll() -> d
+    29:33:void reload() -> a
+com.uservoice.uservoicesdk.ui.LoadAllAdapter$1 -> com.uservoice.uservoicesdk.i.m:
+    com.uservoice.uservoicesdk.ui.LoadAllAdapter this$0 -> a
+    21:24:void onModel(java.util.List) -> a
+    18:18:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.MixedSearchAdapter -> com.uservoice.uservoicesdk.i.n:
+    int SEARCH_RESULT -> a
+    int LOADING -> b
+    int SCOPE_ALL -> c
+    int SCOPE_ARTICLES -> d
+    int SCOPE_IDEAS -> e
+    android.view.LayoutInflater inflater -> f
+    android.support.v4.app.FragmentActivity context -> g
+    41:41:boolean isEnabled(int) -> isEnabled
+    45:62:java.util.List getScopedSearchResults() -> a
+    67:76:void searchResultsUpdated() -> a_
+    80:80:int getCount() -> getCount
+    85:85:java.lang.Object getItem(int) -> getItem
+    90:90:long getItemId(int) -> getItemId
+    95:95:int getItemViewType(int) -> getItemViewType
+    100:100:int getViewTypeCount() -> getViewTypeCount
+    105:106:com.uservoice.uservoicesdk.rest.RestTask search(java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    131:143:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    148:151:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.uservoice.uservoicesdk.ui.MixedSearchAdapter$1 -> com.uservoice.uservoicesdk.i.o:
+    java.lang.String val$query -> a
+    com.uservoice.uservoicesdk.rest.Callback val$callback -> b
+    com.uservoice.uservoicesdk.ui.MixedSearchAdapter this$0 -> c
+    109:120:void onModel(java.util.List) -> a
+    124:125:void onError(com.uservoice.uservoicesdk.rest.RestResult) -> a
+    106:106:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.ModelAdapter -> com.uservoice.uservoicesdk.i.p:
+    int layoutId -> c
+    android.view.LayoutInflater inflater -> d
+    java.util.List objects -> e
+    int addedObjects -> f
+    33:44:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    49:49:boolean isEnabled(int) -> isEnabled
+    54:54:int getItemViewType(int) -> getItemViewType
+    59:59:int getViewTypeCount() -> getViewTypeCount
+    64:64:int getCount() -> getCount
+    69:69:java.lang.Object getItem(int) -> getItem
+    74:74:long getItemId(int) -> getItemId
+    78:78:java.util.List getObjects() -> c
+    82:85:void add(int,java.lang.Object) -> a
+    void customizeLayout(android.view.View,java.lang.Object) -> a
+    void loadPage(int,com.uservoice.uservoicesdk.rest.Callback) -> a
+com.uservoice.uservoicesdk.ui.PaginatedAdapter -> com.uservoice.uservoicesdk.i.q:
+    int page -> a
+    18:30:void loadMore() -> a
+    int getTotalNumberOfObjects() -> b
+    35:35:java.util.List getObjects() -> c
+    40:45:void reload() -> d
+    8:8:int access$012(com.uservoice.uservoicesdk.ui.PaginatedAdapter,int) -> a
+com.uservoice.uservoicesdk.ui.PaginatedAdapter$1 -> com.uservoice.uservoicesdk.i.r:
+    com.uservoice.uservoicesdk.ui.PaginatedAdapter this$0 -> a
+    24:28:void onModel(java.util.List) -> a
+    21:21:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.PaginationScrollListener -> com.uservoice.uservoicesdk.i.s:
+    com.uservoice.uservoicesdk.ui.PaginatedAdapter adapter -> a
+    15:15:void onScrollStateChanged(android.widget.AbsListView,int) -> onScrollStateChanged
+    19:22:void onScroll(android.widget.AbsListView,int,int,int) -> onScroll
+com.uservoice.uservoicesdk.ui.PortalAdapter -> com.uservoice.uservoicesdk.i.t:
+    int SCOPE_ALL -> a
+    int SCOPE_ARTICLES -> b
+    int SCOPE_IDEAS -> c
+    int KB_HEADER -> d
+    int FORUM -> e
+    int TOPIC -> f
+    int LOADING -> g
+    int CONTACT -> p
+    int ARTICLE -> q
+    android.view.LayoutInflater inflater -> r
+    android.support.v4.app.FragmentActivity context -> s
+    boolean configLoaded -> t
+    java.util.List staticRows -> u
+    62:62:java.util.List getTopics() -> a
+    66:66:java.util.List getArticles() -> c
+    70:70:boolean shouldShowArticles() -> d
+    74:81:void loadForum() -> f
+    84:111:void loadTopics() -> g
+    114:124:void computeStaticRows() -> h
+    128:140:int getCount() -> getCount
+    167:174:java.lang.Object getItem(int) -> getItem
+    179:179:long getItemId(int) -> getItemId
+    184:192:boolean isEnabled(int) -> isEnabled
+    197:206:void searchResultsUpdated() -> a_
+    210:262:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    267:267:int getViewTypeCount() -> getViewTypeCount
+    272:281:int getItemViewType(int) -> getItemViewType
+    285:293:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    28:28:boolean access$002(com.uservoice.uservoicesdk.ui.PortalAdapter,boolean) -> a
+    28:28:void access$100(com.uservoice.uservoicesdk.ui.PortalAdapter) -> a
+    28:28:void access$200(com.uservoice.uservoicesdk.ui.PortalAdapter) -> b
+com.uservoice.uservoicesdk.ui.PortalAdapter$1 -> com.uservoice.uservoicesdk.i.u:
+    com.uservoice.uservoicesdk.ui.PortalAdapter this$0 -> a
+    53:57:void run() -> run
+com.uservoice.uservoicesdk.ui.PortalAdapter$2 -> com.uservoice.uservoicesdk.i.v:
+    com.uservoice.uservoicesdk.ui.PortalAdapter this$0 -> a
+    77:79:void onModel(com.uservoice.uservoicesdk.model.Forum) -> a
+    74:74:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.PortalAdapter$3 -> com.uservoice.uservoicesdk.i.w:
+    com.uservoice.uservoicesdk.ui.PortalAdapter this$0 -> a
+    87:90:void onModel(java.util.List) -> a
+    84:84:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.PortalAdapter$4 -> com.uservoice.uservoicesdk.i.x:
+    com.uservoice.uservoicesdk.ui.DefaultCallback val$articlesCallback -> a
+    com.uservoice.uservoicesdk.ui.PortalAdapter this$0 -> b
+    99:108:void onModel(java.util.List) -> a
+    96:96:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.PostIdeaAdapter -> com.uservoice.uservoicesdk.i.y:
+    int DESCRIPTION -> q
+    int CATEGORY -> r
+    int HELP -> s
+    int TEXT_HEADING -> t
+    android.widget.Spinner categorySelect -> u
+    android.widget.EditText descriptionField -> v
+    40:40:int getViewTypeCount() -> getViewTypeCount
+    45:52:java.util.List getDetailRows() -> a
+    57:61:java.util.List getRows() -> d
+    67:102:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    107:121:void doSubmit() -> b
+    125:125:java.lang.String getSubmitString() -> c
+    23:23:android.widget.Spinner access$000(com.uservoice.uservoicesdk.ui.PostIdeaAdapter) -> a
+    23:23:android.widget.EditText access$100(com.uservoice.uservoicesdk.ui.PostIdeaAdapter) -> b
+com.uservoice.uservoicesdk.ui.PostIdeaAdapter$1 -> com.uservoice.uservoicesdk.i.z:
+    com.uservoice.uservoicesdk.ui.PostIdeaAdapter this$0 -> a
+    110:119:void run() -> run
+com.uservoice.uservoicesdk.ui.PostIdeaAdapter$1$1 -> com.uservoice.uservoicesdk.i.aa:
+    com.uservoice.uservoicesdk.ui.PostIdeaAdapter$1 this$1 -> a
+    114:117:void onModel(com.uservoice.uservoicesdk.model.Suggestion) -> a
+    111:111:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.SearchAdapter -> com.uservoice.uservoicesdk.i.ab:
+    java.util.List searchResults -> h
+    boolean searchActive -> i
+    boolean loading -> j
+    android.content.Context context -> k
+    java.lang.String currentQuery -> l
+    java.lang.String pendingQuery -> m
+    int scope -> n
+    com.uservoice.uservoicesdk.ui.SearchAdapter$SearchTask currentSearch -> o
+    25:39:void performSearch(java.lang.String) -> a
+    42:45:void setSearchActive(boolean) -> a
+    81:81:void searchResultsUpdated() -> a_
+    84:84:boolean shouldShowSearchResults() -> e
+    87:87:com.uservoice.uservoicesdk.rest.RestTask search(java.lang.String,com.uservoice.uservoicesdk.rest.Callback) -> a
+    90:92:void setScope(int) -> a
+com.uservoice.uservoicesdk.ui.SearchAdapter$SearchTask -> com.uservoice.uservoicesdk.i.ac:
+    java.lang.String query -> b
+    boolean stop -> c
+    com.uservoice.uservoicesdk.rest.RestTask task -> d
+    com.uservoice.uservoicesdk.ui.SearchAdapter this$0 -> a
+    58:60:boolean cancel() -> cancel
+    65:77:void run() -> run
+    47:47:boolean access$000(com.uservoice.uservoicesdk.ui.SearchAdapter$SearchTask) -> a
+com.uservoice.uservoicesdk.ui.SearchAdapter$SearchTask$1 -> com.uservoice.uservoicesdk.i.ad:
+    com.uservoice.uservoicesdk.ui.SearchAdapter$SearchTask this$1 -> a
+    69:75:void onModel(java.util.List) -> a
+    66:66:void onModel(java.lang.Object) -> a
+com.uservoice.uservoicesdk.ui.SearchExpandListener -> com.uservoice.uservoicesdk.i.ae:
+    com.uservoice.uservoicesdk.activity.SearchActivity searchActivity -> a
+    18:19:boolean onMenuItemActionExpand(android.view.MenuItem) -> onMenuItemActionExpand
+    24:26:boolean onMenuItemActionCollapse(android.view.MenuItem) -> onMenuItemActionCollapse
+com.uservoice.uservoicesdk.ui.SearchQueryListener -> com.uservoice.uservoicesdk.i.af:
+    com.uservoice.uservoicesdk.activity.SearchActivity searchActivity -> a
+    16:17:boolean onQueryTextSubmit(java.lang.String) -> onQueryTextSubmit
+    22:28:boolean onQueryTextChange(java.lang.String) -> onQueryTextChange
+com.uservoice.uservoicesdk.ui.SpinnerAdapter -> com.uservoice.uservoicesdk.i.ag:
+    int NONE -> a
+    int OBJECT -> b
+    java.util.List objects -> c
+    android.view.LayoutInflater inflater -> d
+    int color -> e
+    35:35:int getCount() -> getCount
+    40:42:java.lang.Object getItem(int) -> getItem
+    47:47:long getItemId(int) -> getItemId
+    52:52:int getItemViewType(int) -> getItemViewType
+    57:71:android.view.View getDropDownView(int,android.view.View,android.view.ViewGroup) -> getDropDownView
+    76:90:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.uservoice.uservoicesdk.ui.Utils -> com.uservoice.uservoicesdk.i.ah:
+    33:43:void displayArticle(android.webkit.WebView,com.uservoice.uservoicesdk.model.Article,android.content.Context) -> a
+    46:50:boolean isDarkTheme(android.content.Context) -> a
+    55:55:java.lang.String getQuantityString(android.view.View,int,int) -> a
+    59:93:void displayInstantAnswer(android.view.View,com.uservoice.uservoicesdk.model.BaseModel) -> a
+    96:106:void showModel(android.support.v4.app.FragmentActivity,com.uservoice.uservoicesdk.model.BaseModel) -> a
 net.fred.feedex.Constants -> net.fred.feedex.a:
     android.app.NotificationManager NOTIF_MGR -> a
     java.text.DateFormat DATE_FORMAT -> b
@@ -2863,28 +4652,28 @@ net.fred.feedex.fragment.EntriesListFragment -> net.fred.feedex.fragment.Entries
     net.fred.feedex.adapter.EntriesCursorAdapter mEntriesCursorAdapter -> c
     android.widget.ListView mLv -> d
     android.content.SharedPreferences$OnSharedPreferenceChangeListener prefListener -> e
-    118:130:void onCreate(android.os.Bundle) -> onCreate
-    134:138:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    142:152:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    157:159:void onDestroy() -> onDestroy
-    163:164:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
-    168:184:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    188:236:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    240:240:android.net.Uri getUri() -> a
-    244:250:void setData(android.net.Uri,boolean) -> a
-    254:257:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
-    262:263:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
-    267:268:void onLoaderReset(android.content.Loader) -> onLoaderReset
-    57:57:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
-    57:57:android.widget.ListView access$000(net.fred.feedex.fragment.EntriesListFragment) -> a
+    120:132:void onCreate(android.os.Bundle) -> onCreate
+    136:140:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    144:154:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    159:161:void onDestroy() -> onDestroy
+    165:166:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    170:186:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    190:242:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    246:246:android.net.Uri getUri() -> a
+    250:256:void setData(android.net.Uri,boolean) -> a
+    260:263:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
+    268:269:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
+    273:274:void onLoaderReset(android.content.Loader) -> onLoaderReset
+    59:59:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
+    59:59:android.widget.ListView access$000(net.fred.feedex.fragment.EntriesListFragment) -> a
 net.fred.feedex.fragment.EntriesListFragment$1 -> net.fred.feedex.fragment.a:
     net.fred.feedex.fragment.EntriesListFragment this$0 -> a
-    71:74:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    73:76:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
 net.fred.feedex.fragment.EntriesListFragment$SwipeGestureListener -> net.fred.feedex.fragment.b:
     android.view.GestureDetector mGestureDetector -> b
     net.fred.feedex.fragment.EntriesListFragment this$0 -> a
-    90:107:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    112:112:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    92:109:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    114:114:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 net.fred.feedex.fragment.FeedsListFragment -> net.fred.feedex.fragment.c:
     net.fred.feedex.adapter.FeedsCursorAdapter mListAdapter -> a
     net.fred.feedex.view.DragNDropExpandableListView mListView -> b
@@ -3301,6 +5090,159 @@ net.fred.feedex.widget.WidgetProvider -> net.fred.feedex.widget.WidgetProvider:
     39:58:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
 net.fred.feedex.widget.WidgetService -> net.fred.feedex.widget.WidgetService:
     42:42:android.widget.RemoteViewsService$RemoteViewsFactory onGetViewFactory(android.content.Intent) -> onGetViewFactory
+oauth.signpost.AbstractOAuthConsumer -> a.a.a:
+    java.lang.String consumerKey -> a
+    java.lang.String consumerSecret -> b
+    java.lang.String token -> c
+    oauth.signpost.signature.OAuthMessageSigner messageSigner -> d
+    oauth.signpost.signature.SigningStrategy signingStrategy -> e
+    oauth.signpost.http.HttpParameters additionalParameters -> f
+    oauth.signpost.http.HttpParameters requestParameters -> g
+    boolean sendEmptyTokens -> h
+    java.util.Random random -> i
+    70:72:void setMessageSigner(oauth.signpost.signature.OAuthMessageSigner) -> a
+    75:76:void setSigningStrategy(oauth.signpost.signature.SigningStrategy) -> a
+    84:115:oauth.signpost.http.HttpRequest sign(oauth.signpost.http.HttpRequest) -> a
+    120:120:oauth.signpost.http.HttpRequest sign(java.lang.Object) -> a
+    oauth.signpost.http.HttpRequest wrap(java.lang.Object) -> b
+    150:152:void setTokenWithSecret(java.lang.String,java.lang.String) -> a
+    187:207:void completeOAuthParameters(oauth.signpost.http.HttpParameters) -> a
+    222:224:void collectHeaderParameters(oauth.signpost.http.HttpRequest,oauth.signpost.http.HttpParameters) -> a
+    234:239:void collectBodyParameters(oauth.signpost.http.HttpRequest,oauth.signpost.http.HttpParameters) -> b
+    247:253:void collectQueryParameters(oauth.signpost.http.HttpRequest,oauth.signpost.http.HttpParameters) -> c
+    256:256:java.lang.String generateTimestamp() -> a
+    260:260:java.lang.String generateNonce() -> b
+oauth.signpost.OAuth -> a.a.b:
+    com.google.gdata.util.common.base.PercentEscaper percentEncoder -> a
+    80:83:java.lang.String percentEncode(java.lang.String) -> a
+    88:94:java.lang.String percentDecode(java.lang.String) -> b
+    134:152:oauth.signpost.http.HttpParameters decodeForm(java.lang.String) -> c
+    157:166:oauth.signpost.http.HttpParameters decodeForm(java.io.InputStream) -> a
+    192:192:boolean isEmpty(java.lang.String) -> d
+    282:292:oauth.signpost.http.HttpParameters oauthHeaderToParamsMap(java.lang.String) -> e
+    311:314:void debugOut(java.lang.String,java.lang.String) -> a
+oauth.signpost.OAuthConsumer -> a.a.c:
+    oauth.signpost.http.HttpRequest sign(java.lang.Object) -> a
+    void setTokenWithSecret(java.lang.String,java.lang.String) -> a
+oauth.signpost.commonshttp.CommonsHttpOAuthConsumer -> a.a.a.a:
+    35:41:oauth.signpost.http.HttpRequest wrap(java.lang.Object) -> b
+oauth.signpost.commonshttp.HttpRequestAdapter -> a.a.a.b:
+    org.apache.http.client.methods.HttpUriRequest request -> a
+    org.apache.http.HttpEntity entity -> b
+    27:27:java.lang.String getMethod() -> a
+    31:31:java.lang.String getRequestUrl() -> b
+    39:43:java.lang.String getHeader(java.lang.String) -> a
+    47:48:void setHeader(java.lang.String,java.lang.String) -> a
+    60:67:java.lang.String getContentType() -> c
+    71:74:java.io.InputStream getMessagePayload() -> d
+oauth.signpost.exception.OAuthCommunicationException -> a.a.b.a:
+oauth.signpost.exception.OAuthException -> a.a.b.b:
+oauth.signpost.exception.OAuthExpectationFailedException -> a.a.b.c:
+oauth.signpost.exception.OAuthMessageSignerException -> a.a.b.d:
+oauth.signpost.http.HttpParameters -> a.a.c.a:
+    java.util.TreeMap wrappedMap -> a
+    46:46:java.util.SortedSet put(java.lang.String,java.util.SortedSet) -> a
+    50:57:java.util.SortedSet put(java.lang.String,java.util.SortedSet,boolean) -> a
+    72:72:java.lang.String put(java.lang.String,java.lang.String) -> a
+    90:101:java.lang.String put(java.lang.String,java.lang.String,boolean) -> a
+    119:120:void putAll(java.util.Map) -> putAll
+    123:130:void putAll(java.util.Map,boolean) -> a
+    156:156:java.util.SortedSet get(java.lang.Object) -> a
+    168:168:java.lang.String getFirst(java.lang.Object) -> b
+    187:192:java.lang.String getFirst(java.lang.Object,boolean) -> a
+    223:237:java.lang.String getAsQueryString(java.lang.Object,boolean) -> b
+    241:245:java.lang.String getAsHeaderElement(java.lang.String) -> a
+    249:249:boolean containsKey(java.lang.Object) -> containsKey
+    253:258:boolean containsValue(java.lang.Object) -> containsValue
+    262:266:int size() -> size
+    270:270:boolean isEmpty() -> isEmpty
+    274:275:void clear() -> clear
+    278:278:java.util.SortedSet remove(java.lang.Object) -> c
+    282:282:java.util.Set keySet() -> keySet
+    286:286:java.util.Collection values() -> values
+    290:290:java.util.Set entrySet() -> entrySet
+    294:303:oauth.signpost.http.HttpParameters getOAuthParameters() -> a
+    40:40:java.lang.Object remove(java.lang.Object) -> remove
+    40:40:java.lang.Object put(java.lang.Object,java.lang.Object) -> put
+    40:40:java.lang.Object get(java.lang.Object) -> get
+oauth.signpost.http.HttpRequest -> a.a.c.b:
+    java.lang.String getMethod() -> a
+    java.lang.String getRequestUrl() -> b
+    void setHeader(java.lang.String,java.lang.String) -> a
+    java.lang.String getHeader(java.lang.String) -> a
+    java.io.InputStream getMessagePayload() -> d
+    java.lang.String getContentType() -> c
+oauth.signpost.signature.AuthorizationHeaderSigningStrategy -> a.a.d.a:
+    20:47:java.lang.String writeSignature(java.lang.String,oauth.signpost.http.HttpRequest,oauth.signpost.http.HttpParameters) -> a
+oauth.signpost.signature.HmacSha1MessageSigner -> a.a.d.b:
+    36:36:java.lang.String getSignatureMethod() -> a
+    43:59:java.lang.String sign(oauth.signpost.http.HttpRequest,oauth.signpost.http.HttpParameters) -> a
+oauth.signpost.signature.OAuthMessageSigner -> a.a.d.c:
+    org.apache.commons.codec.binary.Base64 base64 -> a
+    java.lang.String consumerSecret -> b
+    java.lang.String tokenSecret -> c
+    java.lang.String sign(oauth.signpost.http.HttpRequest,oauth.signpost.http.HttpParameters) -> a
+    java.lang.String getSignatureMethod() -> a
+    46:46:java.lang.String getConsumerSecret() -> b
+    50:50:java.lang.String getTokenSecret() -> c
+    54:55:void setConsumerSecret(java.lang.String) -> a
+    58:59:void setTokenSecret(java.lang.String) -> b
+    66:66:java.lang.String base64Encode(byte[]) -> a
+oauth.signpost.signature.SignatureBaseString -> a.a.d.d:
+    oauth.signpost.http.HttpRequest request -> a
+    oauth.signpost.http.HttpParameters requestParameters -> b
+    54:60:java.lang.String generate() -> a
+    65:82:java.lang.String normalizeRequestUrl() -> b
+    95:117:java.lang.String normalizeRequestParameters() -> c
+oauth.signpost.signature.SigningStrategy -> a.a.d.e:
+    java.lang.String writeSignature(java.lang.String,oauth.signpost.http.HttpRequest,oauth.signpost.http.HttpParameters) -> a
+org.apache.commons.codec.Charsets -> b.a.a.a.a:
+    java.nio.charset.Charset ISO_8859_1 -> a
+    java.nio.charset.Charset US_ASCII -> b
+    java.nio.charset.Charset UTF_16 -> c
+    java.nio.charset.Charset UTF_16BE -> d
+    java.nio.charset.Charset UTF_16LE -> e
+    java.nio.charset.Charset UTF_8 -> f
+org.apache.commons.codec.binary.Base64 -> b.a.a.a.a.a:
+    byte[] CHUNK_SEPARATOR -> a
+    byte[] STANDARD_ENCODE_TABLE -> d
+    byte[] URL_SAFE_ENCODE_TABLE -> e
+    byte[] DECODE_TABLE -> f
+    byte[] encodeTable -> g
+    byte[] decodeTable -> h
+    byte[] lineSeparator -> i
+    int decodeSize -> j
+    int encodeSize -> k
+    329:397:void encode(byte[],int,int,org.apache.commons.codec.binary.BaseNCodec$Context) -> a
+    772:772:boolean isInAlphabet(byte) -> a
+org.apache.commons.codec.binary.BaseNCodec -> b.a.a.a.a.b:
+    byte PAD -> b
+    int unencodedBlockSize -> a
+    int encodedBlockSize -> d
+    int lineLength -> c
+    int chunkSeparatorLength -> e
+    210:210:int available(org.apache.commons.codec.binary.BaseNCodec$Context) -> a
+    219:219:int getDefaultBufferSize() -> a
+    227:236:byte[] resizeBuffer(org.apache.commons.codec.binary.BaseNCodec$Context) -> b
+    246:249:byte[] ensureBufferSize(int,org.apache.commons.codec.binary.BaseNCodec$Context) -> a
+    269:278:int readResults(byte[],int,int,org.apache.commons.codec.binary.BaseNCodec$Context) -> b
+    403:411:byte[] encode(byte[]) -> a
+    void encode(byte[],int,int,org.apache.commons.codec.binary.BaseNCodec$Context) -> a
+    boolean isInAlphabet(byte) -> a
+    473:481:boolean containsAlphabetOrPad(byte[]) -> b
+org.apache.commons.codec.binary.BaseNCodec$Context -> b.a.a.a.a.c:
+    int ibitWorkArea -> a
+    long lbitWorkArea -> b
+    byte[] buffer -> c
+    int pos -> d
+    int readPos -> e
+    boolean eof -> f
+    int currentLinePos -> g
+    int modulus -> h
+    103:103:java.lang.String toString() -> toString
+org.apache.commons.codec.binary.StringUtils -> b.a.a.a.a.d:
+    214:214:java.lang.String newString(byte[],java.nio.charset.Charset) -> a
+    340:340:java.lang.String newStringUtf8(byte[]) -> a
 roboto.newsreader.HomeActivity -> roboto.newsreader.HomeActivity:
 roboto.newsreader.android.ActionItem -> roboto.newsreader.a.a:
     android.graphics.drawable.Drawable icon -> a

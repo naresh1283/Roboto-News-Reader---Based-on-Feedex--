@@ -35,11 +35,9 @@ android.support.v4.app.BackStackRecord:
     346:346:public int getBreadCrumbShortTitleRes()
     350:353:public java.lang.CharSequence getBreadCrumbTitle()
     357:360:public java.lang.CharSequence getBreadCrumbShortTitle()
-    379:380:public android.support.v4.app.FragmentTransaction add(android.support.v4.app.Fragment,java.lang.String)
     384:385:public android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment)
     421:421:public android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment)
     425:430:public android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment,java.lang.String)
-    434:439:public android.support.v4.app.FragmentTransaction remove(android.support.v4.app.Fragment)
     443:448:public android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment)
     452:457:public android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment)
     479:479:public android.support.v4.app.FragmentTransaction setCustomAnimations(int,int)
@@ -53,11 +51,26 @@ android.support.v4.app.BackStackRecord:
     531:533:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
     537:539:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
     543:545:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(java.lang.CharSequence)
-    578:578:public int commitAllowingStateLoss()
     779:779:public int getTransition()
     783:783:public int getTransitionStyle()
     787:787:public boolean isEmpty()
-android.support.v4.app.DialogFragment
+android.support.v4.app.DialogFragment:
+    public static final int STYLE_NORMAL
+    public static final int STYLE_NO_TITLE
+    public static final int STYLE_NO_FRAME
+    public static final int STYLE_NO_INPUT
+    private static final java.lang.String SAVED_DIALOG_STATE_TAG
+    private static final java.lang.String SAVED_STYLE
+    private static final java.lang.String SAVED_THEME
+    private static final java.lang.String SAVED_CANCELABLE
+    private static final java.lang.String SAVED_SHOWS_DIALOG
+    private static final java.lang.String SAVED_BACK_STACK_ID
+    140:145:public int show(android.support.v4.app.FragmentTransaction,java.lang.String)
+    165:166:public void dismissAllowingStateLoss()
+    212:214:public void setCancelable(boolean)
+    220:220:public boolean isCancelable()
+    241:242:public void setShowsDialog(boolean)
+    248:248:public boolean getShowsDialog()
 android.support.v4.app.Fragment:
     static final int INITIALIZING
     static final int CREATED
@@ -74,9 +87,7 @@ android.support.v4.app.Fragment:
     557:557:public final android.support.v4.app.Fragment getTargetFragment()
     564:564:public final int getTargetRequestCode()
     591:591:public final java.lang.CharSequence getText(int)
-    601:601:public final java.lang.String getString(int)
     614:614:public final varargs java.lang.String getString(int,java.lang.Object[])
-    628:628:public final android.support.v4.app.FragmentManager getFragmentManager()
     636:648:public final android.support.v4.app.FragmentManager getChildFragmentManager()
     656:656:public final android.support.v4.app.Fragment getParentFragment()
     663:663:public final boolean isAdded()
@@ -87,8 +98,6 @@ android.support.v4.app.Fragment:
     721:721:public final boolean isHidden()
     726:726:public final boolean hasOptionsMenu()
     731:731:public final boolean isMenuVisible()
-    759:764:public void setRetainInstance(boolean)
-    767:767:public final boolean getRetainInstance()
     778:784:public void setHasOptionsMenu(boolean)
     796:802:public void setMenuVisibility(boolean)
     818:823:public void setUserVisibleHint(boolean)
@@ -96,7 +105,6 @@ android.support.v4.app.Fragment:
     837:845:public android.support.v4.app.LoaderManager getLoaderManager()
     853:857:public void startActivity(android.content.Intent)
     864:868:public void startActivityForResult(android.content.Intent,int)
-    1019:1019:public android.view.View getView()
     1306:1307:public void registerForContextMenu(android.view.View)
     1317:1318:public void unregisterForContextMenu(android.view.View)
     1428:1434:android.support.v4.app.Fragment findFragmentByWho(java.lang.String)
@@ -108,13 +116,9 @@ android.support.v4.app.FragmentActivity:
     private static final int HONEYCOMB
     static final int MSG_REALLY_STOPPED
     static final int MSG_RESUME_PENDING
-    75:134:public FragmentActivity()
     617:619:public java.lang.Object getLastCustomNonConfigurationInstance()
-    812:812:public android.support.v4.app.FragmentManager getSupportFragmentManager()
     832:840:public void startActivityFromFragment(android.support.v4.app.Fragment,android.content.Intent,int)
     861:866:public android.support.v4.app.LoaderManager getSupportLoaderManager()
-android.support.v4.app.FragmentActivity$1
-android.support.v4.app.FragmentActivity$2
 android.support.v4.app.FragmentActivity$FragmentTag:
     public static final int Fragment_id
     public static final int Fragment_name
@@ -128,7 +132,6 @@ android.support.v4.app.FragmentManager:
     public abstract boolean popBackStackImmediate()
     public abstract void popBackStack(java.lang.String,int)
     public abstract boolean popBackStackImmediate(java.lang.String,int)
-    public abstract void popBackStack(int,int)
     public abstract boolean popBackStackImmediate(int,int)
     public abstract int getBackStackEntryCount()
     public abstract android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
@@ -157,7 +160,6 @@ android.support.v4.app.FragmentManagerImpl:
     477:482:public void popBackStack()
     493:498:public void popBackStack(java.lang.String,int)
     502:504:public boolean popBackStackImmediate(java.lang.String,int)
-    509:517:public void popBackStack(int,int)
     521:526:public boolean popBackStackImmediate(int,int)
     531:531:public int getBackStackEntryCount()
     536:536:public android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
@@ -168,7 +170,6 @@ android.support.v4.app.FragmentManagerImpl:
     1330:1338:public android.support.v4.app.Fragment findFragmentByWho(java.lang.String)
 android.support.v4.app.FragmentManagerImpl$2
 android.support.v4.app.FragmentManagerImpl$3
-android.support.v4.app.FragmentManagerImpl$4
 android.support.v4.app.FragmentPagerAdapter
 android.support.v4.app.FragmentStatePagerAdapter
 android.support.v4.app.FragmentTabHost:
@@ -191,11 +192,9 @@ android.support.v4.app.FragmentTransaction:
     public static final int TRANSIT_FRAGMENT_OPEN
     public static final int TRANSIT_FRAGMENT_CLOSE
     public static final int TRANSIT_FRAGMENT_FADE
-    public abstract android.support.v4.app.FragmentTransaction add(android.support.v4.app.Fragment,java.lang.String)
     public abstract android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment)
     public abstract android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment)
     public abstract android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment,java.lang.String)
-    public abstract android.support.v4.app.FragmentTransaction remove(android.support.v4.app.Fragment)
     public abstract android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment)
     public abstract android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment)
     public abstract boolean isEmpty()
@@ -210,7 +209,6 @@ android.support.v4.app.FragmentTransaction:
     public abstract android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
     public abstract android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
     public abstract android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(java.lang.CharSequence)
-    public abstract int commitAllowingStateLoss()
 android.support.v4.app.ListFragment
 android.support.v4.app.ListFragment$1
 android.support.v4.app.ListFragment$2
@@ -1059,6 +1057,7 @@ com.almeros.android.multitouch.R$drawable
 com.almeros.android.multitouch.R$id
 com.almeros.android.multitouch.R$layout
 com.almeros.android.multitouch.R$menu
+com.almeros.android.multitouch.R$plurals
 com.almeros.android.multitouch.R$raw
 com.almeros.android.multitouch.R$string
 com.almeros.android.multitouch.R$style
@@ -1081,6 +1080,16 @@ com.almeros.android.multitouch.gesturedetectors.TwoFingerGestureDetector:
     protected abstract void handleInProgressEvent(int,android.view.MotionEvent)
     75:80:public float getCurrentSpan()
     90:95:public float getPreviousSpan()
+com.google.gdata.util.common.base.Escaper
+com.google.gdata.util.common.base.PercentEscaper:
+    public static final java.lang.String SAFECHARS_URLENCODER
+    public static final java.lang.String SAFEPATHCHARS_URLENCODER
+    public static final java.lang.String SAFEQUERYSTRINGCHARS_URLENCODER
+com.google.gdata.util.common.base.Preconditions
+com.google.gdata.util.common.base.UnicodeEscaper:
+    private static final int DEST_PAD
+    254:256:public java.lang.Appendable escape(java.lang.Appendable)
+com.google.gdata.util.common.base.UnicodeEscaper$1
 com.nineoldandroids.BuildConfig
 com.nineoldandroids.R
 com.nineoldandroids.R$anim
@@ -1092,6 +1101,7 @@ com.nineoldandroids.R$drawable
 com.nineoldandroids.R$id
 com.nineoldandroids.R$layout
 com.nineoldandroids.R$menu
+com.nineoldandroids.R$plurals
 com.nineoldandroids.R$raw
 com.nineoldandroids.R$string
 com.nineoldandroids.R$style
@@ -1265,20 +1275,21 @@ com.nineoldandroids.view.ViewPropertyAnimatorPreHC$PropertyBundle
 com.nineoldandroids.view.animation.AnimatorProxy
 com.roboto.BuildConfig
 com.roboto.R:
-    10:502:public R()
+    10:699:public R()
 com.roboto.R$anim
 com.roboto.R$array
 com.roboto.R$attr
 com.roboto.R$color
 com.roboto.R$dimen
 com.roboto.R$drawable:
-    63:63:public R$drawable()
+    68:68:public R$drawable()
 com.roboto.R$id:
-    144:144:public R$id()
+    159:159:public R$id()
 com.roboto.R$layout:
-    234:234:public R$layout()
+    300:300:public R$layout()
 com.roboto.R$menu:
-    267:267:public R$menu()
+    355:355:public R$menu()
+com.roboto.R$plurals
 com.roboto.R$raw
 com.roboto.R$string
 com.roboto.R$style
@@ -1326,6 +1337,114 @@ com.roboto.util.AndroidUtils:
     17:20:public static int getPixelsFromDimen(int)
 com.roboto.util.SizeUtil:
     12:12:public SizeUtil()
+com.uservoice.uservoicesdk.BuildConfig
+com.uservoice.uservoicesdk.Config:
+    27:31:public Config(java.lang.String,java.lang.String,java.lang.String)
+    62:63:public void setCustomFields(java.util.Map)
+    70:71:public void setTopicId(int)
+    80:81:public void setForumId(int)
+    90:91:public void setShowForum(boolean)
+    100:101:public void setShowPostIdea(boolean)
+    110:111:public void setShowContactUs(boolean)
+    120:121:public void setShowKnowledgeBase(boolean)
+    124:130:public void identifyUser(java.lang.String,java.lang.String,java.lang.String)
+    133:134:public void putUserTrait(java.lang.String,java.lang.String)
+    137:138:public void putUserTrait(java.lang.String,int)
+    141:142:public void putUserTrait(java.lang.String,boolean)
+    145:146:public void putUserTrait(java.lang.String,float)
+    149:150:public void putUserTrait(java.lang.String,java.util.Date)
+    153:154:public void putAccountTrait(java.lang.String,java.lang.String)
+    157:158:public void putAccountTrait(java.lang.String,int)
+    161:162:public void putAccountTrait(java.lang.String,boolean)
+    165:166:public void putAccountTrait(java.lang.String,float)
+    169:170:public void putAccountTrait(java.lang.String,java.util.Date)
+com.uservoice.uservoicesdk.R:
+    10:699:public R()
+com.uservoice.uservoicesdk.R$anim
+com.uservoice.uservoicesdk.R$array
+com.uservoice.uservoicesdk.R$attr
+com.uservoice.uservoicesdk.R$color
+com.uservoice.uservoicesdk.R$dimen
+com.uservoice.uservoicesdk.R$drawable:
+    68:68:public R$drawable()
+com.uservoice.uservoicesdk.R$id:
+    159:159:public R$id()
+com.uservoice.uservoicesdk.R$layout:
+    300:300:public R$layout()
+com.uservoice.uservoicesdk.R$menu:
+    355:355:public R$menu()
+com.uservoice.uservoicesdk.R$plurals:
+    366:366:public R$plurals()
+com.uservoice.uservoicesdk.R$raw
+com.uservoice.uservoicesdk.R$string:
+    377:377:public R$string()
+com.uservoice.uservoicesdk.R$style
+com.uservoice.uservoicesdk.R$xml
+com.uservoice.uservoicesdk.Session:
+    private com.uservoice.uservoicesdk.model.Comment comment
+    private com.uservoice.uservoicesdk.model.CustomField customField
+    153:154:public void setExternalId(java.lang.String,java.lang.String)
+    169:169:public com.uservoice.uservoicesdk.model.Suggestion getSuggestion()
+    193:193:public com.uservoice.uservoicesdk.model.Comment getComment()
+    197:198:public void setComment(com.uservoice.uservoicesdk.model.Comment)
+    217:218:public void setCustomField(com.uservoice.uservoicesdk.model.CustomField)
+    221:221:public com.uservoice.uservoicesdk.model.CustomField getCustomField()
+com.uservoice.uservoicesdk.UserVoice:
+    16:16:public UserVoice()
+    24:26:public static void launchForum(android.content.Context)
+    29:31:public static void launchContactUs(android.content.Context)
+    34:36:public static void launchPostIdea(android.content.Context)
+    55:56:public static void setExternalId(java.lang.String,java.lang.String)
+    59:60:public static void track(java.lang.String,java.util.Map)
+    63:64:public static void track(java.lang.String)
+com.uservoice.uservoicesdk.babayaga.Babayaga:
+    16:36:public Babayaga()
+com.uservoice.uservoicesdk.compatibility.FragmentListActivity:
+    113:114:public void setSelection(int)
+    120:120:public int getSelectedItemPosition()
+    127:127:public long getSelectedItemId()
+com.uservoice.uservoicesdk.deflection.Deflection:
+    23:23:public Deflection()
+com.uservoice.uservoicesdk.flow.InitManager:
+    87:88:public void cancel()
+com.uservoice.uservoicesdk.flow.SigninManager:
+    25:26:public static void signIn(android.support.v4.app.FragmentActivity,java.lang.Runnable)
+com.uservoice.uservoicesdk.image.ImageCache:
+    52:54:public void purge()
+com.uservoice.uservoicesdk.model.BaseModel:
+    105:105:protected static com.uservoice.uservoicesdk.rest.RestTask doPost(java.lang.String,com.uservoice.uservoicesdk.rest.RestTaskCallback)
+    109:109:protected static com.uservoice.uservoicesdk.rest.RestTask doDelete(java.lang.String,com.uservoice.uservoicesdk.rest.RestTaskCallback)
+    113:113:protected static com.uservoice.uservoicesdk.rest.RestTask doPut(java.lang.String,com.uservoice.uservoicesdk.rest.RestTaskCallback)
+    129:131:protected static com.uservoice.uservoicesdk.rest.RestTask doDelete(java.lang.String,java.util.Map,com.uservoice.uservoicesdk.rest.RestTaskCallback)
+    135:137:protected static com.uservoice.uservoicesdk.rest.RestTask doPut(java.lang.String,java.util.Map,com.uservoice.uservoicesdk.rest.RestTaskCallback)
+com.uservoice.uservoicesdk.model.Category:
+    16:16:public java.lang.String getName()
+com.uservoice.uservoicesdk.model.ClientConfig:
+    102:102:public java.lang.String getAccountName()
+    114:114:public boolean isWhiteLabel()
+com.uservoice.uservoicesdk.model.Forum:
+    48:48:public int getNumberOfVotesAllowed()
+com.uservoice.uservoicesdk.model.RequestToken:
+    34:34:public java.lang.String getSecret()
+com.uservoice.uservoicesdk.model.Suggestion:
+    185:185:public com.uservoice.uservoicesdk.model.Category getCategory()
+com.uservoice.uservoicesdk.model.Ticket:
+    15:16:public static void createTicket(java.lang.String,java.util.Map,com.uservoice.uservoicesdk.rest.Callback)
+com.uservoice.uservoicesdk.model.Topic:
+    38:44:public static void loadTopic(int,com.uservoice.uservoicesdk.rest.Callback)
+com.uservoice.uservoicesdk.model.Topic$3
+com.uservoice.uservoicesdk.rest.RestResult:
+    35:35:public java.lang.Exception getException()
+com.uservoice.uservoicesdk.ui.DefaultCallback:
+    private static final java.lang.String TAG
+com.uservoice.uservoicesdk.ui.ModelAdapter:
+    protected static final int MODEL
+    protected static final int LOADING
+com.uservoice.uservoicesdk.ui.PortalAdapter:
+    145:162:public java.util.List getScopedSearchResults()
+com.uservoice.uservoicesdk.ui.StickyFocusContainer
+com.uservoice.uservoicesdk.ui.Utils:
+    29:29:public Utils()
 net.fred.feedex.Constants:
     public static final java.lang.String INTENT_FROM_WIDGET
     public static final java.lang.String FEED_ID
@@ -1615,6 +1734,245 @@ net.fred.feedex.widget.WidgetConfigActivity:
     private static final java.lang.String NAME_COLUMN
 net.fred.feedex.widget.WidgetProvider:
     public static final int STANDARD_BACKGROUND
+oauth.signpost.AbstractOAuthConsumer:
+    private static final long serialVersionUID
+    79:80:public void setAdditionalParameters(oauth.signpost.http.HttpParameters)
+    125:136:public synchronized java.lang.String sign(java.lang.String)
+    155:155:public java.lang.String getToken()
+    159:159:public java.lang.String getTokenSecret()
+    163:163:public java.lang.String getConsumerKey()
+    167:167:public java.lang.String getConsumerSecret()
+    210:210:public oauth.signpost.http.HttpParameters getRequestParameters()
+    214:215:public void setSendEmptyTokens(boolean)
+oauth.signpost.AbstractOAuthProvider
+oauth.signpost.OAuth:
+    public static final java.lang.String VERSION_1_0
+    public static final java.lang.String ENCODING
+    public static final java.lang.String FORM_ENCODED
+    public static final java.lang.String HTTP_AUTHORIZATION_HEADER
+    public static final java.lang.String OAUTH_CONSUMER_KEY
+    public static final java.lang.String OAUTH_TOKEN
+    public static final java.lang.String OAUTH_TOKEN_SECRET
+    public static final java.lang.String OAUTH_SIGNATURE_METHOD
+    public static final java.lang.String OAUTH_SIGNATURE
+    public static final java.lang.String OAUTH_TIMESTAMP
+    public static final java.lang.String OAUTH_NONCE
+    public static final java.lang.String OAUTH_VERSION
+    public static final java.lang.String OAUTH_CALLBACK
+    public static final java.lang.String OAUTH_CALLBACK_CONFIRMED
+    public static final java.lang.String OAUTH_VERIFIER
+    public static final java.lang.String OUT_OF_BAND
+    32:32:public OAuth()
+    105:118:public static void formEncode(java.util.Collection,java.io.OutputStream)
+    127:129:public static java.lang.String formEncode(java.util.Collection)
+    175:184:public static java.util.Map toMap(java.util.Collection)
+    188:188:public static final java.lang.String safeToString(java.lang.Object)
+    218:227:public static varargs java.lang.String addQueryParameters(java.lang.String,java.lang.String[])
+    231:238:public static java.lang.String addQueryParameters(java.lang.String,java.util.Map)
+    242:245:public static java.lang.String addQueryString(java.lang.String,java.lang.String)
+    268:278:public static varargs java.lang.String prepareOAuthHeader(java.lang.String[])
+    307:307:public static java.lang.String toHeaderElement(java.lang.String,java.lang.String)
+oauth.signpost.OAuthConsumer:
+    public abstract void setMessageSigner(oauth.signpost.signature.OAuthMessageSigner)
+    public abstract void setAdditionalParameters(oauth.signpost.http.HttpParameters)
+    public abstract void setSigningStrategy(oauth.signpost.signature.SigningStrategy)
+    public abstract void setSendEmptyTokens(boolean)
+    public abstract oauth.signpost.http.HttpRequest sign(oauth.signpost.http.HttpRequest)
+    public abstract java.lang.String sign(java.lang.String)
+    public abstract java.lang.String getToken()
+    public abstract java.lang.String getTokenSecret()
+    public abstract java.lang.String getConsumerKey()
+    public abstract java.lang.String getConsumerSecret()
+    public abstract oauth.signpost.http.HttpParameters getRequestParameters()
+oauth.signpost.OAuthProvider
+oauth.signpost.OAuthProviderListener
+oauth.signpost.basic.DefaultOAuthConsumer
+oauth.signpost.basic.DefaultOAuthProvider
+oauth.signpost.basic.HttpURLConnectionRequestAdapter
+oauth.signpost.basic.HttpURLConnectionResponseAdapter
+oauth.signpost.basic.UrlStringRequestAdapter
+oauth.signpost.commonshttp.CommonsHttpOAuthConsumer:
+    private static final long serialVersionUID
+oauth.signpost.commonshttp.CommonsHttpOAuthProvider
+oauth.signpost.commonshttp.HttpRequestAdapter:
+    35:35:public void setRequestUrl(java.lang.String)
+    51:56:public java.util.Map getAllHeaders()
+    78:78:public java.lang.Object unwrap()
+oauth.signpost.commonshttp.HttpResponseAdapter
+oauth.signpost.exception.OAuthCommunicationException:
+    private java.lang.String responseBody
+    28:30:public OAuthCommunicationException(java.lang.String,java.lang.String)
+    33:33:public java.lang.String getResponseBody()
+oauth.signpost.exception.OAuthMessageSignerException:
+    21:22:public OAuthMessageSignerException(java.lang.String)
+oauth.signpost.exception.OAuthNotAuthorizedException
+oauth.signpost.http.HttpParameters:
+    115:115:public java.lang.String putNull(java.lang.String,java.lang.String)
+    133:136:public void putAll(java.lang.String[],boolean)
+    145:153:public void putMap(java.util.Map)
+    204:204:public java.lang.String getAsQueryString(java.lang.Object)
+oauth.signpost.http.HttpRequest:
+    public abstract void setRequestUrl(java.lang.String)
+    public abstract java.util.Map getAllHeaders()
+    public abstract java.lang.Object unwrap()
+oauth.signpost.http.HttpResponse
+oauth.signpost.signature.AuthorizationHeaderSigningStrategy:
+    private static final long serialVersionUID
+oauth.signpost.signature.HmacSha1MessageSigner:
+    private static final java.lang.String MAC_NAME
+oauth.signpost.signature.OAuthMessageSigner:
+    private static final long serialVersionUID
+    62:62:protected byte[] decodeBase64(java.lang.String)
+    71:73:private void readObject(java.io.ObjectInputStream)
+oauth.signpost.signature.PlainTextMessageSigner
+oauth.signpost.signature.QueryStringSigningStrategy
+org.apache.commons.codec.BinaryDecoder
+org.apache.commons.codec.BinaryEncoder
+org.apache.commons.codec.CharEncoding
+org.apache.commons.codec.Charsets:
+    59:59:public Charsets()
+    74:74:public static java.nio.charset.Charset toCharset(java.nio.charset.Charset)
+    87:87:public static java.nio.charset.Charset toCharset(java.lang.String)
+org.apache.commons.codec.Decoder
+org.apache.commons.codec.DecoderException
+org.apache.commons.codec.Encoder
+org.apache.commons.codec.EncoderException
+org.apache.commons.codec.StringDecoder
+org.apache.commons.codec.StringEncoder
+org.apache.commons.codec.StringEncoderComparator
+org.apache.commons.codec.binary.Base32
+org.apache.commons.codec.binary.Base32InputStream
+org.apache.commons.codec.binary.Base32OutputStream
+org.apache.commons.codec.binary.Base64:
+    private static final int BITS_PER_ENCODED_BYTE
+    private static final int BYTES_PER_UNENCODED_BLOCK
+    private static final int BYTES_PER_ENCODED_BLOCK
+    private static final int MASK_6BITS
+    189:190:public Base64(boolean)
+    303:303:public boolean isUrlSafe()
+    426:481:void decode(byte[],int,int,org.apache.commons.codec.binary.BaseNCodec$Context)
+    495:495:public static boolean isArrayByteBase64(byte[])
+    507:507:public static boolean isBase64(byte)
+    521:521:public static boolean isBase64(java.lang.String)
+    535:540:public static boolean isBase64(byte[])
+    551:551:public static byte[] encodeBase64(byte[])
+    566:566:public static java.lang.String encodeBase64String(byte[])
+    579:579:public static byte[] encodeBase64URLSafe(byte[])
+    592:592:public static java.lang.String encodeBase64URLSafeString(byte[])
+    603:603:public static byte[] encodeBase64Chunked(byte[])
+    618:618:public static byte[] encodeBase64(byte[],boolean)
+    637:637:public static byte[] encodeBase64(byte[],boolean,boolean)
+    659:674:public static byte[] encodeBase64(byte[],boolean,boolean,int)
+    686:686:public static byte[] decodeBase64(java.lang.String)
+    697:697:public static byte[] decodeBase64(byte[])
+    712:712:public static java.math.BigInteger decodeInteger(byte[])
+    726:729:public static byte[] encodeInteger(java.math.BigInteger)
+    740:760:static byte[] toIntegerBytes(java.math.BigInteger)
+org.apache.commons.codec.binary.Base64InputStream
+org.apache.commons.codec.binary.Base64OutputStream
+org.apache.commons.codec.binary.BaseNCodec:
+    static final int EOF
+    public static final int MIME_CHUNK_SIZE
+    public static final int PEM_CHUNK_SIZE
+    private static final int DEFAULT_BUFFER_RESIZE_FACTOR
+    private static final int DEFAULT_BUFFER_SIZE
+    protected static final int MASK_8BITS
+    protected static final byte PAD_DEFAULT
+    200:200:boolean hasData(org.apache.commons.codec.binary.BaseNCodec$Context)
+    289:296:protected static boolean isWhiteSpace(byte)
+    312:315:public java.lang.Object encode(java.lang.Object)
+    327:327:public java.lang.String encodeToString(byte[])
+    338:338:public java.lang.String encodeAsString(byte[])
+    354:359:public java.lang.Object decode(java.lang.Object)
+    371:371:public byte[] decode(java.lang.String)
+    383:391:public byte[] decode(byte[])
+    abstract void decode(byte[],int,int,org.apache.commons.codec.binary.BaseNCodec$Context)
+    441:447:public boolean isInAlphabet(byte[],boolean)
+    460:460:public boolean isInAlphabet(java.lang.String)
+    495:500:public long getEncodedLength(byte[])
+org.apache.commons.codec.binary.BaseNCodecInputStream
+org.apache.commons.codec.binary.BaseNCodecOutputStream
+org.apache.commons.codec.binary.BinaryCodec
+org.apache.commons.codec.binary.Hex
+org.apache.commons.codec.binary.StringUtils:
+    38:38:public StringUtils()
+    50:53:private static byte[] getBytes(java.lang.String,java.nio.charset.Charset)
+    71:71:public static byte[] getBytesIso8859_1(java.lang.String)
+    95:101:public static byte[] getBytesUnchecked(java.lang.String,java.lang.String)
+    120:120:public static byte[] getBytesUsAscii(java.lang.String)
+    138:138:public static byte[] getBytesUtf16(java.lang.String)
+    156:156:public static byte[] getBytesUtf16Be(java.lang.String)
+    174:174:public static byte[] getBytesUtf16Le(java.lang.String)
+    192:192:public static byte[] getBytesUtf8(java.lang.String)
+    197:197:private static java.lang.IllegalStateException newIllegalStateException(java.lang.String,java.io.UnsupportedEncodingException)
+    237:243:public static java.lang.String newString(byte[],java.lang.String)
+    260:260:public static java.lang.String newStringIso8859_1(byte[])
+    276:276:public static java.lang.String newStringUsAscii(byte[])
+    292:292:public static java.lang.String newStringUtf16(byte[])
+    308:308:public static java.lang.String newStringUtf16Be(byte[])
+    324:324:public static java.lang.String newStringUtf16Le(byte[])
+org.apache.commons.codec.digest.B64
+org.apache.commons.codec.digest.Crypt
+org.apache.commons.codec.digest.DigestUtils
+org.apache.commons.codec.digest.Md5Crypt
+org.apache.commons.codec.digest.MessageDigestAlgorithms
+org.apache.commons.codec.digest.Sha2Crypt
+org.apache.commons.codec.digest.UnixCrypt
+org.apache.commons.codec.language.AbstractCaverphone
+org.apache.commons.codec.language.Caverphone
+org.apache.commons.codec.language.Caverphone1
+org.apache.commons.codec.language.Caverphone2
+org.apache.commons.codec.language.ColognePhonetic
+org.apache.commons.codec.language.ColognePhonetic$CologneBuffer
+org.apache.commons.codec.language.ColognePhonetic$CologneInputBuffer
+org.apache.commons.codec.language.ColognePhonetic$CologneOutputBuffer
+org.apache.commons.codec.language.DoubleMetaphone
+org.apache.commons.codec.language.DoubleMetaphone$DoubleMetaphoneResult
+org.apache.commons.codec.language.MatchRatingApproachEncoder
+org.apache.commons.codec.language.Metaphone
+org.apache.commons.codec.language.Nysiis
+org.apache.commons.codec.language.RefinedSoundex
+org.apache.commons.codec.language.Soundex
+org.apache.commons.codec.language.SoundexUtils
+org.apache.commons.codec.language.bm.BeiderMorseEncoder
+org.apache.commons.codec.language.bm.Lang
+org.apache.commons.codec.language.bm.Lang$1
+org.apache.commons.codec.language.bm.Lang$LangRule
+org.apache.commons.codec.language.bm.Languages
+org.apache.commons.codec.language.bm.Languages$1
+org.apache.commons.codec.language.bm.Languages$2
+org.apache.commons.codec.language.bm.Languages$LanguageSet
+org.apache.commons.codec.language.bm.Languages$SomeLanguages
+org.apache.commons.codec.language.bm.NameType
+org.apache.commons.codec.language.bm.PhoneticEngine
+org.apache.commons.codec.language.bm.PhoneticEngine$1
+org.apache.commons.codec.language.bm.PhoneticEngine$2
+org.apache.commons.codec.language.bm.PhoneticEngine$PhonemeBuilder
+org.apache.commons.codec.language.bm.PhoneticEngine$RulesApplication
+org.apache.commons.codec.language.bm.ResourceConstants
+org.apache.commons.codec.language.bm.Rule
+org.apache.commons.codec.language.bm.Rule$1
+org.apache.commons.codec.language.bm.Rule$10
+org.apache.commons.codec.language.bm.Rule$2
+org.apache.commons.codec.language.bm.Rule$3
+org.apache.commons.codec.language.bm.Rule$4
+org.apache.commons.codec.language.bm.Rule$5
+org.apache.commons.codec.language.bm.Rule$6
+org.apache.commons.codec.language.bm.Rule$7
+org.apache.commons.codec.language.bm.Rule$8
+org.apache.commons.codec.language.bm.Rule$9
+org.apache.commons.codec.language.bm.Rule$Phoneme
+org.apache.commons.codec.language.bm.Rule$Phoneme$1
+org.apache.commons.codec.language.bm.Rule$PhonemeExpr
+org.apache.commons.codec.language.bm.Rule$PhonemeList
+org.apache.commons.codec.language.bm.Rule$RPattern
+org.apache.commons.codec.language.bm.RuleType
+org.apache.commons.codec.net.BCodec
+org.apache.commons.codec.net.QCodec
+org.apache.commons.codec.net.QuotedPrintableCodec
+org.apache.commons.codec.net.RFC1522Codec
+org.apache.commons.codec.net.URLCodec
+org.apache.commons.codec.net.Utils
 roboto.newsreader.AndroidDownloadActivity
 roboto.newsreader.AndroidDownloadActivity$1
 roboto.newsreader.AndroidDownloadActivity$2
@@ -1629,6 +1987,7 @@ roboto.newsreader.R$drawable
 roboto.newsreader.R$id
 roboto.newsreader.R$layout
 roboto.newsreader.R$menu
+roboto.newsreader.R$plurals
 roboto.newsreader.R$raw
 roboto.newsreader.R$string
 roboto.newsreader.R$style
