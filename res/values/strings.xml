@@ -30,9 +30,9 @@
     <string name="menu_refresh">Refresh</string>
     <string name="menu_all_read">Mark all as read</string>
     <string name="feedex_feeds">Roboto News</string>
-    <string name="new_entries">new entries</string>
+    <string name="new_entries">Latest news ready to read!</string>
     <string name="error">Error</string>
-    <string name="network_error">The network is not set up</string>
+    <string name="network_error">The network is not available</string>
     <string name="loading">Loading…</string>
     <string name="no_result">No result</string>
     <string name="drawer_open">Open navigation drawer</string>
@@ -92,9 +92,9 @@
     <string name="to_group_into">Into the group</string>
 
     <!-- ENTRIES -->
-    <string name="all">ALL NEWS</string>
+    <string name="all">All News</string>
     <string name="no_entries">No entries</string>
-    <string name="favorites">FAVOURITES</string>
+    <string name="favorites">My favourites</string>
     <string name="context_menu_hide_read">Hide read entries</string>
     <string name="context_menu_show_read">Show read entries</string>
     <string name="context_menu_share_starred">Share starred entries</string>

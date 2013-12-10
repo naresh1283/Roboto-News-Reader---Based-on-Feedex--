@@ -2,11 +2,6 @@
 <opml version="1.1">
 <body>
 	<outline title='New York Times' type='rss' xmlUrl='http://rss.nytimes.com/services/xml/rss/nyt/World.xml' retrieveFullText='true'/>
-	<outline title='Engadget' type='rss' xmlUrl='http://www.engadget.com/rss.xml' retrieveFullText='true'/>
-	<outline title='Businessweek' type='rss' xmlUrl='http://www.businessweek.com/feeds/homepage.rss' retrieveFullText='true'/>
-	<outline title='BBC News - World' type='rss' xmlUrl='http://feeds.bbci.co.uk/news/world/rss.xml' retrieveFullText='true'/>
-	<outline title='ESPN' type='rss' xmlUrl='http://sports-ak.espn.go.com/espn/rss/news' retrieveFullText='true'/>
-	<outline title='Forbes Popular' type='rss' xmlUrl='http://www.forbes.com/feeds/popstories.xml' retrieveFullText='true'/>
-
+	<outline title='Forbes Most Popular' type='rss' xmlUrl='http://www.forbes.com/feeds/popstories.xml' retrieveFullText='true'/>
 </body>
 </opml>
