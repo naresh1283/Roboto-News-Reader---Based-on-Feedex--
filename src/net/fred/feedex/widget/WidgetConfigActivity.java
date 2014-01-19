@@ -57,7 +57,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import roboto.newsreader.R;
-import net.fred.feedex.provider.FeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
 import net.fred.feedex.utils.PrefUtils;
 
 public class WidgetConfigActivity extends PreferenceActivity {

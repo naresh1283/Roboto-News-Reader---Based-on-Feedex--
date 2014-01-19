@@ -50,9 +50,9 @@ import android.provider.BaseColumns;
 
 import net.fred.feedex.Constants;
 
-public class FeedData {
+public class RobotoFeedData {
     public static final String CONTENT = "content://";
-    public static final String AUTHORITY = "net.fred.feedex.provider.FeedData";
+    public static final String AUTHORITY = "net.fred.feedex.provider.RobotoFeedData";
     public static final String CONTENT_AUTHORITY = CONTENT + AUTHORITY;
 
     static final String TYPE_PRIMARY_KEY = "INTEGER PRIMARY KEY AUTOINCREMENT";

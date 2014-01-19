@@ -73,8 +73,8 @@ import com.roboto.app.RobotoApplication;
 import roboto.newsreader.R;
 import net.fred.feedex.adapter.FeedsCursorAdapter;
 import net.fred.feedex.parser.OPML;
-import net.fred.feedex.provider.FeedData.EntryColumns;
-import net.fred.feedex.provider.FeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.EntryColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
 import net.fred.feedex.view.DragNDropExpandableListView;
 import net.fred.feedex.view.DragNDropListener;
 

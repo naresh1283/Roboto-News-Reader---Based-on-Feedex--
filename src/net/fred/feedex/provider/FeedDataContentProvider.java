@@ -59,10 +59,10 @@ import android.text.TextUtils;
 
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
-import net.fred.feedex.provider.FeedData.EntryColumns;
-import net.fred.feedex.provider.FeedData.FeedColumns;
-import net.fred.feedex.provider.FeedData.FilterColumns;
-import net.fred.feedex.provider.FeedData.TaskColumns;
+import net.fred.feedex.provider.RobotoFeedData.EntryColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.FilterColumns;
+import net.fred.feedex.provider.RobotoFeedData.TaskColumns;
 import net.fred.feedex.utils.NetworkUtils;
 
 public class FeedDataContentProvider extends ContentProvider {
@@ -89,24 +89,24 @@ public class FeedDataContentProvider extends ContentProvider {
     public static final UriMatcher URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "grouped_feeds", URI_GROUPED_FEEDS);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "groups", URI_GROUPS);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "groups/#", URI_GROUP);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "groups/#/feeds", URI_FEEDS_FOR_GROUPS);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "feeds", URI_FEEDS);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "feeds/#", URI_FEED);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "feeds/#/entries", URI_ENTRIES_FOR_FEED);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "feeds/#/entries/#", URI_ENTRY_FOR_FEED);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "groups/#/entries", URI_ENTRIES_FOR_GROUP);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "groups/#/entries/#", URI_ENTRY_FOR_GROUP);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "filters", URI_FILTERS);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "feeds/#/filters", URI_FILTERS_FOR_FEED);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "entries", URI_ENTRIES);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "entries/#", URI_ENTRY);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "favorites", URI_FAVORITES);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "favorites/#", URI_FAVORITES_ENTRY);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "tasks", URI_TASKS);
-        URI_MATCHER.addURI(FeedData.AUTHORITY, "tasks/#", URI_TASK);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "grouped_feeds", URI_GROUPED_FEEDS);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "groups", URI_GROUPS);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "groups/#", URI_GROUP);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "groups/#/feeds", URI_FEEDS_FOR_GROUPS);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "feeds", URI_FEEDS);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "feeds/#", URI_FEED);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "feeds/#/entries", URI_ENTRIES_FOR_FEED);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "feeds/#/entries/#", URI_ENTRY_FOR_FEED);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "groups/#/entries", URI_ENTRIES_FOR_GROUP);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "groups/#/entries/#", URI_ENTRY_FOR_GROUP);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "filters", URI_FILTERS);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "feeds/#/filters", URI_FILTERS_FOR_FEED);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "entries", URI_ENTRIES);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "entries/#", URI_ENTRY);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "favorites", URI_FAVORITES);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "favorites/#", URI_FAVORITES_ENTRY);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "tasks", URI_TASKS);
+        URI_MATCHER.addURI(RobotoFeedData.AUTHORITY, "tasks/#", URI_TASK);
     }
 
     private static final String FEEDS_TABLE_WITH_GROUP_PRIORITY = FeedColumns.TABLE_NAME + " LEFT JOIN (SELECT " + FeedColumns._ID + " AS joined_feed_id, " + FeedColumns.PRIORITY +

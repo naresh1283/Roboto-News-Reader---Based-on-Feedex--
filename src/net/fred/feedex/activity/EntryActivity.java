@@ -83,13 +83,13 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import net.fred.feedex.provider.RobotoFeedData;
 import roboto.newsreader.HomeActivity;
 import roboto.newsreader.androidwebviewselection.BTWebView;
 import net.fred.feedex.Constants;
-import net.fred.feedex.provider.FeedData;
-import net.fred.feedex.provider.FeedData.EntryColumns;
-import net.fred.feedex.provider.FeedData.FeedColumns;
-import net.fred.feedex.provider.FeedData.TaskColumns;
+import net.fred.feedex.provider.RobotoFeedData.EntryColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.TaskColumns;
 import net.fred.feedex.provider.FeedDataContentProvider;
 import net.fred.feedex.service.FetcherService;
 import net.fred.feedex.utils.PrefUtils;
@@ -406,7 +406,7 @@ public class EntryActivity extends ProgressActivity {
 
             // Mark the article as read
             if (entryCursor.getInt(mIsReadPosition) != 1) {
-                if (cr.update(mUri, FeedData.getReadContentValues(), null, null) > 0) {
+                if (cr.update(mUri, RobotoFeedData.getReadContentValues(), null, null) > 0) {
                     FeedDataContentProvider.notifyAllFromEntryUri(mUri, false);
                 }
             }
@@ -749,7 +749,7 @@ public class EntryActivity extends ProgressActivity {
                     @Override
                     public void run() {
                         ContentResolver cr = getContentResolver();
-                        if (cr.update(mUri, FeedData.getUnreadContentValues(), null, null) > 0) {
+                        if (cr.update(mUri, RobotoFeedData.getUnreadContentValues(), null, null) > 0) {
                             FeedDataContentProvider.notifyAllFromEntryUri(mUri, false);
                         }
                     }

@@ -47,15 +47,14 @@ package net.fred.feedex.parser;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Xml;
 
 import com.roboto.file.FileConfiguration;
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
-import net.fred.feedex.provider.FeedData.FeedColumns;
-import net.fred.feedex.provider.FeedData.FilterColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.FilterColumns;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

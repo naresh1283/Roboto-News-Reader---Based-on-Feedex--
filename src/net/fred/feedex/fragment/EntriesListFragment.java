@@ -45,13 +45,12 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.roboto.app.RobotoApplication;
 import com.uservoice.uservoicesdk.UserVoice;
 import net.fred.feedex.Constants;
-import net.fred.feedex.provider.FeedData;
+import net.fred.feedex.provider.RobotoFeedData;
 import roboto.newsreader.R;
 import net.fred.feedex.adapter.EntriesCursorAdapter;
-import net.fred.feedex.provider.FeedData.EntryColumns;
+import net.fred.feedex.provider.RobotoFeedData.EntryColumns;
 import net.fred.feedex.provider.FeedDataContentProvider;
 import net.fred.feedex.service.FetcherService;
 import net.fred.feedex.utils.PrefUtils;
@@ -189,7 +188,7 @@ public class EntriesListFragment extends ListFragment implements LoaderManager.L
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add_feed:
-                startActivity(new Intent(Intent.ACTION_INSERT).setData(FeedData.FeedColumns.CONTENT_URI));
+                startActivity(new Intent(Intent.ACTION_INSERT).setData(RobotoFeedData.FeedColumns.CONTENT_URI));
                 return true;
 
             case R.id.menu_share_starred: {

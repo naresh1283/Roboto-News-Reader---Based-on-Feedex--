@@ -53,10 +53,10 @@ import android.os.Handler;
 import net.fred.feedex.MainApplication;
 import roboto.newsreader.R;
 import net.fred.feedex.parser.OPML;
-import net.fred.feedex.provider.FeedData.EntryColumns;
-import net.fred.feedex.provider.FeedData.FeedColumns;
-import net.fred.feedex.provider.FeedData.FilterColumns;
-import net.fred.feedex.provider.FeedData.TaskColumns;
+import net.fred.feedex.provider.RobotoFeedData.EntryColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.FilterColumns;
+import net.fred.feedex.provider.RobotoFeedData.TaskColumns;
 
 import java.io.File;
 
@@ -137,12 +137,12 @@ class DatabaseHelper extends SQLiteOpenHelper {
         if (oldVersion < 2) {
             executeCatchedSQL(
                     database,
-                    ALTER_TABLE + FeedColumns.TABLE_NAME + ADD + FeedColumns.REAL_LAST_UPDATE + ' ' + FeedData.TYPE_DATE_TIME);
+                    ALTER_TABLE + FeedColumns.TABLE_NAME + ADD + FeedColumns.REAL_LAST_UPDATE + ' ' + RobotoFeedData.TYPE_DATE_TIME);
         }
         if (oldVersion < 3) {
             executeCatchedSQL(
                     database,
-                    ALTER_TABLE + FeedColumns.TABLE_NAME + ADD + FeedColumns.RETRIEVE_FULLTEXT + ' ' + FeedData.TYPE_BOOLEAN);
+                    ALTER_TABLE + FeedColumns.TABLE_NAME + ADD + FeedColumns.RETRIEVE_FULLTEXT + ' ' + RobotoFeedData.TYPE_BOOLEAN);
         }
         if (oldVersion < 4) {
             executeCatchedSQL(database, createTable(TaskColumns.TABLE_NAME, TaskColumns.COLUMNS));

@@ -44,11 +44,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.roboto.app.RobotoApplication;
 import net.fred.feedex.Constants;
-import net.fred.feedex.MainApplication;
+import net.fred.feedex.provider.RobotoFeedData;
 import roboto.newsreader.R;
 import net.fred.feedex.adapter.DrawerAdapter;
 import net.fred.feedex.fragment.EntriesListFragment;
-import net.fred.feedex.provider.FeedData;
 import net.fred.feedex.service.FetcherService;
 import net.fred.feedex.service.RefreshService;
 import net.fred.feedex.utils.PrefUtils;
@@ -211,7 +210,7 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
                 startActivity(new Intent(this, FeedsListActivity.class));
                 return true;
             case R.id.menu_add_feed:
-                startActivity(new Intent(Intent.ACTION_INSERT).setData(FeedData.FeedColumns.CONTENT_URI));
+                startActivity(new Intent(Intent.ACTION_INSERT).setData(RobotoFeedData.FeedColumns.CONTENT_URI));
                 return true;
 //            case R.id.menu_refresh_main:
 //                if (!PrefUtils.getBoolean(PrefUtils.IS_REFRESHING, false)) {
@@ -235,15 +234,15 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
 
         switch (position) {
             case 0:
-                newUri = FeedData.EntryColumns.CONTENT_URI;
+                newUri = RobotoFeedData.EntryColumns.CONTENT_URI;
                 break;
             case 1:
-                newUri = FeedData.EntryColumns.FAVORITES_CONTENT_URI;
+                newUri = RobotoFeedData.EntryColumns.FAVORITES_CONTENT_URI;
                 break;
             default:
                 long feedOrGroupId = mDrawerAdapter.getItemId(position);
                 if (mDrawerAdapter.isItemAGroup(position)) {
-                    newUri = FeedData.EntryColumns.ENTRIES_FOR_GROUP_CONTENT_URI(feedOrGroupId);
+                    newUri = RobotoFeedData.EntryColumns.ENTRIES_FOR_GROUP_CONTENT_URI(feedOrGroupId);
                 } else {
                     byte[] iconBytes = mDrawerAdapter.getItemIcon(position);
                     if (iconBytes != null && iconBytes.length > 0) {
@@ -258,7 +257,7 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
                         }
                     }
 
-                    newUri = FeedData.EntryColumns.ENTRIES_FOR_FEED_CONTENT_URI(feedOrGroupId);
+                    newUri = RobotoFeedData.EntryColumns.ENTRIES_FOR_FEED_CONTENT_URI(feedOrGroupId);
                     showFeedInfo = false;
                 }
                 mTitle = mDrawerAdapter.getItemName(position);
@@ -305,12 +304,12 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        CursorLoader cursorLoader = new CursorLoader(this, FeedData.FeedColumns.GROUPED_FEEDS_CONTENT_URI, new String[]{FeedData.FeedColumns._ID, FeedData.FeedColumns.URL,
-                FeedData.FeedColumns.NAME, FeedData.FeedColumns.IS_GROUP, FeedData.FeedColumns.GROUP_ID, FeedData.FeedColumns.ICON, FeedData.FeedColumns.LAST_UPDATE, FeedData.FeedColumns.ERROR,
-                "(SELECT COUNT(*) FROM " + FeedData.EntryColumns.TABLE_NAME + " WHERE " + FeedData.EntryColumns.IS_READ + " IS NULL AND " + FeedData.EntryColumns.FEED_ID + "="
-                        + FeedData.FeedColumns.TABLE_NAME + "." + FeedData.FeedColumns._ID + ")",
-                "(SELECT COUNT(*) FROM " + FeedData.EntryColumns.TABLE_NAME + " WHERE " + FeedData.EntryColumns.IS_READ + " IS NULL)",
-                "(SELECT COUNT(*) FROM " + FeedData.EntryColumns.TABLE_NAME + " WHERE " + FeedData.EntryColumns.IS_FAVORITE + Constants.DB_IS_TRUE + ")"}, null, null, null);
+        CursorLoader cursorLoader = new CursorLoader(this, RobotoFeedData.FeedColumns.GROUPED_FEEDS_CONTENT_URI, new String[]{RobotoFeedData.FeedColumns._ID, RobotoFeedData.FeedColumns.URL,
+                RobotoFeedData.FeedColumns.NAME, RobotoFeedData.FeedColumns.IS_GROUP, RobotoFeedData.FeedColumns.GROUP_ID, RobotoFeedData.FeedColumns.ICON, RobotoFeedData.FeedColumns.LAST_UPDATE, RobotoFeedData.FeedColumns.ERROR,
+                "(SELECT COUNT(*) FROM " + RobotoFeedData.EntryColumns.TABLE_NAME + " WHERE " + RobotoFeedData.EntryColumns.IS_READ + " IS NULL AND " + RobotoFeedData.EntryColumns.FEED_ID + "="
+                        + RobotoFeedData.FeedColumns.TABLE_NAME + "." + RobotoFeedData.FeedColumns._ID + ")",
+                "(SELECT COUNT(*) FROM " + RobotoFeedData.EntryColumns.TABLE_NAME + " WHERE " + RobotoFeedData.EntryColumns.IS_READ + " IS NULL)",
+                "(SELECT COUNT(*) FROM " + RobotoFeedData.EntryColumns.TABLE_NAME + " WHERE " + RobotoFeedData.EntryColumns.IS_FAVORITE + Constants.DB_IS_TRUE + ")"}, null, null, null);
         cursorLoader.setUpdateThrottle(Constants.UPDATE_THROTTLE_DELAY);
         return cursorLoader;
     }

@@ -31,7 +31,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import roboto.newsreader.R;
-import net.fred.feedex.provider.FeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
 import net.fred.feedex.utils.UiUtils;
 import net.fred.feedex.view.DragNDropExpandableListView;
 

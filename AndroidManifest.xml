@@ -26,7 +26,7 @@
 
         <provider
             android:name="net.fred.feedex.provider.FeedDataContentProvider"
-            android:authorities="net.fred.feedex.provider.FeedData"
+            android:authorities="net.fred.feedex.provider.RobotoFeedData"
             android:exported="true" />
 
 <!--        <activity

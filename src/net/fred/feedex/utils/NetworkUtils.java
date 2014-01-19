@@ -28,7 +28,7 @@ import android.net.Uri;
 
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
-import net.fred.feedex.provider.FeedData;
+import net.fred.feedex.provider.RobotoFeedData;
 import net.fred.feedex.provider.FeedDataContentProvider;
 
 import java.io.ByteArrayOutputStream;
@@ -101,7 +101,7 @@ public class NetworkUtils {
         if (IMAGE_FOLDER_FILE.exists()) {
             PictureFilenameFilter filenameFilter = new PictureFilenameFilter();
 
-            Cursor cursor = MainApplication.getContext().getContentResolver().query(entriesUri, FeedData.EntryColumns.PROJECTION_ID, selection, null, null);
+            Cursor cursor = MainApplication.getContext().getContentResolver().query(entriesUri, RobotoFeedData.EntryColumns.PROJECTION_ID, selection, null, null);
 
             while (cursor.moveToNext()) {
                 filenameFilter.setEntryId(cursor.getString(0));
@@ -141,14 +141,14 @@ public class NetworkUtils {
             ContentValues values = new ContentValues();
             try {
                 byte[] iconBytes = getBytes(getConnectionInputStream(iconURLConnection));
-                values.put(FeedData.FeedColumns.ICON, iconBytes);
+                values.put(RobotoFeedData.FeedColumns.ICON, iconBytes);
             } catch (Exception e) {
                 // no icon found or error
-                values.put(FeedData.FeedColumns.ICON, new byte[0]);
+                values.put(RobotoFeedData.FeedColumns.ICON, new byte[0]);
             } finally {
                 iconURLConnection.disconnect();
 
-                context.getContentResolver().update(FeedData.FeedColumns.CONTENT_URI(id), values, null, null);
+                context.getContentResolver().update(RobotoFeedData.FeedColumns.CONTENT_URI(id), values, null, null);
                 FeedDataContentProvider.notifyGroupFromFeedId(id);
             }
         } catch (Throwable ignored) {

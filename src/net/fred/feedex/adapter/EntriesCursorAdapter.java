@@ -64,10 +64,10 @@ import android.widget.TextView;
 
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
+import net.fred.feedex.provider.RobotoFeedData;
 import roboto.newsreader.R;
-import net.fred.feedex.provider.FeedData;
-import net.fred.feedex.provider.FeedData.EntryColumns;
-import net.fred.feedex.provider.FeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.EntryColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
 import net.fred.feedex.provider.FeedDataContentProvider;
 import net.fred.feedex.utils.UiUtils;
 
@@ -210,7 +210,7 @@ public class EntriesCursorAdapter extends ResourceCursorAdapter {
             public void run() {
                 ContentResolver cr = MainApplication.getContext().getContentResolver();
 
-                if (cr.update(uri, FeedData.getReadContentValues(), EntryColumns.WHERE_UNREAD, null) > 0) {
+                if (cr.update(uri, RobotoFeedData.getReadContentValues(), EntryColumns.WHERE_UNREAD, null) > 0) {
                     if (!uri.toString().startsWith(EntryColumns.CONTENT_URI.toString())) {
                         cr.notifyChange(EntryColumns.CONTENT_URI, null);
                     }
@@ -232,7 +232,7 @@ public class EntriesCursorAdapter extends ResourceCursorAdapter {
             public void run() {
                 ContentResolver cr = MainApplication.getContext().getContentResolver();
                 Uri entryUri = ContentUris.withAppendedId(uri, id);
-                if (cr.update(entryUri, FeedData.getReadContentValues(), null, null) > 0) {
+                if (cr.update(entryUri, RobotoFeedData.getReadContentValues(), null, null) > 0) {
                     FeedDataContentProvider.notifyAllFromEntryUri(entryUri, false);
                 }
             }
@@ -248,7 +248,7 @@ public class EntriesCursorAdapter extends ResourceCursorAdapter {
             public void run() {
                 ContentResolver cr = MainApplication.getContext().getContentResolver();
                 Uri entryUri = ContentUris.withAppendedId(uri, id);
-                if (cr.update(entryUri, FeedData.getUnreadContentValues(), null, null) > 0) {
+                if (cr.update(entryUri, RobotoFeedData.getUnreadContentValues(), null, null) > 0) {
                     FeedDataContentProvider.notifyAllFromEntryUri(entryUri, false);
                 }
             }

@@ -1048,20 +1048,10 @@ android.support.v4.widget.ViewDragHelper:
     1351:1351:public boolean isEdgeTouched(int,int)
 com.almeros.android.multitouch.BuildConfig
 com.almeros.android.multitouch.R
-com.almeros.android.multitouch.R$anim
-com.almeros.android.multitouch.R$array
-com.almeros.android.multitouch.R$attr
-com.almeros.android.multitouch.R$color
-com.almeros.android.multitouch.R$dimen
 com.almeros.android.multitouch.R$drawable
 com.almeros.android.multitouch.R$id
 com.almeros.android.multitouch.R$layout
-com.almeros.android.multitouch.R$menu
-com.almeros.android.multitouch.R$plurals
-com.almeros.android.multitouch.R$raw
 com.almeros.android.multitouch.R$string
-com.almeros.android.multitouch.R$style
-com.almeros.android.multitouch.R$xml
 com.almeros.android.multitouch.TouchActivity
 com.almeros.android.multitouch.TouchActivity$1
 com.almeros.android.multitouch.TouchActivity$MoveListener
@@ -1275,25 +1265,19 @@ com.nineoldandroids.view.ViewPropertyAnimatorPreHC$PropertyBundle
 com.nineoldandroids.view.animation.AnimatorProxy
 com.roboto.BuildConfig
 com.roboto.R:
-    10:699:public R()
-com.roboto.R$anim
-com.roboto.R$array
-com.roboto.R$attr
-com.roboto.R$color
+    9:262:public R()
 com.roboto.R$dimen
 com.roboto.R$drawable:
-    68:68:public R$drawable()
+    18:18:public R$drawable()
 com.roboto.R$id:
-    159:159:public R$id()
+    65:65:public R$id()
 com.roboto.R$layout:
-    300:300:public R$layout()
+    130:130:public R$layout()
 com.roboto.R$menu:
-    355:355:public R$menu()
+    159:159:public R$menu()
 com.roboto.R$plurals
-com.roboto.R$raw
 com.roboto.R$string
 com.roboto.R$style
-com.roboto.R$xml
 com.roboto.app.RobotoDownloadManager
 com.roboto.database.FeedReaderContract
 com.roboto.database.FeedReaderContract$FeedEntry
@@ -1359,27 +1343,21 @@ com.uservoice.uservoicesdk.Config:
     165:166:public void putAccountTrait(java.lang.String,float)
     169:170:public void putAccountTrait(java.lang.String,java.util.Date)
 com.uservoice.uservoicesdk.R:
-    10:699:public R()
-com.uservoice.uservoicesdk.R$anim
-com.uservoice.uservoicesdk.R$array
-com.uservoice.uservoicesdk.R$attr
-com.uservoice.uservoicesdk.R$color
+    9:200:public R()
 com.uservoice.uservoicesdk.R$dimen
 com.uservoice.uservoicesdk.R$drawable:
-    68:68:public R$drawable()
+    14:14:public R$drawable()
 com.uservoice.uservoicesdk.R$id:
-    159:159:public R$id()
+    26:26:public R$id()
 com.uservoice.uservoicesdk.R$layout:
-    300:300:public R$layout()
+    78:78:public R$layout()
 com.uservoice.uservoicesdk.R$menu:
-    355:355:public R$menu()
+    102:102:public R$menu()
 com.uservoice.uservoicesdk.R$plurals:
-    366:366:public R$plurals()
-com.uservoice.uservoicesdk.R$raw
+    106:106:public R$plurals()
 com.uservoice.uservoicesdk.R$string:
-    377:377:public R$string()
+    114:114:public R$string()
 com.uservoice.uservoicesdk.R$style
-com.uservoice.uservoicesdk.R$xml
 com.uservoice.uservoicesdk.Session:
     private com.uservoice.uservoicesdk.model.Comment comment
     private com.uservoice.uservoicesdk.model.CustomField customField
@@ -1548,7 +1526,7 @@ net.fred.feedex.parser.OPML:
     private static final java.lang.String FILTER_IS_APPLIED_TO_TITLE
     private static final java.lang.String FILTER_CLOSING
     private static final java.lang.String CLOSING
-    72:202:public OPML()
+    71:201:public OPML()
 net.fred.feedex.parser.OPML$OPMLParser:
     private static final java.lang.String TAG_BODY
     private static final java.lang.String TAG_OUTLINE
@@ -1595,65 +1573,6 @@ net.fred.feedex.provider.DatabaseHelper:
     private static final int DATABASE_VERSION
     private static final java.lang.String ALTER_TABLE
     private static final java.lang.String ADD
-net.fred.feedex.provider.FeedData:
-    public static final java.lang.String CONTENT
-    public static final java.lang.String AUTHORITY
-    public static final java.lang.String CONTENT_AUTHORITY
-    static final java.lang.String TYPE_PRIMARY_KEY
-    static final java.lang.String TYPE_EXTERNAL_ID
-    static final java.lang.String TYPE_TEXT
-    static final java.lang.String TYPE_TEXT_UNIQUE
-    static final java.lang.String TYPE_DATE_TIME
-    static final java.lang.String TYPE_INT
-    static final java.lang.String TYPE_BOOLEAN
-    53:200:public FeedData()
-net.fred.feedex.provider.FeedData$EntryColumns:
-    public static final java.lang.String TABLE_NAME
-    public static final java.lang.String FEED_ID
-    public static final java.lang.String TITLE
-    public static final java.lang.String ABSTRACT
-    public static final java.lang.String MOBILIZED_HTML
-    public static final java.lang.String DATE
-    public static final java.lang.String IS_READ
-    public static final java.lang.String LINK
-    public static final java.lang.String IS_FAVORITE
-    public static final java.lang.String ENCLOSURE
-    public static final java.lang.String GUID
-    public static final java.lang.String AUTHOR
-    public static final java.lang.String WHERE_UNREAD
-    public static final java.lang.String WHERE_NOT_FAVORITE
-    143:143:public FeedData$EntryColumns()
-    174:174:public static android.net.Uri ENTRIES_FOR_GROUP_CONTENT_URI(java.lang.String)
-net.fred.feedex.provider.FeedData$FeedColumns:
-    public static final java.lang.String TABLE_NAME
-    public static final java.lang.String URL
-    public static final java.lang.String NAME
-    public static final java.lang.String IS_GROUP
-    public static final java.lang.String GROUP_ID
-    public static final java.lang.String LAST_UPDATE
-    public static final java.lang.String REAL_LAST_UPDATE
-    public static final java.lang.String RETRIEVE_FULLTEXT
-    public static final java.lang.String ICON
-    public static final java.lang.String ERROR
-    public static final java.lang.String PRIORITY
-    public static final java.lang.String FETCH_MODE
-    67:67:public FeedData$FeedColumns()
-    101:101:public static android.net.Uri GROUPS_CONTENT_URI(java.lang.String)
-net.fred.feedex.provider.FeedData$FilterColumns:
-    public static final java.lang.String TABLE_NAME
-    public static final java.lang.String FEED_ID
-    public static final java.lang.String FILTER_TEXT
-    public static final java.lang.String IS_REGEX
-    public static final java.lang.String IS_APPLIED_TO_TITLE
-    121:121:public FeedData$FilterColumns()
-    139:139:public static android.net.Uri FILTERS_FOR_FEED_CONTENT_URI(long)
-net.fred.feedex.provider.FeedData$TaskColumns:
-    public static final java.lang.String TABLE_NAME
-    public static final java.lang.String ENTRY_ID
-    public static final java.lang.String IMG_URL_TO_DL
-    public static final java.lang.String NUMBER_ATTEMPT
-    200:200:public FeedData$TaskColumns()
-    213:213:public static android.net.Uri CONTENT_URI(java.lang.String)
 net.fred.feedex.provider.FeedDataContentProvider:
     public static final int URI_GROUPED_FEEDS
     public static final int URI_GROUPS
@@ -1675,6 +1594,65 @@ net.fred.feedex.provider.FeedDataContentProvider:
     public static final int URI_TASK
     private static final java.lang.String FEEDS_TABLE_WITH_GROUP_PRIORITY
     private static final java.lang.String ENTRIES_TABLE_WITH_FEED_INFO
+net.fred.feedex.provider.RobotoFeedData:
+    public static final java.lang.String CONTENT
+    public static final java.lang.String AUTHORITY
+    public static final java.lang.String CONTENT_AUTHORITY
+    static final java.lang.String TYPE_PRIMARY_KEY
+    static final java.lang.String TYPE_EXTERNAL_ID
+    static final java.lang.String TYPE_TEXT
+    static final java.lang.String TYPE_TEXT_UNIQUE
+    static final java.lang.String TYPE_DATE_TIME
+    static final java.lang.String TYPE_INT
+    static final java.lang.String TYPE_BOOLEAN
+    53:200:public RobotoFeedData()
+net.fred.feedex.provider.RobotoFeedData$EntryColumns:
+    public static final java.lang.String TABLE_NAME
+    public static final java.lang.String FEED_ID
+    public static final java.lang.String TITLE
+    public static final java.lang.String ABSTRACT
+    public static final java.lang.String MOBILIZED_HTML
+    public static final java.lang.String DATE
+    public static final java.lang.String IS_READ
+    public static final java.lang.String LINK
+    public static final java.lang.String IS_FAVORITE
+    public static final java.lang.String ENCLOSURE
+    public static final java.lang.String GUID
+    public static final java.lang.String AUTHOR
+    public static final java.lang.String WHERE_UNREAD
+    public static final java.lang.String WHERE_NOT_FAVORITE
+    143:143:public RobotoFeedData$EntryColumns()
+    174:174:public static android.net.Uri ENTRIES_FOR_GROUP_CONTENT_URI(java.lang.String)
+net.fred.feedex.provider.RobotoFeedData$FeedColumns:
+    public static final java.lang.String TABLE_NAME
+    public static final java.lang.String URL
+    public static final java.lang.String NAME
+    public static final java.lang.String IS_GROUP
+    public static final java.lang.String GROUP_ID
+    public static final java.lang.String LAST_UPDATE
+    public static final java.lang.String REAL_LAST_UPDATE
+    public static final java.lang.String RETRIEVE_FULLTEXT
+    public static final java.lang.String ICON
+    public static final java.lang.String ERROR
+    public static final java.lang.String PRIORITY
+    public static final java.lang.String FETCH_MODE
+    67:67:public RobotoFeedData$FeedColumns()
+    101:101:public static android.net.Uri GROUPS_CONTENT_URI(java.lang.String)
+net.fred.feedex.provider.RobotoFeedData$FilterColumns:
+    public static final java.lang.String TABLE_NAME
+    public static final java.lang.String FEED_ID
+    public static final java.lang.String FILTER_TEXT
+    public static final java.lang.String IS_REGEX
+    public static final java.lang.String IS_APPLIED_TO_TITLE
+    121:121:public RobotoFeedData$FilterColumns()
+    139:139:public static android.net.Uri FILTERS_FOR_FEED_CONTENT_URI(long)
+net.fred.feedex.provider.RobotoFeedData$TaskColumns:
+    public static final java.lang.String TABLE_NAME
+    public static final java.lang.String ENTRY_ID
+    public static final java.lang.String IMG_URL_TO_DL
+    public static final java.lang.String NUMBER_ATTEMPT
+    200:200:public RobotoFeedData$TaskColumns()
+    213:213:public static android.net.Uri CONTENT_URI(java.lang.String)
 net.fred.feedex.service.FetcherService:
     public static final java.lang.String ACTION_REFRESH_FEEDS
     public static final java.lang.String ACTION_MOBILIZE_FEEDS

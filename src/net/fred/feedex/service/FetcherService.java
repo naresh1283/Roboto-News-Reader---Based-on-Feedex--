@@ -65,13 +65,13 @@ import android.util.Xml;
 
 import net.fred.feedex.Constants;
 import net.fred.feedex.MainApplication;
+import net.fred.feedex.provider.RobotoFeedData;
 import roboto.newsreader.HomeActivity;
 import roboto.newsreader.R;
 import net.fred.feedex.parser.RssAtomParser;
-import net.fred.feedex.provider.FeedData;
-import net.fred.feedex.provider.FeedData.EntryColumns;
-import net.fred.feedex.provider.FeedData.FeedColumns;
-import net.fred.feedex.provider.FeedData.TaskColumns;
+import net.fred.feedex.provider.RobotoFeedData.EntryColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.TaskColumns;
 import net.fred.feedex.provider.FeedDataContentProvider;
 import net.fred.feedex.utils.NetworkUtils;
 import net.fred.feedex.utils.PrefUtils;
@@ -356,7 +356,7 @@ public class FetcherService extends IntentService {
 
         if (!operations.isEmpty()) {
             try {
-                cr.applyBatch(FeedData.AUTHORITY, operations);
+                cr.applyBatch(RobotoFeedData.AUTHORITY, operations);
             } catch (Throwable ignored) {
             }
         }
@@ -364,8 +364,8 @@ public class FetcherService extends IntentService {
 
     private void downloadAllImages() {
         ContentResolver cr = MainApplication.getContext().getContentResolver();
-        Cursor cursor = cr.query(FeedData.TaskColumns.CONTENT_URI, new String[]{FeedData.TaskColumns._ID, FeedData.TaskColumns.ENTRY_ID, FeedData.TaskColumns.IMG_URL_TO_DL,
-                FeedData.TaskColumns.NUMBER_ATTEMPT}, FeedData.TaskColumns.IMG_URL_TO_DL + Constants.DB_IS_NOT_NULL, null, null);
+        Cursor cursor = cr.query(RobotoFeedData.TaskColumns.CONTENT_URI, new String[]{RobotoFeedData.TaskColumns._ID, RobotoFeedData.TaskColumns.ENTRY_ID, RobotoFeedData.TaskColumns.IMG_URL_TO_DL,
+                RobotoFeedData.TaskColumns.NUMBER_ATTEMPT}, RobotoFeedData.TaskColumns.IMG_URL_TO_DL + Constants.DB_IS_NOT_NULL, null, null);
 
         ArrayList<ContentProviderOperation> operations = new ArrayList<ContentProviderOperation>();
 
@@ -382,14 +382,14 @@ public class FetcherService extends IntentService {
                 NetworkUtils.downloadImage(entryId, imgPath);
 
                 // If we are here, everything is OK
-                operations.add(ContentProviderOperation.newDelete(FeedData.TaskColumns.CONTENT_URI(taskId)).build());
+                operations.add(ContentProviderOperation.newDelete(RobotoFeedData.TaskColumns.CONTENT_URI(taskId)).build());
             } catch (Exception e) {
                 if (nbAttempt + 1 > MAX_TASK_ATTEMPT) {
-                    operations.add(ContentProviderOperation.newDelete(FeedData.TaskColumns.CONTENT_URI(taskId)).build());
+                    operations.add(ContentProviderOperation.newDelete(RobotoFeedData.TaskColumns.CONTENT_URI(taskId)).build());
                 } else {
                     ContentValues values = new ContentValues();
-                    values.put(FeedData.TaskColumns.NUMBER_ATTEMPT, nbAttempt + 1);
-                    operations.add(ContentProviderOperation.newUpdate(FeedData.TaskColumns.CONTENT_URI(taskId)).withValues(values).build());
+                    values.put(RobotoFeedData.TaskColumns.NUMBER_ATTEMPT, nbAttempt + 1);
+                    operations.add(ContentProviderOperation.newUpdate(RobotoFeedData.TaskColumns.CONTENT_URI(taskId)).withValues(values).build());
                 }
             }
         }
@@ -398,7 +398,7 @@ public class FetcherService extends IntentService {
 
         if (!operations.isEmpty()) {
             try {
-                cr.applyBatch(FeedData.AUTHORITY, operations);
+                cr.applyBatch(RobotoFeedData.AUTHORITY, operations);
             } catch (Throwable ignored) {
             }
         }

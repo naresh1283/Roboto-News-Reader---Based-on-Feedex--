@@ -82,8 +82,8 @@ import net.fred.feedex.service.FetcherService;
 import net.fred.feedex.utils.PrefUtils;
 import roboto.newsreader.R;
 import net.fred.feedex.adapter.FiltersCursorAdapter;
-import net.fred.feedex.provider.FeedData.FeedColumns;
-import net.fred.feedex.provider.FeedData.FilterColumns;
+import net.fred.feedex.provider.RobotoFeedData.FeedColumns;
+import net.fred.feedex.provider.RobotoFeedData.FilterColumns;
 import net.fred.feedex.utils.NetworkUtils;
 import net.fred.feedex.utils.UiUtils;
 

@@ -2483,10 +2483,10 @@ net.fred.feedex.provider.DatabaseHelper$1$1 -> net.fred.feedex.provider.c:
     net.fred.feedex.provider.DatabaseHelper$1 this$1 -> a
     boolean val$hasBackup -> b
     95:104:void run() -> run
-net.fred.feedex.provider.FeedData -> net.fred.feedex.provider.d:
+net.fred.feedex.provider.RobotoFeedData -> net.fred.feedex.provider.d:
     224:226:android.content.ContentValues getReadContentValues() -> a
     230:232:android.content.ContentValues getUnreadContentValues() -> b
-net.fred.feedex.provider.FeedData$EntryColumns -> net.fred.feedex.provider.e:
+net.fred.feedex.provider.RobotoFeedData$EntryColumns -> net.fred.feedex.provider.e:
     java.lang.String[][] COLUMNS -> a
     android.net.Uri CONTENT_URI -> b
     android.net.Uri FAVORITES_CONTENT_URI -> c
@@ -2497,7 +2497,7 @@ net.fred.feedex.provider.FeedData$EntryColumns -> net.fred.feedex.provider.e:
     182:182:android.net.Uri CONTENT_URI(java.lang.String) -> b
     186:186:android.net.Uri CONTENT_URI(long) -> c
     190:190:android.net.Uri PARENT_URI(java.lang.String) -> c
-net.fred.feedex.provider.FeedData$FeedColumns -> net.fred.feedex.provider.f:
+net.fred.feedex.provider.RobotoFeedData$FeedColumns -> net.fred.feedex.provider.f:
     java.lang.String[][] COLUMNS -> a
     android.net.Uri CONTENT_URI -> b
     android.net.Uri GROUPED_FEEDS_CONTENT_URI -> c
@@ -2510,11 +2510,11 @@ net.fred.feedex.provider.FeedData$FeedColumns -> net.fred.feedex.provider.f:
     105:105:android.net.Uri GROUPS_CONTENT_URI(long) -> b
     109:109:android.net.Uri FEEDS_FOR_GROUPS_CONTENT_URI(java.lang.String) -> b
     113:113:android.net.Uri FEEDS_FOR_GROUPS_CONTENT_URI(long) -> c
-net.fred.feedex.provider.FeedData$FilterColumns -> net.fred.feedex.provider.g:
+net.fred.feedex.provider.RobotoFeedData$FilterColumns -> net.fred.feedex.provider.g:
     java.lang.String[][] COLUMNS -> a
     android.net.Uri CONTENT_URI -> b
     135:135:android.net.Uri FILTERS_FOR_FEED_CONTENT_URI(java.lang.String) -> a
-net.fred.feedex.provider.FeedData$TaskColumns -> net.fred.feedex.provider.h:
+net.fred.feedex.provider.RobotoFeedData$TaskColumns -> net.fred.feedex.provider.h:
     java.lang.String[][] COLUMNS -> a
     android.net.Uri CONTENT_URI -> b
     java.lang.String[] PROJECTION_ID -> c
