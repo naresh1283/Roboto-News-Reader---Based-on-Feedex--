@@ -1265,16 +1265,16 @@ com.nineoldandroids.view.ViewPropertyAnimatorPreHC$PropertyBundle
 com.nineoldandroids.view.animation.AnimatorProxy
 com.roboto.BuildConfig
 com.roboto.R:
-    9:262:public R()
+    9:238:public R()
 com.roboto.R$dimen
 com.roboto.R$drawable:
     18:18:public R$drawable()
 com.roboto.R$id:
-    65:65:public R$id()
+    41:41:public R$id()
 com.roboto.R$layout:
-    130:130:public R$layout()
+    106:106:public R$layout()
 com.roboto.R$menu:
-    159:159:public R$menu()
+    135:135:public R$menu()
 com.roboto.R$plurals
 com.roboto.R$string
 com.roboto.R$style

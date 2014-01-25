@@ -2078,40 +2078,17 @@ com.nineoldandroids.animation.ValueAnimator$AnimatorUpdateListener -> com.c.a.t:
 com.nineoldandroids.util.Property -> com.c.b.a:
 com.roboto.R -> com.roboto.a:
 com.roboto.R$drawable -> com.roboto.b:
-    int bar10 -> bar10
-    int bar12 -> bar12
-    int bar4 -> bar4
-    int bar5 -> bar5
-    int bar6 -> bar6
-    int bar7 -> bar7
     int bar8 -> bar8
     int bar9 -> bar9
     int basketball -> basketball
     int bkg1 -> bkg1
-    int bkg2 -> bkg2
-    int bkg3 -> bkg3
-    int bkg4 -> bkg4
-    int bkg5 -> bkg5
-    int bkg6 -> bkg6
-    int contextmenu_bkg -> contextmenu_bkg
-    int contextmenu_bkg2 -> contextmenu_bkg2
-    int contextmenu_bkg3 -> contextmenu_bkg3
-    int droid -> droid
-    int droid2 -> droid2
     int earth -> earth
     int ic_launcher -> ic_launcher
-    int leaf -> leaf
-    int leaf1 -> leaf1
-    int leaf2 -> leaf2
     int logo -> logo
     int new_bk -> new_bk
     int radialback -> radialback
-    int radialback_new -> radialback_new
-    int red_bkg -> red_bkg
-    int sky_blue_with_pebbles_bkg -> sky_blue_with_pebbles_bkg
     int stars -> stars
     int sun_flower -> sun_flower
-    int texturesmall -> texturesmall
     int uv_add -> uv_add
     int uv_admin_response -> uv_admin_response
     int uv_article -> uv_article
@@ -2122,7 +2099,6 @@ com.roboto.R$drawable -> com.roboto.b:
     int uv_idea -> uv_idea
     int uv_list_separator -> uv_list_separator
     int uv_list_separator_light -> uv_list_separator_light
-    int wood -> wood
 com.roboto.R$id -> com.roboto.c:
     int accelerated -> accelerated
     int container -> container
