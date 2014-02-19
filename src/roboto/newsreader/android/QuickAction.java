@@ -27,6 +27,7 @@ import android.view.ViewGroup.LayoutParams;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.hughes.android.dictionary.DictionaryManagerActivity;
 import com.roboto.app.RobotoApplication;
 import com.roboto.database.FeedReaderDbHelper;
 import com.roboto.file.*;
@@ -544,9 +545,11 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
      * depending on the state
      */
     public void setDetailView() {
+        mContext.startActivity(DictionaryManagerActivity.getLaunchIntent());
 
         if(FileMasterController.getInstance().isFileAvailable(FileConfiguration.FILE_ID)){
-            setDetailViewToDictionaryMeaning();
+            //setDetailViewToDictionaryMeaning();
+            mContext.startActivity(DictionaryManagerActivity.getLaunchIntent());
         } else{
 
             //Save the selected text for later retrieval upon dictionary file is AVAILABLE
