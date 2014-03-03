@@ -545,11 +545,10 @@ public class QuickAction extends PopupWindows implements OnDismissListener, File
      * depending on the state
      */
     public void setDetailView() {
-        mContext.startActivity(DictionaryManagerActivity.getLaunchIntent());
 
         if(FileMasterController.getInstance().isFileAvailable(FileConfiguration.FILE_ID)){
-            //setDetailViewToDictionaryMeaning();
-            mContext.startActivity(DictionaryManagerActivity.getLaunchIntent());
+
+            setDetailViewToDictionaryMeaning();
         } else{
 
             //Save the selected text for later retrieval upon dictionary file is AVAILABLE

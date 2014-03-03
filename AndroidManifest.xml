@@ -29,24 +29,6 @@
             android:authorities="net.fred.feedex.provider.RobotoFeedData"
             android:exported="true" />
 
-<!--        <activity
-                android:name="com.roboto.app.AndroidDownloadActivity"
-                android:label="@string/app_name"
-                android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>-->
-<!--        <activity
-                android:label="@string/app_name"
-                android:name=".androidwebviewselection.BTWebViewTestActivity" >
-            <intent-filter >
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>-->
         <receiver
                 android:name="com.roboto.file.FileDownloadStatusReceiver"  >
             <intent-filter>
@@ -129,6 +111,71 @@
             </intent-filter>
         </receiver>
         <receiver android:name="net.fred.feedex.service.RefreshService$RefreshAlarmReceiver" />
+
+
+
+
+        <!-- Multi language dictionary activities-->
+        <activity
+                android:name="com.hughes.android.dictionary.DictionaryManagerActivity"
+                android:label="@string/app_name" >
+        </activity>
+
+        <activity
+                android:name="com.hughes.android.dictionary.DictionaryActivity"
+                android:label="@string/app_name"
+                android:parentActivityName="com.hughes.android.dictionary.DictionaryActivity" >
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.hughes.android.dictionary.DictionaryActivity" />
+
+            <!--
+           @author Dominik Köppl
+     			Added two different intents to catch simple and advanced queries from other external applications.
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.hughes.action.ACTION_SEARCH_DICT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.hughes.android.dictionary.AboutActivity"
+                android:parentActivityName="com.hughes.android.dictionary.DictionaryActivity" >
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.hughes.android.dictionary.DictionaryActivity" />
+        </activity>
+        <activity
+                android:name="com.hughes.android.dictionary.HtmlDisplayActivity"
+                android:parentActivityName="com.hughes.android.dictionary.DictionaryActivity" >
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.hughes.android.dictionary.DictionaryActivity" />
+        </activity>
+        <activity
+                android:name="com.hughes.android.dictionary.PreferenceActivity"
+                android:parentActivityName="com.hughes.android.dictionary.DictionaryActivity" >
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.hughes.android.dictionary..DictionaryActivity" />
+        </activity>
+
+
+        <!--  end of Activities for MultiLanguageDictionary package-->
 
 
         <!-- UserVoice SDK Activities -->

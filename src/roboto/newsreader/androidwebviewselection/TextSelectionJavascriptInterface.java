@@ -67,7 +67,7 @@ public class TextSelectionJavascriptInterface {
 		if(this.listener != null){
 			this.listener.tsjiJSError(error);
 		}
-	}
+    	}
 	
 	/**
 	 * Gets the interface name
