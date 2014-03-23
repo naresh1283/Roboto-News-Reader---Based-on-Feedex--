@@ -52,6 +52,7 @@
         android:title="@string/settings_category_content_presentation">
 
         <CheckBoxPreference
+            android:id="@+id/theme_selection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:defaultValue="true"

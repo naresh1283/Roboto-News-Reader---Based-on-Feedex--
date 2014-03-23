@@ -46,6 +46,7 @@ package net.fred.feedex.activity;
 
 
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -53,8 +54,7 @@ import android.support.v4.content.AsyncTaskLoader;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.*;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -64,8 +64,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Html;
-import android.view.MenuInflater;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CheckBox;
@@ -78,6 +76,8 @@ import android.widget.Toast;
 
 import com.roboto.app.FragmentListActivity;
 import com.roboto.app.RobotoApplication;
+import com.uservoice.uservoicesdk.Config;
+import com.uservoice.uservoicesdk.UserVoice;
 import net.fred.feedex.Constants;
 import net.fred.feedex.service.FetcherService;
 import net.fred.feedex.utils.PrefUtils;
@@ -432,6 +432,12 @@ public class EditFeedActivity extends FragmentListActivity implements LoaderMana
 
     public void onClickSearch(View view) {
         final View dialogView = getLayoutInflater().inflate(R.layout.dialog_search_feed, null);
+
+        final int version = Integer.valueOf(Build.VERSION.SDK);
+        if (version < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            dialogView.setBackgroundResource(android.R.color.white);
+        }
+
         final EditText searchText = (EditText) dialogView.findViewById(R.id.searchText);
         final RadioGroup radioGroup = (RadioGroup) dialogView.findViewById(R.id.radioGroup);
 

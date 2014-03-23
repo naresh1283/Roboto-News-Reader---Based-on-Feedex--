@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="roboto.newsreader"
     android:installLocation="auto"
-    android:versionCode="5"
-    android:versionName="1.4">
+    android:versionCode="6"
+    android:versionName="2.0">
 
 <uses-sdk
         android:minSdkVersion="9"
@@ -121,20 +121,21 @@
                 android:label="@string/app_name" >
         </activity>-->
 
+<!--
         <activity
                 android:name="com.hughes.android.dictionary.DictionaryActivity"
                 android:label="@string/app_name"
                 android:parentActivityName="com.hughes.android.dictionary.DictionaryActivity" >
 
-            <!-- Parent activity meta-data to support API level 7+ -->
+            &lt;!&ndash; Parent activity meta-data to support API level 7+ &ndash;&gt;
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.hughes.android.dictionary.DictionaryActivity" />
 
-            <!--
+            &lt;!&ndash;
            @author Dominik Köppl
      			Added two different intents to catch simple and advanced queries from other external applications.
-            -->
+            &ndash;&gt;
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
 
@@ -150,7 +151,7 @@
                 android:name="com.hughes.android.dictionary.AboutActivity"
                 android:parentActivityName="com.hughes.android.dictionary.DictionaryActivity" >
 
-            <!-- Parent activity meta-data to support API level 7+ -->
+            &lt;!&ndash; Parent activity meta-data to support API level 7+ &ndash;&gt;
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.hughes.android.dictionary.DictionaryActivity" />
@@ -159,7 +160,7 @@
                 android:name="com.hughes.android.dictionary.HtmlDisplayActivity"
                 android:parentActivityName="com.hughes.android.dictionary.DictionaryActivity" >
 
-            <!-- Parent activity meta-data to support API level 7+ -->
+            &lt;!&ndash; Parent activity meta-data to support API level 7+ &ndash;&gt;
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.hughes.android.dictionary.DictionaryActivity" />
@@ -168,11 +169,12 @@
                 android:name="com.hughes.android.dictionary.PreferenceActivity"
                 android:parentActivityName="com.hughes.android.dictionary.DictionaryActivity" >
 
-            <!-- Parent activity meta-data to support API level 7+ -->
+            &lt;!&ndash; Parent activity meta-data to support API level 7+ &ndash;&gt;
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.hughes.android.dictionary..DictionaryActivity" />
         </activity>
+-->
 
 
         <!--  end of Activities for MultiLanguageDictionary package-->

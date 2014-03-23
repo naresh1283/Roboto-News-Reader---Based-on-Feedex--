@@ -45,12 +45,16 @@
 package net.fred.feedex.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.view.MenuItem;
 
+import android.view.View;
+import com.uservoice.uservoicesdk.Config;
+import com.uservoice.uservoicesdk.UserVoice;
 import roboto.newsreader.R;
 import net.fred.feedex.service.RefreshService;
 import net.fred.feedex.utils.PrefUtils;
@@ -66,6 +70,13 @@ public class GeneralPrefsActivity extends PreferenceActivity {
       //  actionBar.setDisplayHomeAsUpEnabled(true);
 
         addPreferencesFromResource(R.layout.activity_preferences);
+
+
+        final int version = Integer.valueOf(Build.VERSION.SDK);
+        if (version < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            Preference preference = findPreference(PrefUtils.LIGHT_THEME);
+            preference.setEnabled(false);
+        }
 
         Preference preference = findPreference(PrefUtils.REFRESH_ENABLED);
         preference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
