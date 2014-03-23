@@ -19,6 +19,7 @@
 
 package net.fred.feedex.fragment;
 
+import android.os.Build;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -45,6 +46,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.uservoice.uservoicesdk.Config;
 import com.uservoice.uservoicesdk.UserVoice;
 import net.fred.feedex.Constants;
 import net.fred.feedex.provider.RobotoFeedData;
@@ -116,7 +118,7 @@ public class EntriesListFragment extends ListFragment implements LoaderManager.L
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
+       // setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
@@ -169,6 +171,11 @@ public class EntriesListFragment extends ListFragment implements LoaderManager.L
         menu.clear(); // This is needed to remove a bug on Android 4.0.3
 
         inflater.inflate(R.menu.entry_list, menu);
+
+        final int version = Integer.valueOf(Build.VERSION.SDK);
+        if (version < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            menu.findItem(R.id.menu_help_and_feedback).setVisible(false);
+        }
 
         if (EntryColumns.FAVORITES_CONTENT_URI.equals(mUri)) {
             menu.findItem(R.id.menu_hide_read).setVisible(false);

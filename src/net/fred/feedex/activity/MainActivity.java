@@ -113,13 +113,13 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_navigation_drawer, R.string.drawer_open, R.string.drawer_close) {
             public void onDrawerClosed(View view) {
                 refreshTitleAndIcon();
-                invalidateOptionsMenu();
+                supportInvalidateOptionsMenu();
             }
 
             public void onDrawerOpened(View drawerView) {
                 getSupportActionBar().setTitle(getString(R.string.actionbar_title));
                 getSupportActionBar().setIcon(R.drawable.logo);
-                invalidateOptionsMenu();
+                supportInvalidateOptionsMenu();
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);

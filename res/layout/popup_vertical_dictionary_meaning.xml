@@ -4,7 +4,7 @@
     android:layout_width="@dimen/popup_width"
     android:layout_height="@dimen/popup_height"
     android:id="@+id/scroller"
-    android:background="@android:color/black"
+    android:background="@color/sky_blue_deep"
     android:orientation="horizontal">
 
     <ScrollView
@@ -40,7 +40,7 @@
             android:id="@+id/popup_actions_view"
             android:layout_width="@dimen/popup_side_actions_width"
             android:layout_height="@dimen/popup_height"
-            android:background="@android:color/darker_gray"
+            android:background="@color/sky_blue_deep1"
             android:layout_gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"

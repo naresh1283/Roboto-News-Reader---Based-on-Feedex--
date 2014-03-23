@@ -114,7 +114,7 @@ public class DrawerAdapter extends BaseAdapter {
         holder.iconView.setImageResource(R.drawable.logo);
         holder.titleTxt.setText("");
         holder.titleTxt.setTextColor(NORMAL_TEXT_COLOR);
-        holder.titleTxt.setAllCaps(false);
+        //holder.titleTxt.setAllCaps(false);
         holder.stateTxt.setVisibility(View.GONE);
         holder.unreadTxt.setText("");
         convertView.setPadding(0, 0, 0, 0);
@@ -135,7 +135,7 @@ public class DrawerAdapter extends BaseAdapter {
 
             if (mFeedsCursor.getInt(POS_IS_GROUP) == 1) {
                //holder.titleTxt.setTextColor(GROUP_TEXT_COLOR);
-                holder.titleTxt.setAllCaps(true);
+               // holder.titleTxt.setAllCaps(true);
                // holder.separator.setVisibility(View.VISIBLE);
             } else {
                 holder.stateTxt.setVisibility(View.VISIBLE);
