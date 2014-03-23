@@ -45,7 +45,8 @@
 package net.fred.feedex.activity;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
@@ -258,7 +259,7 @@ public class EntryActivity extends ProgressActivity {
         UiUtils.setPreferenceTheme(this);
         super.onCreate(savedInstanceState);
 
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
        // setContentView(R.layout.activity_entry);
@@ -307,7 +308,7 @@ public class EntryActivity extends ProgressActivity {
     protected void onSaveInstanceState(Bundle outState) {
         mWebView.saveState(outState);
         outState.putLongArray(SAVE_INSTANCE_ENTRIES_IDS, mEntriesIds);
-        outState.putBoolean(SAVE_INSTANCE_IS_FULLSCREEN, !getActionBar().isShowing());
+        outState.putBoolean(SAVE_INSTANCE_IS_FULLSCREEN, !getSupportActionBar().isShowing());
 
         float positionTopView = mWebView.getTop();
         float contentHeight = mWebView.getContentHeight();
@@ -339,7 +340,7 @@ public class EntryActivity extends ProgressActivity {
         mParentUri = EntryColumns.PARENT_URI(mUri.getPath());
 
         try {
-            mWebView.onResume();
+           // mWebView.onResume();
         } catch (Exception unused) { // Seems possible to have an NPE here on some phones...
         }
 
@@ -351,7 +352,7 @@ public class EntryActivity extends ProgressActivity {
         super.onPause();
 
         try {
-            mWebView.onPause();
+         //   mWebView.onPause();
         } catch (Exception unused) { // Seems possible to have an NPE here on some phones...
         }
 
@@ -365,13 +366,13 @@ public class EntryActivity extends ProgressActivity {
     }
 
     private void toggleFullScreen() {
-        if (getActionBar().isShowing()) {
-            getActionBar().hide();
+        if (getSupportActionBar().isShowing()) {
+            getSupportActionBar().hide();
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
             mCancelFullscreenBtn.setVisibility(View.VISIBLE);
         } else {
-            getActionBar().show();
+            getSupportActionBar().show();
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             mCancelFullscreenBtn.setVisibility(View.GONE);
@@ -446,16 +447,16 @@ public class EntryActivity extends ProgressActivity {
                         bitmap = Bitmap.createScaledBitmap(bitmap, bitmapSizeInDip, bitmapSizeInDip, false);
                     }
 
-                    getActionBar().setIcon(new BitmapDrawable(getResources(), bitmap));
+                    getSupportActionBar().setIcon(new BitmapDrawable(getResources(), bitmap));
                 } else {
-                    getActionBar().setIcon(R.drawable.logo);
+                    getSupportActionBar().setIcon(R.drawable.logo);
                 }
             } else {
-                getActionBar().setIcon(R.drawable.logo);
+                getSupportActionBar().setIcon(R.drawable.logo);
             }
 
             mFavorite = entryCursor.getInt(mIsFavoritePosition) == 1;
-            invalidateOptionsMenu();
+            supportInvalidateOptionsMenu();
 
             // loadData does not recognize the encoding without correct html-header
             boolean localPictures = contentText.contains(Constants.IMAGEID_REPLACEMENT);
@@ -734,14 +735,6 @@ public class EntryActivity extends ProgressActivity {
                 break;
             case R.id.menu_full_screen: {
                 toggleFullScreen();
-                break;
-            }
-            case R.id.menu_copy_clipboard: {
-                ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = android.content.ClipData.newPlainText("Copied Text", mLink);
-                clipboard.setPrimaryClip(clip);
-
-                Toast.makeText(this, R.string.copied_clipboard, Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.menu_mark_as_unread:

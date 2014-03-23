@@ -59,7 +59,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
-import android.widget.ResourceCursorAdapter;
+import android.support.v4.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
 import net.fred.feedex.Constants;

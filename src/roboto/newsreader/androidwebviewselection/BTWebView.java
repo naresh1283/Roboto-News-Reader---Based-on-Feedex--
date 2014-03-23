@@ -702,9 +702,15 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
         handleSelection(range, text, handleBounds);
         Rect displayRect = getContextMenuBounds(menuBounds);
 
-        if(displayRect != null)
+// naresh::
+//        Intent intent = DictionaryManagerActivity.getLaunchIntent(mContext);
+//        //DictionaryActivity.getLaunchIntent(mContext, null, null, mSelectedText);
+//        mContext.startActivity(intent);
+
+        if(displayRect != null) {
             // This will send the menu rect
             showContextMenu(displayRect);
+        }
 
 
 

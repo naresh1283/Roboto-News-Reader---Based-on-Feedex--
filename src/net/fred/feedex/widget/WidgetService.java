@@ -15,7 +15,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+ *//*
+
 
 package net.fred.feedex.widget;
 
@@ -154,4 +155,4 @@ class WidgetFeedsFactory implements RemoteViewsService.RemoteViewsFactory {
         mCursor = cr.query(RobotoFeedData.EntryColumns.CONTENT_URI, new String[]{RobotoFeedData.EntryColumns.TITLE, RobotoFeedData.EntryColumns._ID, RobotoFeedData.FeedColumns.ICON}, selection.toString(), null,
                 RobotoFeedData.EntryColumns.DATE + Constants.DB_DESC);
     }
-}
+}*/

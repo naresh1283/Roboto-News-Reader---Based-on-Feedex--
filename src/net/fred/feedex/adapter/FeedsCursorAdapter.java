@@ -26,6 +26,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,7 +39,7 @@ import net.fred.feedex.view.DragNDropExpandableListView;
 
 public class FeedsCursorAdapter extends CursorLoaderExpandableListAdapter {
 
-    private final Activity mActivity;
+    private final FragmentActivity mActivity;
     private int isGroupPosition = -1;
     private int namePosition = -1;
     private int idPosition = -1;
@@ -46,7 +48,7 @@ public class FeedsCursorAdapter extends CursorLoaderExpandableListAdapter {
 
     private DragNDropExpandableListView mListView;
 
-    public FeedsCursorAdapter(Activity activity, Uri groupUri) {
+    public FeedsCursorAdapter(FragmentActivity activity, Uri groupUri) {
         super(activity, groupUri, R.layout.item_feed_list, R.layout.item_feed_list);
 
         mActivity = activity;

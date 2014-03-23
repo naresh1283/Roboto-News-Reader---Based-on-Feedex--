@@ -19,10 +19,11 @@
 
 package net.fred.feedex.activity;
 
-import android.app.LoaderManager;
-import android.content.CursorLoader;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
+
 import android.content.Intent;
-import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.Cursor;
@@ -91,7 +92,7 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
 
         //setContentView(R.layout.activity_main);
 
-        mEntriesFragment = (EntriesListFragment) getFragmentManager().findFragmentById(R.id.fragment);
+        mEntriesFragment = (EntriesListFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
 
         mTitle = getTitle();
 
@@ -106,8 +107,8 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
         });
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_navigation_drawer, R.string.drawer_open, R.string.drawer_close) {
             public void onDrawerClosed(View view) {
@@ -116,8 +117,8 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(getString(R.string.actionbar_title));
-                getActionBar().setIcon(R.drawable.logo);
+                getSupportActionBar().setTitle(getString(R.string.actionbar_title));
+                getSupportActionBar().setIcon(R.drawable.logo);
                 invalidateOptionsMenu();
             }
         };
@@ -127,7 +128,7 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
             mCurrentDrawerPos = savedInstanceState.getInt(STATE_CURRENT_DRAWER_POS);
         }
 
-        getLoaderManager().initLoader(LOADER_ID, null, this);
+        getSupportLoaderManager().initLoader(LOADER_ID, null, this);
 
         if (PrefUtils.getBoolean(PrefUtils.REFRESH_ENABLED, true)) {
             // starts the service independent to this activity
@@ -143,20 +144,20 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
     }
 
     private void refreshTitleAndIcon() {
-        getActionBar().setTitle(mTitle);
+        getSupportActionBar().setTitle(mTitle);
         switch (mCurrentDrawerPos) {
             case 0:
-                getActionBar().setTitle(R.string.actionbar_title);
-                getActionBar().setIcon(R.drawable.ic_statusbar_rss1);
+                getSupportActionBar().setTitle(R.string.actionbar_title);
+                getSupportActionBar().setIcon(R.drawable.ic_statusbar_rss1);
                 break;
             case 1:
-                getActionBar().setTitle(R.string.favorites);
-                getActionBar().setIcon(R.drawable.dimmed_rating_important);
+                getSupportActionBar().setTitle(R.string.favorites);
+                getSupportActionBar().setIcon(R.drawable.dimmed_rating_important);
                 break;
             default:
-                getActionBar().setTitle(mTitle);
+                getSupportActionBar().setTitle(mTitle);
                 if (mIcon != null) {
-                    getActionBar().setIcon(mIcon);
+                    getSupportActionBar().setIcon(mIcon);
                 }
                 break;
         }

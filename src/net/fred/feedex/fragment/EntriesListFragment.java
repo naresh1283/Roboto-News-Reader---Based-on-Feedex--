@@ -19,13 +19,13 @@
 
 package net.fred.feedex.fragment;
 
-import android.app.ListFragment;
-import android.app.LoaderManager;
+import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.database.Cursor;
@@ -95,10 +95,10 @@ public class EntriesListFragment extends ListFragment implements LoaderManager.L
                 if (view != null) {
                     if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE) {
                         ImageView star = (ImageView) view.findViewById(android.R.id.icon);
-                        star.callOnClick();
+                        //star.callOnClick();
                     } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE) {
                         CheckBox cb = (CheckBox) view.findViewById(android.R.id.checkbox);
-                        cb.setChecked(!cb.isChecked());
+                        //cb.setChecked(!cb.isChecked());
                     }
 
                     return true;

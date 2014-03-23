@@ -44,8 +44,12 @@
 
 package net.fred.feedex.fragment;
 
+import android.support.v4.app.ListFragment;
+import android.support.v7.view.ActionMode;
+import android.support.v7.app.ActionBarActivity;
+
+
 import android.app.AlertDialog;
-import android.app.ListFragment;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -54,7 +58,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Pair;
-import android.view.ActionMode;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -114,7 +118,7 @@ public class FeedsListFragment extends ListFragment {
         mListView = (DragNDropExpandableListView) rootView.findViewById(android.R.id.list);
         mListAdapter.setExpandableListView(mListView);
         mListView.setFastScrollEnabled(true);
-        mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+      //  mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mListView.setOnItemLongClickListener(new OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -127,13 +131,15 @@ public class FeedsListFragment extends ListFragment {
                 long feedId = mListView.getItemIdAtPosition(position);
                 ActionMode actionMode;
                 if (view.findViewById(R.id.indicator).getVisibility() == View.VISIBLE) { // This is a group
-                    actionMode = getActivity().startActionMode(mGroupActionModeCallback);
+                    actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(mGroupActionModeCallback);
                 } else { // This is a feed
-                    actionMode = getActivity().startActionMode(mFeedActionModeCallback);
+                    actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(mFeedActionModeCallback);
                 }
                 actionMode.setTag(new Pair<Long, String>(feedId, title));
 
-                mListView.setItemChecked(position, true);
+                //mListView.setItemChecked(position, true);
+                //View childView = mListView.getChildAt(position);
+                //childView.setBackgroundResource(R.color.sky_blue_deep);
                 return true;
             }
         });
@@ -440,9 +446,9 @@ public class FeedsListFragment extends ListFragment {
         // Called when the user exits the action mode
         @Override
         public void onDestroyActionMode(ActionMode mode) {
-            for (int i = 0; i < mListView.getCount(); i++) {
+         /*   for (int i = 0; i < mListView.getCount(); i++) {
                 mListView.setItemChecked(i, false);
-            }
+            }*/
         }
     };
 
@@ -535,9 +541,9 @@ public class FeedsListFragment extends ListFragment {
         // Called when the user exits the action mode
         @Override
         public void onDestroyActionMode(ActionMode mode) {
-            for (int i = 0; i < mListView.getCount(); i++) {
+           /* for (int i = 0; i < mListView.getCount(); i++) {
                 mListView.setItemChecked(i, false);
-            }
+            }*/
         }
     };
 }

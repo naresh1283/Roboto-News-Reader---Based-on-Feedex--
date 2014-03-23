@@ -44,27 +44,27 @@
 
 package net.fred.feedex.activity;
 
-import android.app.ActionBar;
-import android.app.AlertDialog;
-import android.app.ListActivity;
-import android.app.LoaderManager;
-import android.app.LoaderManager.LoaderCallbacks;
+
 import android.app.ProgressDialog;
-import android.content.AsyncTaskLoader;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
+import android.support.v4.content.AsyncTaskLoader;
+
+import android.support.v7.app.ActionBar;
+import android.support.v7.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Html;
-import android.view.ActionMode;
-import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
@@ -76,6 +76,7 @@ import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.roboto.app.FragmentListActivity;
 import com.roboto.app.RobotoApplication;
 import net.fred.feedex.Constants;
 import net.fred.feedex.service.FetcherService;
@@ -96,7 +97,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class EditFeedActivity extends ListActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class EditFeedActivity extends FragmentListActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     static final String FEED_SEARCH_TITLE = "title";
     static final String FEED_SEARCH_URL = "url";
@@ -116,7 +117,7 @@ public class EditFeedActivity extends ListActivity implements LoaderManager.Load
         UiUtils.setPreferenceTheme(this);
         super.onCreate(savedInstanceState);
 
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         setContentView(R.layout.activity_feed_edit);
@@ -150,14 +151,14 @@ public class EditFeedActivity extends ListActivity implements LoaderManager.Load
             mFiltersListView.setOnItemLongClickListener(new OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    startActionMode(mFilterActionModeCallback);
+                    startSupportActionMode(mFilterActionModeCallback);
                     mFiltersCursorAdapter.setSelectedFilter(position);
                     mFiltersListView.invalidateViews();
                     return true;
                 }
             });
 
-            getLoaderManager().initLoader(0, null, this);
+            getSupportLoaderManager().initLoader(0, null, this);
 
             if (savedInstanceState == null) {
                 Cursor cursor = getContentResolver().query(intent.getData(), FEED_PROJECTION, null, null, null);
@@ -217,7 +218,7 @@ public class EditFeedActivity extends ListActivity implements LoaderManager.Load
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
@@ -226,6 +227,7 @@ public class EditFeedActivity extends ListActivity implements LoaderManager.Load
 
         return true;
     }
+
 
     public void onClickAddFilter(View view) {
         final View dialogView = getLayoutInflater().inflate(R.layout.dialog_filter_edit, null);
@@ -457,7 +459,7 @@ public class EditFeedActivity extends ListActivity implements LoaderManager.Load
                                     pd.setIndeterminate(true);
                                     pd.show();
 
-                                    getLoaderManager().restartLoader(1, null, new LoaderCallbacks<ArrayList<HashMap<String, String>>>() {
+                                    getSupportLoaderManager().restartLoader(1, null, new LoaderManager.LoaderCallbacks<ArrayList<HashMap<String, String>>>() {
 
                                         @Override
                                         public Loader<ArrayList<HashMap<String, String>>> onCreateLoader(int id, Bundle args) {

@@ -19,7 +19,7 @@
         android:layout_toRightOf="@+id/icon"
         android:layout_toLeftOf="@+id/unread_count"
         android:layout_centerVertical="true"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:minHeight="?attr/listPreferredItemHeightSmall"
         android:orientation="vertical"
         android:gravity="center_vertical"
         android:layout_marginTop="5dp"
@@ -29,7 +29,7 @@
             android:id="@android:id/text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#EEEEEE"
             android:singleLine="true"
             android:textIsSelectable="false" />
@@ -54,8 +54,8 @@
         android:layout_marginRight="12dp"
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:minHeight="?attr/listPreferredItemHeightSmall"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#EEEEEE" />
 
     <View

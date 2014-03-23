@@ -45,7 +45,8 @@
 package net.fred.feedex.service;
 
 import android.app.IntentService;
-import android.app.Notification;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.Builder;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentProviderOperation;
@@ -188,7 +189,7 @@ public class FetcherService extends IntentService {
                         PendingIntent contentIntent = PendingIntent.getActivity(FetcherService.this, 0, notificationIntent,
                                 PendingIntent.FLAG_UPDATE_CURRENT);
 
-                        Notification.Builder notifBuilder = new Notification.Builder(MainApplication.getContext()) //
+                        NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(MainApplication.getContext()) //
                                 .setContentIntent(contentIntent) //
                                 .setSmallIcon(R.drawable.ic_statusbar_rss1) //
                                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo)) //

@@ -19,11 +19,11 @@
 
 package net.fred.feedex;
 
-import com.hughes.android.dictionary.DictionaryApplication;
+//import com.hughes.android.dictionary.DictionaryApplication;
 import com.roboto.app.RobotoApplication;
 import net.fred.feedex.utils.PrefUtils;
 
-public class MainApplication extends DictionaryApplication {
+public class MainApplication extends RobotoApplication {
 
     @Override
     public void onCreate() {

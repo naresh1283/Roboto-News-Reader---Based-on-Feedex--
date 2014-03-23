@@ -3,6 +3,7 @@ package roboto.newsreader.android;
 import android.app.DownloadManager;
 import android.content.Context;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -27,7 +28,6 @@ import android.view.ViewGroup.LayoutParams;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.hughes.android.dictionary.DictionaryManagerActivity;
 import com.roboto.app.RobotoApplication;
 import com.roboto.database.FeedReaderDbHelper;
 import com.roboto.file.*;

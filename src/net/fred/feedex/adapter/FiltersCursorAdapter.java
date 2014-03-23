@@ -22,7 +22,7 @@ package net.fred.feedex.adapter;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
-import android.widget.ResourceCursorAdapter;
+import android.support.v4.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
 import roboto.newsreader.R;
