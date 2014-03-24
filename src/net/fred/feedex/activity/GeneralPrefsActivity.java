@@ -52,9 +52,8 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.view.MenuItem;
 
-import android.view.View;
-import com.uservoice.uservoicesdk.Config;
-import com.uservoice.uservoicesdk.UserVoice;
+import com.roboto.app.RobotoApplication;
+import com.roboto.flakes.DroidFlakesActivity;
 import roboto.newsreader.R;
 import net.fred.feedex.service.RefreshService;
 import net.fred.feedex.utils.PrefUtils;
@@ -97,6 +96,19 @@ public class GeneralPrefsActivity extends PreferenceActivity {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 PrefUtils.putBoolean(PrefUtils.LIGHT_THEME, Boolean.TRUE.equals(newValue));
+                android.os.Process.killProcess(android.os.Process.myPid());
+
+                // this return statement will never be reached
+                return true;
+            }
+        });
+
+        preference = findPreference(PrefUtils.LIVE_WALL_PAPER);
+        preference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                PrefUtils.putBoolean(PrefUtils.LIVE_WALL_PAPER, Boolean.TRUE.equals(newValue));
+                DroidFlakesActivity.IS_LIVE_WALLPAPER_ENABLED = Boolean.TRUE.equals(newValue);
                 android.os.Process.killProcess(android.os.Process.myPid());
 
                 // this return statement will never be reached

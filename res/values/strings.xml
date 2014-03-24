@@ -141,6 +141,8 @@
     <string name="settings_category_content_presentation">Content presentation</string>
     <string name="settings_lighttheme">Light theme</string>
     <string name="settings_lighttheme_description">Use the light theme</string>
+    <string name="settings_live_wallpaper">Live wall paper</string>
+    <string name="settings_live_wallpaper_description">Use live wall paper with falling flowers effect</string>
     <string name="settings_keep_time">Time that the entries will be kept</string>
     <string name="settings_keep_time_description">The entries that are older than the given date
         will be deleted

@@ -44,6 +44,7 @@ import android.widget.ListView;
 
 import android.widget.Toast;
 import com.roboto.app.RobotoApplication;
+import com.roboto.flakes.DroidFlakesActivity;
 import net.fred.feedex.Constants;
 import net.fred.feedex.provider.RobotoFeedData;
 import roboto.newsreader.R;
@@ -88,6 +89,8 @@ public class MainActivity extends ProgressActivity implements LoaderManager.Load
     @Override
     public void onCreate(Bundle savedInstanceState) {
         UiUtils.setPreferenceTheme(this);
+        DroidFlakesActivity.IS_LIVE_WALLPAPER_ENABLED = PrefUtils.getBoolean(PrefUtils.LIVE_WALL_PAPER, false);
+
         super.onCreate(savedInstanceState);
 
         //setContentView(R.layout.activity_main);

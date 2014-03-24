@@ -61,6 +61,16 @@
             android:summary="@string/settings_lighttheme_description"
             android:title="@string/settings_lighttheme" />
 
+        <CheckBoxPreference
+            android:id="@+id/live_wall_paper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="false"
+            android:disableDependentsState="true"
+            android:key="livewallpaper"
+            android:summary="@string/settings_live_wallpaper_description"
+            android:title="@string/settings_live_wallpaper" />
+
         <ListPreference
             android:name="@string/settings_keep_time"
             android:layout_width="wrap_content"
