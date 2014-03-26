@@ -5282,16 +5282,17 @@ com.roboto.file.FileUtilityProvider -> com.roboto.file.l:
     115:119:boolean doesFileExistInAppDir(java.lang.String,java.lang.String) -> b
 com.roboto.flakes.DroidFlakesActivity -> com.roboto.c.a:
     com.roboto.flakes.FlakeView flakeView -> o
+    boolean IS_LIVE_WALLPAPER_ENABLED -> p
     int getMainContentResId() -> k
-    34:80:void onCreate(android.os.Bundle) -> onCreate
-    85:87:void onPause() -> onPause
-    91:93:void onResume() -> onResume
+    36:84:void onCreate(android.os.Bundle) -> onCreate
+    89:93:void onPause() -> onPause
+    97:101:void onResume() -> onResume
 com.roboto.flakes.DroidFlakesActivity$1 -> com.roboto.c.b:
     com.roboto.flakes.DroidFlakesActivity this$0 -> a
-    51:52:void onClick(android.view.View) -> onClick
+    54:55:void onClick(android.view.View) -> onClick
 com.roboto.flakes.DroidFlakesActivity$2 -> com.roboto.c.c:
     com.roboto.flakes.DroidFlakesActivity this$0 -> a
-    58:59:void onClick(android.view.View) -> onClick
+    61:62:void onClick(android.view.View) -> onClick
 com.roboto.flakes.Flake -> com.roboto.c.d:
     float x -> a
     float y -> b
@@ -6713,54 +6714,54 @@ net.fred.feedex.activity.EditFeedActivity$5$1$1 -> net.fred.feedex.activity.k:
     net.fred.feedex.activity.EditFeedActivity$5$1 this$2 -> b
     498:500:void onClick(android.content.DialogInterface,int) -> onClick
 net.fred.feedex.activity.EntryActivity -> net.fred.feedex.activity.EntryActivity:
-    android.view.animation.TranslateAnimation SLIDE_IN_RIGHT -> q
-    android.view.animation.TranslateAnimation SLIDE_IN_LEFT -> r
-    android.view.animation.TranslateAnimation SLIDE_OUT_RIGHT -> s
-    android.view.animation.TranslateAnimation SLIDE_OUT_LEFT -> t
-    java.lang.String BACKGROUND_COLOR -> u
-    java.lang.String TEXT_COLOR -> v
-    java.lang.String BUTTON_COLOR -> w
-    java.lang.String CSS -> x
-    java.lang.String BODY_START -> y
-    java.lang.String FONTSIZE_START -> z
-    java.lang.String BUTTON_END -> A
-    java.lang.String LINK_BUTTON_MIDDLE -> B
-    int mTitlePosition -> C
-    int mDatePosition -> D
-    int mMobilizedHtmlPosition -> E
-    int mAbstractPosition -> F
-    int mLinkPosition -> G
-    int mFeedIdPosition -> H
-    int mIsFavoritePosition -> I
-    int mIsReadPosition -> J
-    int mEnclosurePosition -> K
-    int mAuthorPosition -> L
-    long mId -> M
-    long mNextId -> N
-    long mPreviousId -> O
-    long[] mEntriesIds -> P
-    android.net.Uri mUri -> Q
-    android.net.Uri mParentUri -> R
-    int mFeedId -> S
-    boolean mFavorite -> T
-    boolean mPreferFullText -> U
-    byte[] mIconBytes -> V
-    roboto.newsreader.androidwebviewselection.BTWebView mWebView -> W
-    roboto.newsreader.androidwebviewselection.BTWebView mWebView0 -> X
-    android.widget.ViewFlipper mViewFlipper -> Y
-    float mScrollPercentage -> Z
-    java.lang.String mLink -> aa
-    java.lang.String mTitle -> ab
-    java.lang.String mEnclosure -> ac
-    android.view.ViewGroup$LayoutParams mLayoutParams -> ad
-    android.view.View mCancelFullscreenBtn -> ae
-    android.view.View mBackBtn -> af
-    android.view.View mForwardBtn -> ag
-    boolean mFromWidget -> ah
-    android.view.View$OnKeyListener onKeyEventListener -> ai
-    android.view.GestureDetector$SimpleOnGestureListener onGestureListener -> p
-    net.fred.feedex.utils.ThrottledContentObserver mTasksObserver -> aj
-    net.fred.feedex.activity.EntryActivity$JavaScriptObject injectedJSObject -> ak
+    android.view.animation.TranslateAnimation SLIDE_IN_RIGHT -> r
+    android.view.animation.TranslateAnimation SLIDE_IN_LEFT -> s
+    android.view.animation.TranslateAnimation SLIDE_OUT_RIGHT -> t
+    android.view.animation.TranslateAnimation SLIDE_OUT_LEFT -> u
+    java.lang.String BACKGROUND_COLOR -> v
+    java.lang.String TEXT_COLOR -> w
+    java.lang.String BUTTON_COLOR -> x
+    java.lang.String CSS -> y
+    java.lang.String BODY_START -> z
+    java.lang.String FONTSIZE_START -> A
+    java.lang.String BUTTON_END -> B
+    java.lang.String LINK_BUTTON_MIDDLE -> C
+    int mTitlePosition -> D
+    int mDatePosition -> E
+    int mMobilizedHtmlPosition -> F
+    int mAbstractPosition -> G
+    int mLinkPosition -> H
+    int mFeedIdPosition -> I
+    int mIsFavoritePosition -> J
+    int mIsReadPosition -> K
+    int mEnclosurePosition -> L
+    int mAuthorPosition -> M
+    long mId -> N
+    long mNextId -> O
+    long mPreviousId -> P
+    long[] mEntriesIds -> Q
+    android.net.Uri mUri -> R
+    android.net.Uri mParentUri -> S
+    int mFeedId -> T
+    boolean mFavorite -> U
+    boolean mPreferFullText -> V
+    byte[] mIconBytes -> W
+    roboto.newsreader.androidwebviewselection.BTWebView mWebView -> X
+    roboto.newsreader.androidwebviewselection.BTWebView mWebView0 -> Y
+    android.widget.ViewFlipper mViewFlipper -> Z
+    float mScrollPercentage -> aa
+    java.lang.String mLink -> ab
+    java.lang.String mTitle -> ac
+    java.lang.String mEnclosure -> ad
+    android.view.ViewGroup$LayoutParams mLayoutParams -> ae
+    android.view.View mCancelFullscreenBtn -> af
+    android.view.View mBackBtn -> ag
+    android.view.View mForwardBtn -> ah
+    boolean mFromWidget -> ai
+    android.view.View$OnKeyListener onKeyEventListener -> aj
+    android.view.GestureDetector$SimpleOnGestureListener onGestureListener -> q
+    net.fred.feedex.utils.ThrottledContentObserver mTasksObserver -> ak
+    net.fred.feedex.activity.EntryActivity$JavaScriptObject injectedJSObject -> al
     116:118:android.view.animation.TranslateAnimation generateAnimation(float,float) -> a
     254:254:int getMainContentResId() -> k
     259:305:void onCreate(android.os.Bundle) -> onCreate
@@ -6852,66 +6853,69 @@ net.fred.feedex.activity.FeedsListActivity -> net.fred.feedex.activity.FeedsList
     59:70:void onCreate(android.os.Bundle) -> onCreate
     74:79:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
 net.fred.feedex.activity.GeneralPrefsActivity -> net.fred.feedex.activity.GeneralPrefsActivity:
-    66:106:void onCreate(android.os.Bundle) -> onCreate
-    110:115:boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    65:118:void onCreate(android.os.Bundle) -> onCreate
+    122:127:boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
 net.fred.feedex.activity.GeneralPrefsActivity$1 -> net.fred.feedex.activity.y:
     net.fred.feedex.activity.GeneralPrefsActivity this$0 -> a
-    85:91:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
+    84:90:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
 net.fred.feedex.activity.GeneralPrefsActivity$2 -> net.fred.feedex.activity.z:
     net.fred.feedex.activity.GeneralPrefsActivity this$0 -> a
-    99:103:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
-net.fred.feedex.activity.GetFeedSearchResultsLoader -> net.fred.feedex.activity.aa:
+    98:102:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
+net.fred.feedex.activity.GeneralPrefsActivity$3 -> net.fred.feedex.activity.aa:
+    net.fred.feedex.activity.GeneralPrefsActivity this$0 -> a
+    110:115:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
+net.fred.feedex.activity.GetFeedSearchResultsLoader -> net.fred.feedex.activity.ab:
     java.lang.String mSearchText -> f
     545:575:java.util.ArrayList loadInBackground() -> f
     529:529:java.lang.Object loadInBackground() -> d
 net.fred.feedex.activity.MainActivity -> net.fred.feedex.activity.MainActivity:
-    android.content.SharedPreferences$OnSharedPreferenceChangeListener isRefreshingListener -> p
-    net.fred.feedex.fragment.EntriesListFragment mEntriesFragment -> q
-    android.support.v4.widget.DrawerLayout mDrawerLayout -> r
-    android.widget.ListView mDrawerList -> s
-    net.fred.feedex.adapter.DrawerAdapter mDrawerAdapter -> t
-    android.support.v4.app.ActionBarDrawerToggle mDrawerToggle -> u
-    java.lang.CharSequence mTitle -> v
-    android.graphics.drawable.BitmapDrawable mIcon -> w
-    int mCurrentDrawerPos -> x
-    85:85:int getMainContentResId() -> k
-    90:144:void onCreate(android.os.Bundle) -> onCreate
-    147:164:void refreshTitleAndIcon() -> m
-    168:170:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    174:181:void onResume() -> onResume
-    185:187:void onPause() -> onPause
-    191:200:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    205:225:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    230:291:void selectDrawerItem(int) -> b
-    295:298:void onPostCreate(android.os.Bundle) -> onPostCreate
-    302:304:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
-    308:315:android.support.v4.content.Loader onCreateLoader(int,android.os.Bundle) -> a
-    320:335:void onLoadFinished(android.support.v4.content.Loader,android.database.Cursor) -> a
-    339:339:void onLoaderReset(android.support.v4.content.Loader) -> a
-    57:57:void onLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
-    57:57:void access$000(net.fred.feedex.activity.MainActivity,int) -> a
-    57:57:android.widget.ListView access$100(net.fred.feedex.activity.MainActivity) -> a
-    57:57:android.support.v4.widget.DrawerLayout access$200(net.fred.feedex.activity.MainActivity) -> b
-    57:57:void access$300(net.fred.feedex.activity.MainActivity) -> c
-    57:57:int access$400(net.fred.feedex.activity.MainActivity) -> d
-net.fred.feedex.activity.MainActivity$1 -> net.fred.feedex.activity.ab:
+    android.content.SharedPreferences$OnSharedPreferenceChangeListener isRefreshingListener -> q
+    net.fred.feedex.fragment.EntriesListFragment mEntriesFragment -> r
+    android.support.v4.widget.DrawerLayout mDrawerLayout -> s
+    android.widget.ListView mDrawerList -> t
+    net.fred.feedex.adapter.DrawerAdapter mDrawerAdapter -> u
+    android.support.v4.app.ActionBarDrawerToggle mDrawerToggle -> v
+    java.lang.CharSequence mTitle -> w
+    android.graphics.drawable.BitmapDrawable mIcon -> x
+    int mCurrentDrawerPos -> y
+    86:86:int getMainContentResId() -> k
+    91:147:void onCreate(android.os.Bundle) -> onCreate
+    150:167:void refreshTitleAndIcon() -> m
+    171:173:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    177:184:void onResume() -> onResume
+    188:190:void onPause() -> onPause
+    194:203:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    208:228:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    233:294:void selectDrawerItem(int) -> b
+    298:301:void onPostCreate(android.os.Bundle) -> onPostCreate
+    305:307:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    311:318:android.support.v4.content.Loader onCreateLoader(int,android.os.Bundle) -> a
+    323:338:void onLoadFinished(android.support.v4.content.Loader,android.database.Cursor) -> a
+    342:342:void onLoaderReset(android.support.v4.content.Loader) -> a
+    58:58:void onLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
+    58:58:void access$000(net.fred.feedex.activity.MainActivity,int) -> a
+    58:58:android.widget.ListView access$100(net.fred.feedex.activity.MainActivity) -> a
+    58:58:android.support.v4.widget.DrawerLayout access$200(net.fred.feedex.activity.MainActivity) -> b
+    58:58:void access$300(net.fred.feedex.activity.MainActivity) -> c
+    58:58:int access$400(net.fred.feedex.activity.MainActivity) -> d
+net.fred.feedex.activity.MainActivity$1 -> net.fred.feedex.activity.ac:
     net.fred.feedex.activity.MainActivity this$0 -> a
-    66:69:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
-net.fred.feedex.activity.MainActivity$2 -> net.fred.feedex.activity.ac:
+    67:70:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+net.fred.feedex.activity.MainActivity$2 -> net.fred.feedex.activity.ad:
     net.fred.feedex.activity.MainActivity this$0 -> a
-    104:106:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-net.fred.feedex.activity.MainActivity$3 -> net.fred.feedex.activity.ad:
+    107:109:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+net.fred.feedex.activity.MainActivity$3 -> net.fred.feedex.activity.ae:
     net.fred.feedex.activity.MainActivity this$0 -> a
-    115:117:void onDrawerClosed(android.view.View) -> b
-    120:123:void onDrawerOpened(android.view.View) -> a
-net.fred.feedex.activity.MainActivity$4 -> net.fred.feedex.activity.ae:
+    118:120:void onDrawerClosed(android.view.View) -> b
+    123:126:void onDrawerOpened(android.view.View) -> a
+net.fred.feedex.activity.MainActivity$4 -> net.fred.feedex.activity.af:
     net.fred.feedex.activity.MainActivity this$0 -> a
-    280:288:void run() -> run
-net.fred.feedex.activity.MainActivity$5 -> net.fred.feedex.activity.af:
+    283:291:void run() -> run
+net.fred.feedex.activity.MainActivity$5 -> net.fred.feedex.activity.ag:
     net.fred.feedex.activity.MainActivity this$0 -> a
-    330:332:void run() -> run
-net.fred.feedex.activity.ProgressActivity -> net.fred.feedex.activity.ag:
-    android.widget.ProgressBar mProgressBar -> p
+    333:335:void run() -> run
+net.fred.feedex.activity.ProgressActivity -> net.fred.feedex.activity.ah:
+    android.widget.ProgressBar mProgressBar -> q
     16:17:void setContentView(android.view.View) -> setContentView
     21:22:void setContentView(int) -> setContentView
     26:27:void setContentView(android.view.View,android.view.ViewGroup$LayoutParams) -> setContentView
@@ -7429,13 +7433,13 @@ net.fred.feedex.utils.NetworkUtils$PictureFilenameFilter -> net.fred.feedex.c.b:
     78:79:void setEntryId(java.lang.String) -> a
     83:83:boolean accept(java.io.File,java.lang.String) -> accept
 net.fred.feedex.utils.PrefUtils -> net.fred.feedex.c.c:
-    62:63:boolean getBoolean(java.lang.String,boolean) -> a
-    67:70:void putBoolean(java.lang.String,boolean) -> b
-    84:85:long getLong(java.lang.String,long) -> a
-    89:92:void putLong(java.lang.String,long) -> b
-    95:96:java.lang.String getString(java.lang.String,java.lang.String) -> a
-    113:116:void registerOnPrefChangeListener(android.content.SharedPreferences$OnSharedPreferenceChangeListener) -> a
-    120:123:void unregisterOnPrefChangeListener(android.content.SharedPreferences$OnSharedPreferenceChangeListener) -> b
+    63:64:boolean getBoolean(java.lang.String,boolean) -> a
+    68:71:void putBoolean(java.lang.String,boolean) -> b
+    85:86:long getLong(java.lang.String,long) -> a
+    90:93:void putLong(java.lang.String,long) -> b
+    96:97:java.lang.String getString(java.lang.String,java.lang.String) -> a
+    114:117:void registerOnPrefChangeListener(android.content.SharedPreferences$OnSharedPreferenceChangeListener) -> a
+    121:124:void unregisterOnPrefChangeListener(android.content.SharedPreferences$OnSharedPreferenceChangeListener) -> b
 net.fred.feedex.utils.ThrottledContentObserver -> net.fred.feedex.c.d:
     long mUpdateThrottle -> a
     android.os.Handler mHandler -> b

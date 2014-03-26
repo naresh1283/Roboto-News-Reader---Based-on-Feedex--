@@ -1223,6 +1223,7 @@ com.nineoldandroids.R$id: int left_drawer
 com.nineoldandroids.R$id: int less
 com.nineoldandroids.R$id: int listMode
 com.nineoldandroids.R$id: int list_item
+com.nineoldandroids.R$id: int live_wall_paper
 com.nineoldandroids.R$id: int logo
 com.nineoldandroids.R$id: int main_content
 com.nineoldandroids.R$id: int main_content_parent
@@ -1554,6 +1555,8 @@ com.nineoldandroids.R$string: int settings_keep_time
 com.nineoldandroids.R$string: int settings_keep_time_description
 com.nineoldandroids.R$string: int settings_lighttheme
 com.nineoldandroids.R$string: int settings_lighttheme_description
+com.nineoldandroids.R$string: int settings_live_wallpaper
+com.nineoldandroids.R$string: int settings_live_wallpaper_description
 com.nineoldandroids.R$string: int settings_notifications_enabled
 com.nineoldandroids.R$string: int settings_notifications_enabled_description
 com.nineoldandroids.R$string: int settings_notifications_ringtone
@@ -2810,6 +2813,7 @@ roboto.newsreader.R$id: int left_drawer
 roboto.newsreader.R$id: int less
 roboto.newsreader.R$id: int listMode
 roboto.newsreader.R$id: int list_item
+roboto.newsreader.R$id: int live_wall_paper
 roboto.newsreader.R$id: int logo
 roboto.newsreader.R$id: int main_content
 roboto.newsreader.R$id: int main_content_parent
@@ -3141,6 +3145,8 @@ roboto.newsreader.R$string: int settings_keep_time
 roboto.newsreader.R$string: int settings_keep_time_description
 roboto.newsreader.R$string: int settings_lighttheme
 roboto.newsreader.R$string: int settings_lighttheme_description
+roboto.newsreader.R$string: int settings_live_wallpaper
+roboto.newsreader.R$string: int settings_live_wallpaper_description
 roboto.newsreader.R$string: int settings_notifications_enabled
 roboto.newsreader.R$string: int settings_notifications_enabled_description
 roboto.newsreader.R$string: int settings_notifications_ringtone

@@ -2545,6 +2545,7 @@ net.fred.feedex.utils.PrefUtils:
     public static final java.lang.String NOTIFICATIONS_RINGTONE
     public static final java.lang.String NOTIFICATIONS_VIBRATE
     public static final java.lang.String LIGHT_THEME
+    public static final java.lang.String LIVE_WALL_PAPER
     public static final java.lang.String FETCH_PICTURES
     public static final java.lang.String DISABLE_PICTURES
     public static final java.lang.String PROXY_ENABLED
@@ -2557,10 +2558,10 @@ net.fred.feedex.utils.PrefUtils:
     public static final java.lang.String LAST_SCHEDULED_REFRESH
     public static final java.lang.String SHOW_READ
     28:28:public PrefUtils()
-    73:74:public static int getInt(java.lang.String,int)
-    78:81:public static void putInt(java.lang.String,int)
-    100:103:public static void putString(java.lang.String,java.lang.String)
-    106:109:public static void remove(java.lang.String)
+    74:75:public static int getInt(java.lang.String,int)
+    79:82:public static void putInt(java.lang.String,int)
+    101:104:public static void putString(java.lang.String,java.lang.String)
+    107:110:public static void remove(java.lang.String)
 net.fred.feedex.utils.UiUtils:
     8:8:public UiUtils()
 oauth.signpost.AbstractOAuthConsumer:
